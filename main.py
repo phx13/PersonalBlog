@@ -1,16 +1,51 @@
-# This is a sample Python script.
+import os
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from flask import Flask, render_template, globals
+from flask_sqlalchemy import SQLAlchemy
+import pymysql
+
+pymysql.install_as_MySQLdb()
+
+app = Flask(__name__, template_folder='views', static_url_path='/', static_folder='recourses')
+app.config['SECRET_KEY'] = os.urandom(24)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:phx25891863@localhost:3306/cw2?charset=utf8'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://c2068740:phx25891863@csmysql.cs.cf.ac.uk:3306/cw2?charset=utf8'
+app.config['SQLALCHEMY_POOL_SIZE'] = 1000
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+@app.errorhandler(404)
+def error404(e):
+    return render_template('error404.html')
 
 
-# Press the green button in the gutter to run the script.
+@app.errorhandler(500)
+def error500(e):
+    return render_template('error500.html')
+
+
+@app.before_request
+def beforerequest():
+    url = request.path
+    passurls = ['/login', '/register', '/logout']
+    if url in passurls or url.endswith('.js') or url.endswith('.jpg'):
+        pass
+    elif session.get('login') is None:
+        user = User()
+        email = request.cookies.get('email')
+        password = request.cookies.get('password')
+        if email is not None and password is not None:
+            result = user.searchbyemail(email)
+            session['login'] = 'true'
+            session['email'] = result[0].email
+            session['nickname'] = result[0].nickname
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    from controllers.index import *
+    from controllers.user import *
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    app.register_blueprint(index)
+    app.register_blueprint(user)
+    app.run(debug=True)
