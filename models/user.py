@@ -2,30 +2,30 @@ import time
 
 from sqlalchemy import Table
 
-from commons.datamodelbase import initdb
+from commons.database_orm_helper import init_db
 
-dbsession, dbmodel, dbmetadata = initdb()
+db_session, db_model, db_metadata = init_db()
 
 
-class User(dbmodel):
+class User(db_model):
     __tablename__ = 'user'
-    __table__ = Table(__tablename__, dbmetadata, autoload=True)
+    __table__ = Table(__tablename__, db_metadata, autoload=True)
 
-    def searchbyemail(self, email):
-        result = dbsession.query(User).filter_by(email=email).all()
+    def search_user_by_email(self, email):
+        result = db_session.query(User).filter_by(email=email).all()
         return result
 
     def register(self, email, password, nickname, image, profile):
-        registertime = time.strftime('%Y-%m-%d %H:%M:%S')
-        user = User(email=email, password=password, nickname=nickname, image=image, profile=profile,
-                    time=registertime)
-        dbsession.add(user)
-        dbsession.commit()
-        return user
+        register_time = time.strftime('%Y-%m-%d %H:%M:%S')
+        user_instance = User(email=email, password=password, nickname=nickname, image=image, profile=profile,
+                    time=register_time)
+        db_session.add(user_instance)
+        db_session.commit()
+        return user_instance
 
     def update(self, email, imgavatar, nickname, password, profile):
-        updatetime = time.strftime('%Y-%m-%d %H:%M:%S')
-        result = dbsession.query(User).filter_by(email=email).update(
-            {'image': imgavatar, 'nickname': nickname, 'password': password, 'profile': profile, 'time': updatetime})
-        dbsession.commit()
+        update_time = time.strftime('%Y-%m-%d %H:%M:%S')
+        result = db_session.query(User).filter_by(email=email).update(
+            {'image': imgavatar, 'nickname': nickname, 'password': password, 'profile': profile, 'time': update_time})
+        db_session.commit()
         return result

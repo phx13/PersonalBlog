@@ -26,17 +26,17 @@ def error500(e):
 
 
 @app.before_request
-def beforerequest():
+def before_request():
     url = request.path
     passurls = ['/login', '/register', '/logout']
     if url in passurls or url.endswith('.js') or url.endswith('.jpg'):
         pass
     elif session.get('login') is None:
-        user = User()
+        current_user = User()
         email = request.cookies.get('email')
         password = request.cookies.get('password')
         if email is not None and password is not None:
-            result = user.searchbyemail(email)
+            result = current_user.search_user_by_email(email)
             session['login'] = 'true'
             session['email'] = result[0].email
             session['nickname'] = result[0].nickname

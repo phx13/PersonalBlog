@@ -8,11 +8,11 @@ user = Blueprint('user', __name__)
 
 @user.route('/login', methods=['POST'])
 def login():
-    userinstance = User()
+    user_instance = User()
     email = request.form.get('email')
     password = request.form.get('password')
     password = hashlib.md5(password.encode()).hexdigest()
-    result = userinstance.searchbyemail(email)
+    result = user_instance.search_user_by_email(email)
     if len(result) == 1 and result[0].password == password:
         session['login'] = 'true'
         session['email'] = result[0].email
@@ -28,11 +28,11 @@ def login():
 
 @user.route('/register', methods=['POST'])
 def register():
-    userinstance = User()
+    user_instance = User()
     email = request.form.get('email')
     password = request.form.get('password')
 
-    if len(userinstance.searchbyemail(email)) > 0:
+    if len(user_instance.search_user_by_email(email)) > 0:
         return 'register fail'
     elif not re.match('.+@.+\..+', email) or password == '':
         return 'register fail'
@@ -41,7 +41,7 @@ def register():
         nickname = email.split('@')[0]
         image = '/images/Logo.jpg'
         profile = 'Hello, this is ' + nickname
-        result = userinstance.register(email, password, nickname, image, profile)
+        result = user_instance.register(email, password, nickname, image, profile)
 
         session['login'] = 'true'
         session['email'] = result.email
