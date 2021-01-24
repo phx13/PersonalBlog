@@ -1,14 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Site Metas -->
+    <title>Blog of Phoenix</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.ico" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-    <script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="/js/index.js"></script>
-    <title>blog of phx</title>
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/css/index.css">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/css/responsive.css">
 </head>
 <body>
+
+<section id="home" class="main-banner">
+    <div class="heading">
+        <h1>This is Phoenix</h1>
+        <p>A professional C# developer who writes programs down-to-earth</p>
+        <div style="height: 100px"></div>
+        <h1>Hi stranger</h1>
+        <h3 class="cd-headline clip is-full-width">
+            <span>Hope you are also a </span>
+            <span class="cd-words-wrapper">
+                <b class="is-visible">C# Developer</b>
+                <b>Java Developer</b>
+                <b>Python Developer</b>
+            </span>
+        </h3>
+    </div>
+</section>
+
 <div class="container">
     <!-- nav -->
     <div class="row">
@@ -112,18 +149,18 @@
                                     <input type="email" class="form-control col-sm-7 col-12" name="registerEmail"
                                            id="registerEmail">
                                 </div>
-<!--                                <div class="form-group row">-->
-<!--                                    <label class="col-sm-4 col-12">Identity</label>-->
-<!--                                    <div class="btn-group btn-group-toggle col-sm-7 col-12" data-toggle="buttons"-->
-<!--                                         style="padding-left: 0px; padding-right: 0px">-->
-<!--                                        <label class="btn btn-secondary active">-->
-<!--                                            <input type="radio" name="identity" id="identityStudent" checked> Student-->
-<!--                                        </label>-->
-<!--                                        <label class="btn btn-secondary">-->
-<!--                                            <input type="radio" name="identity" id="identityStaff"> Staff-->
-<!--                                        </label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
+                                <!--                                <div class="form-group row">-->
+                                <!--                                    <label class="col-sm-4 col-12">Identity</label>-->
+                                <!--                                    <div class="btn-group btn-group-toggle col-sm-7 col-12" data-toggle="buttons"-->
+                                <!--                                         style="padding-left: 0px; padding-right: 0px">-->
+                                <!--                                        <label class="btn btn-secondary active">-->
+                                <!--                                            <input type="radio" name="identity" id="identityStudent" checked> Student-->
+                                <!--                                        </label>-->
+                                <!--                                        <label class="btn btn-secondary">-->
+                                <!--                                            <input type="radio" name="identity" id="identityStaff"> Staff-->
+                                <!--                                        </label>-->
+                                <!--                                    </div>-->
+                                <!--                                </div>-->
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-12" for="registerPassword">Password</label>
                                     <input type="password" class="form-control col-sm-7 col-12" name="registerPassword"
@@ -143,6 +180,8 @@
         </div>
     </div>
 </div>
-
+<script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
 </body>
 </html>
