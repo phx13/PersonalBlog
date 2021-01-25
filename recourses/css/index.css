@@ -1,64 +1,22 @@
-/*!*------------------------------------------------------------------*/
-/*    Version: 1.0*/
-/*-------------------------------------------------------------------*!*/
+/*------------------------------------------------------------------
+    IMPORT FILES
+-------------------------------------------------------------------*/
 
-/*!*------------------------------------------------------------------*/
-/*    IMPORT FONTS*/
-/*-------------------------------------------------------------------*!*/
-
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500,700');
-
-/*!*------------------------------------------------------------------*/
-/*    IMPORT FILES*/
-/*-------------------------------------------------------------------*!*/
-
-/*@import url(css/animate.css);*/
-/*@import url(css/camera.css);*/
-/*@import url(css/flaticon.css);*/
-/*@import url(css/prettyPhoto.css);*/
-/*@import url(css/owl.carousel.css);*/
 @import url(font-awesome.min.css);
 
 /*------------------------------------------------------------------
-    SKELETON
+    Init
 -------------------------------------------------------------------*/
 
 body {
     color: #999999;
     font-size: 14px;
-    font-family: 'Roboto Mono', monospace;
-    line-height: 1.80857;
+    font-family: 'Courier New', monospace;
+    line-height: 2;
 }
 
 html, body {
     height: 100%;
-}
-
-body.demos .section {
-    background: url(../images/bg.png) repeat top center #f2f3f5;
-}
-
-body.demos .section-title img {
-    max-width: 280px;
-    display: block;
-    margin: 10px auto;
-}
-
-body.demos .service-widget h3 {
-    border-bottom: 1px solid #ededed;
-    font-size: 18px;
-    padding: 20px 0;
-    background-color: #ffffff;
-}
-
-body.demos .service-widget {
-    margin: 0 0 30px;
-    padding: 30px;
-    background-color: #fff
-}
-
-body.demos .container-fluid {
-    max-width: 1080px
 }
 
 a {
@@ -177,94 +135,94 @@ ul, li, ol {
 }
 
 
-/*------------------------------------------------------------------
-    WP CORE
--------------------------------------------------------------------*/
+/*!*------------------------------------------------------------------*/
+/*    WP CORE*/
+/*-------------------------------------------------------------------*!*/
 
-.first {
-    clear: both
-}
+/*.first {*/
+/*    clear: both*/
+/*}*/
 
-.last {
-    margin-right: 0
-}
+/*.last {*/
+/*    margin-right: 0*/
+/*}*/
 
-.alignnone {
-    margin: 5px 20px 20px 0;
-}
+/*.alignnone {*/
+/*    margin: 5px 20px 20px 0;*/
+/*}*/
 
-.aligncenter,
-div.aligncenter {
-    display: block;
-    margin: 5px auto 5px auto;
-}
+/*.aligncenter,*/
+/*div.aligncenter {*/
+/*    display: block;*/
+/*    margin: 5px auto 5px auto;*/
+/*}*/
 
-.alignright {
-    float: right;
-    margin: 10px 0 20px 20px;
-}
+/*.alignright {*/
+/*    float: right;*/
+/*    margin: 10px 0 20px 20px;*/
+/*}*/
 
-.alignleft {
-    float: left;
-    margin: 10px 20px 20px 0;
-}
+/*.alignleft {*/
+/*    float: left;*/
+/*    margin: 10px 20px 20px 0;*/
+/*}*/
 
-a img.alignright {
-    float: right;
-    margin: 10px 0 20px 20px;
-}
+/*a img.alignright {*/
+/*    float: right;*/
+/*    margin: 10px 0 20px 20px;*/
+/*}*/
 
-a img.alignnone {
-    margin: 10px 20px 20px 0;
-}
+/*a img.alignnone {*/
+/*    margin: 10px 20px 20px 0;*/
+/*}*/
 
-a img.alignleft {
-    float: left;
-    margin: 10px 20px 20px 0;
-}
+/*a img.alignleft {*/
+/*    float: left;*/
+/*    margin: 10px 20px 20px 0;*/
+/*}*/
 
-a img.aligncenter {
-    display: block;
-    margin-left: auto;
-    margin-right: auto
-}
+/*a img.aligncenter {*/
+/*    display: block;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto*/
+/*}*/
 
-.wp-caption {
-    background: #fff;
-    border: 1px solid #f0f0f0;
-    max-width: 96%;
-    /* Image does not overflow the content area */
-    padding: 5px 3px 10px;
-    text-align: center;
-}
+/*.wp-caption {*/
+/*    background: #fff;*/
+/*    border: 1px solid #f0f0f0;*/
+/*    max-width: 96%;*/
+/*    !* Image does not overflow the content area *!*/
+/*    padding: 5px 3px 10px;*/
+/*    text-align: center;*/
+/*}*/
 
-.wp-caption.alignnone {
-    margin: 5px 20px 20px 0;
-}
+/*.wp-caption.alignnone {*/
+/*    margin: 5px 20px 20px 0;*/
+/*}*/
 
-.wp-caption.alignleft {
-    margin: 5px 20px 20px 0;
-}
+/*.wp-caption.alignleft {*/
+/*    margin: 5px 20px 20px 0;*/
+/*}*/
 
-.wp-caption.alignright {
-    margin: 5px 0 20px 20px;
-}
+/*.wp-caption.alignright {*/
+/*    margin: 5px 0 20px 20px;*/
+/*}*/
 
-.wp-caption img {
-    border: 0 none;
-    height: auto;
-    margin: 0;
-    max-width: 98.5%;
-    padding: 0;
-    width: auto;
-}
+/*.wp-caption img {*/
+/*    border: 0 none;*/
+/*    height: auto;*/
+/*    margin: 0;*/
+/*    max-width: 98.5%;*/
+/*    padding: 0;*/
+/*    width: auto;*/
+/*}*/
 
-.wp-caption p.wp-caption-text {
-    font-size: 11px;
-    line-height: 17px;
-    margin: 0;
-    padding: 0 4px 5px;
-}
+/*.wp-caption p.wp-caption-text {*/
+/*    font-size: 11px;*/
+/*    line-height: 17px;*/
+/*    margin: 0;*/
+/*    padding: 0 4px 5px;*/
+/*}*/
 
 
 /* Text meant only for screen readers. */
@@ -304,7 +262,7 @@ a img.aligncenter {
 -------------------------------------------------------------------*/
 
 .navbar-dark {
-
+    color: black;
 }
 
 .navbar-dark .navbar-nav .nav-link {
