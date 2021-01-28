@@ -18,16 +18,8 @@ function loginOrRegister() {
     } else {
         let email = $.trim($("#registerEmail").val());
         let password = $.trim($("#registerPassword").val());
-        // let isStudent = document.getElementById('identityStudent').checked
-        // let identity = "";
-        // if (isStudent) {
-        //     identity = "student";
-        // } else {
-        //     identity = "staff";
-        // }
         let param = "email=" + email;
         param += "&password=" + password;
-        // param += "&identity=" + identity;
         $.post('/register', param, function (data) {
             if (data == 'register success') {
                 alert(data);

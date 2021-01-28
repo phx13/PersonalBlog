@@ -1,4 +1,4 @@
-import time
+
 
 from sqlalchemy import Table
 
@@ -15,17 +15,16 @@ class User(db_model):
         result = db_session.query(User).filter_by(email=email).all()
         return result
 
-    def register(self, email, password, nickname, image, profile):
-        register_time = time.strftime('%Y-%m-%d %H:%M:%S')
-        user_instance = User(email=email, password=password, nickname=nickname, image=image, profile=profile,
-                    time=register_time)
+    def register(self, email, password, nickname, avater, profile, create_time):
+        user_instance = User(email=email, password=password, nickname=nickname, avater=avater, profile=profile,
+                             createtime=create_time)
         db_session.add(user_instance)
         db_session.commit()
         return user_instance
 
-    def update(self, email, imgavatar, nickname, password, profile):
-        update_time = time.strftime('%Y-%m-%d %H:%M:%S')
+    def update(self, email, avater, nickname, password, profile, update_time):
         result = db_session.query(User).filter_by(email=email).update(
-            {'image': imgavatar, 'nickname': nickname, 'password': password, 'profile': profile, 'time': update_time})
+            {'avater': avater, 'nickname': nickname, 'password': password, 'profile': profile,
+             'updatetime': update_time})
         db_session.commit()
         return result

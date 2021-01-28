@@ -1,5 +1,6 @@
 import hashlib
 import re
+import time
 from models.user import User
 from flask import Blueprint, request, session, render_template, redirect, url_for, make_response
 
@@ -39,9 +40,10 @@ def register():
     else:
         password = hashlib.md5(password.encode()).hexdigest()
         nickname = email.split('@')[0]
-        image = '/images/Logo.jpg'
+        avater = '/images/Logo.jpg'
         profile = 'Hello, this is ' + nickname
-        result = user_instance.register(email, password, nickname, image, profile)
+        create_time = time.strftime('%Y-%m-%d %H:%M:%S')
+        result = user_instance.register(email, password, nickname, avater, profile, create_time)
 
         session['login'] = 'true'
         session['email'] = result.email
