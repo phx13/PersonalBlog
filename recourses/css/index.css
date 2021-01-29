@@ -134,38 +134,6 @@ ul, li, ol {
     padding: 0px;
 }
 
-/* Text meant only for screen readers. */
-
-.screen-reader-text {
-    clip: rect(1px, 1px, 1px, 1px);
-    position: absolute !important;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-}
-
-.screen-reader-text:focus {
-    background-color: #f1f1f1;
-    border-radius: 3px;
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-    clip: auto !important;
-    color: #21759b;
-    display: block;
-    font-size: 14px;
-    font-size: 0.875rem;
-    font-weight: bold;
-    height: auto;
-    left: 5px;
-    line-height: normal;
-    padding: 15px 23px 14px;
-    text-decoration: none;
-    top: 5px;
-    width: auto;
-    z-index: 100000;
-    /* Above WP toolbar. */
-}
-
-
 /*------------------------------------------------------------------
     Navbar
 -------------------------------------------------------------------*/
@@ -281,19 +249,10 @@ ul, li, ol {
     position: relative;
 }
 
-.no-js .cd-words-wrapper b {
-    opacity: 0;
-}
-
-.no-js .cd-words-wrapper b.is-visible {
-    opacity: 1;
-}
-
 /* --------------------------------
-
-xclip
-
+    xclip
 -------------------------------- */
+
 .cd-headline.clip span {
     display: inline-block;
     padding: .2em 0;
@@ -329,7 +288,6 @@ xclip
     opacity: 1;
 }
 
-
 #mainNav.navbar-shrink {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -341,22 +299,6 @@ xclip
     position: relative;
     overflow: hidden;
     padding: 70px 0;
-}
-
-.noover {
-    overflow: visible;
-}
-
-.noover .btn-dark {
-    border: 0 !important;
-}
-
-.nopad {
-    padding: 0;
-}
-
-.nopadtop {
-    padding-top: 0;
 }
 
 .section.wb {
@@ -373,40 +315,6 @@ xclip
 
 .section.color1 {
     background-color: #448AFF;
-}
-
-.first-section {
-    display: block;
-    position: relative;
-    overflow: hidden;
-    padding: 16em 0 13em;
-}
-
-.first-section h2 {
-    color: #ffffff;
-    font-size: 68px;
-    font-weight: 300;
-    text-transform: capitalize;
-    display: block;
-    margin: 0;
-    padding: 0 0 30px;
-    position: relative;
-}
-
-.first-section .lead {
-    font-size: 21px;
-    font-weight: 300;
-    padding: 0 0 40px;
-    margin: 0;
-    line-height: inherit;
-    color: #ffffff;
-}
-
-.macbookright {
-    width: 980px;
-    position: absolute;
-    right: -15%;
-    bottom: -6%;
 }
 
 .section-title {
@@ -431,13 +339,6 @@ xclip
     padding: 0;
     text-transform: none;
 }
-
-.section.colorsection p,
-.section.colorsection h3,
-.section.db h3 {
-    color: #ffffff;
-}
-
 
 .btn-hover-new {
     color: #333333;
@@ -502,40 +403,9 @@ xclip
     transform: translate(0, 0);
 }
 
-
-.right-box-pro {
-    position: relative;
-    -webkit-box-shadow: 0px 0px 30px -4px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 0px 30px -4px rgba(0, 0, 0, 0.3);
-}
-
-.right-box-pro img {
-    position: relative;
-    z-index: 2;
-}
-
-.services-inner-box {
-    padding: 15px;
-    background: #ffffff;
-    margin-bottom: 30px;
-}
-
-.ser-icon {
-    width: 90px;
-    height: 90px;
-    text-align: center;
-    line-height: 90px;
-}
-
-.ser-icon i {
-    font-size: 50px;
-    color: #333333;
-}
-
-.services-inner-box h2 {
-    font-size: 22px;
-    font-weight: 600;
-}
+/* --------------------------------
+    Blog
+-------------------------------- */
 
 .post-box .date {
     display: inline-block;
@@ -556,6 +426,7 @@ xclip
     -webkit-box-shadow: 0px 5px 35px 0px rgba(148, 146, 245, 0.15);
     box-shadow: 0px 5px 35px 0px rgba(148, 146, 245, 0.15);
     background: #ffffff;
+    margin-bottom: 20px;
 }
 
 .post-box:hover .post-thumb::before {
@@ -563,7 +434,6 @@ xclip
     -webkit-transform: translateY(0);
     transform: translateY(0);
 }
-
 
 .post-box .post-thumb::before {
     content: "";
@@ -982,7 +852,7 @@ select.mobile-device {
 }
 
 #contact {
-    background: url(../images/bg.png) no-repeat center center #333333;
+    background: url(../images/bg.jpg) no-repeat center center #333333;
 }
 
 
