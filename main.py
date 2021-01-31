@@ -1,16 +1,19 @@
 import os
-
-from flask import Flask, render_template, globals
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, request, session
 import pymysql
 
 pymysql.install_as_MySQLdb()
+from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__, template_folder='views', static_url_path='/', static_folder='recourses')
+app = Flask(__name__, template_folder='views', static_url_path='/', static_folder='resources')
 app.config['SECRET_KEY'] = os.urandom(24)
+
+# 集成化连接SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:phx25891863@localhost:3306/cw2?charset=utf8'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://c2068740:phx25891863@csmysql.cs.cf.ac.uk:3306/cw2?charset=utf8'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://c2068740:Phx25891863@csmysql.cs.cf.ac.uk:3306/c2068740_cw2?charset=utf8'
+# 数据库连接数
 app.config['SQLALCHEMY_POOL_SIZE'] = 1000
+# 跟踪修改数据库
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -28,24 +31,27 @@ def error500(e):
 @app.before_request
 def before_request():
     url = request.path
-    passurls = ['/login', '/register', '/logout']
-    if url in passurls or url.endswith('.js') or url.endswith('.jpg'):
+    can_pass_urls = ['/login', '/register', '/logout']
+    if url in can_pass_urls or url.endswith('.js') or url.endswith('.jpg') or url.endswith('.png'):
         pass
     elif session.get('login') is None:
-        current_user = User()
+        from models.account_model import AccountModel
+        account_model = AccountModel()
         email = request.cookies.get('email')
         password = request.cookies.get('password')
         if email is not None and password is not None:
-            result = current_user.search_user_by_email(email)
+            result = account_model.search_account_by_email(email)
             session['login'] = 'true'
             session['email'] = result[0].email
             session['nickname'] = result[0].nickname
 
 
 if __name__ == '__main__':
-    from controllers.index import *
-    from controllers.user import *
+    from controllers.index_controller import index_blueprint
+    from controllers.account_controller import account_blueprint
+    from controllers.blog_controller import blog_blueprint
 
-    app.register_blueprint(index)
-    app.register_blueprint(user)
+    app.register_blueprint(index_blueprint)
+    app.register_blueprint(account_blueprint)
+    app.register_blueprint(blog_blueprint)
     app.run(debug=True)

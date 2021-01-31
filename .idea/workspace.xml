@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="705e7315-2262-457d-9081-df0bc17bb23d" name="Default Changelist" comment="add project common structure">
+      <change afterPath="$PROJECT_DIR$/commons/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/db_orm_helper.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/account_controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/blog_controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/index_controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/account_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/blog_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/index_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/css/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/blog_thumb_csharp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/blog_thumb_java.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/cardiff_university_logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/favicon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/main_banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/mobile_favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/jquery-3.5.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/account.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CMT120-CW2-Website.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/database_orm_helper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/blog.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/index.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Functionality requirements.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Website Blog Project.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/blog.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/css/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/css/responsive.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/fonts/Flaticon.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/fonts/Flaticon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/fonts/Flaticon.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/fonts/Flaticon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/images/Logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/images/apple-touch-icon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/images/bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/images/blog_thumb_csharp.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/images/blog_thumb_csharp_opt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/images/blog_thumb_java.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/images/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/images/favicon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/images/main-banner.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/images/main-banner_opt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/js/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourses/js/jquery-3.5.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/error404.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/error404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/error500.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/error500.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1nPYknTVCwI99dcqcg94wa4orMT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/css" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\resources\css" />
+      <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\resources\js" />
+      <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\views" />
+      <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\resources\images" />
+      <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\recourses\images" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="exam" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CMT120-CW2-Website" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/exam.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="CMT120-CW2-Website" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.exam" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="705e7315-2262-457d-9081-df0bc17bb23d" name="Default Changelist" comment="" />
+      <created>1611293355744</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611293355744</updated>
+      <workItem from="1611293368979" duration="4208000" />
+      <workItem from="1611322216083" duration="646000" />
+      <workItem from="1611326444302" duration="292000" />
+      <workItem from="1611326758547" duration="2774000" />
+      <workItem from="1611372153669" duration="3804000" />
+      <workItem from="1611456622110" duration="16413000" />
+      <workItem from="1611550132124" duration="13242000" />
+      <workItem from="1611672675232" duration="667000" />
+      <workItem from="1611820076488" duration="8194000" />
+      <workItem from="1611892565711" duration="760000" />
+      <workItem from="1611916454224" duration="7916000" />
+      <workItem from="1612021887160" duration="92000" />
+      <workItem from="1612060859143" duration="20387000" />
+    </task>
+    <task id="LOCAL-00001" summary="add project common structure">
+      <created>1611329189315</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611329189315</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update docs and refactor code">
+      <created>1611420680651</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1611420680651</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update login and register function (except view)">
+      <created>1611421502014</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1611421502014</updated>
+    </task>
+    <task id="LOCAL-00004" summary="modify main-banner in home page">
+      <created>1611512088605</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1611512088605</updated>
+    </task>
+    <task id="LOCAL-00005" summary="modify home page css">
+      <created>1611595339700</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1611595339718</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add blog view">
+      <created>1611850596477</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1611850596477</updated>
+    </task>
+    <task id="LOCAL-00007" summary="modify blog function">
+      <created>1611934383378</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1611934383378</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="add project common structure" />
+    <MESSAGE value="update docs and refactor code" />
+    <MESSAGE value="update login and register function (except view)" />
+    <MESSAGE value="modify main-banner in home page" />
+    <MESSAGE value="modify home page css" />
+    <MESSAGE value="add blog view" />
+    <MESSAGE value="modify blog function" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify blog function" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CMT120_CW2_Website$main.coverage" NAME="main Coverage Results" MODIFIED="1612098471936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CMT120_CW2_Website$exam.coverage" NAME="exam Coverage Results" MODIFIED="1611319471380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
