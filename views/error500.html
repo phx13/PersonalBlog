@@ -1,27 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Basic -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <!-- Site Metas -->
-    <title>Blog of Phoenix - Error 500</title>
-
-    <!-- Site Icons -->
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/images/mobile_favicon.ico" type="image/x-icon">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="/css/index.css">
-</head>
-<body>
-    error 500
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<!-- Banner -->
+<section id="mainBanner" class="main-banner">
+    <div class="heading">
+        <h1>Server error</h1>
+        <h1>Redirect homepage after 3 seconds</h1>
+    </div>
+</section>
+<script>
+    setTimeout(function(){
+        location.href = '/';
+    }, 3000);
+</script>
+{% endblock %}

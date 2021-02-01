@@ -2,77 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="705e7315-2262-457d-9081-df0bc17bb23d" name="Default Changelist" comment="add project common structure">
-      <change afterPath="$PROJECT_DIR$/commons/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commons/db_orm_helper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/account_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/blog_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/index_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/account_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/blog_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/index_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/css/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/blog_thumb_csharp.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/blog_thumb_java.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/cardiff_university_logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/favicon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/main_banner.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/mobile_favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/jquery-3.5.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/account.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CMT120-CW2-Website.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/database_orm_helper.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/blog.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/index.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Functionality requirements.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Website Blog Project.doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/blog.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/css/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/css/responsive.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/fonts/Flaticon.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/fonts/Flaticon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/fonts/Flaticon.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/fonts/Flaticon.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/images/Logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/images/apple-touch-icon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/images/bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/images/blog_thumb_csharp.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/images/blog_thumb_csharp_opt.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/images/blog_thumb_java.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/images/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/images/favicon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/images/main-banner.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/images/main-banner_opt.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/js/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/js/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recourses/js/jquery-3.5.1.min.js" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/blog_search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/blog_type.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/blog_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/blog_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/blog_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/blog_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/blog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/blog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/error404.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/error404.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/error500.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/error500.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.html" afterDir="false" />
@@ -108,16 +48,16 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/views" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\views" />
       <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\resources\css" />
       <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\resources\js" />
-      <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\views" />
       <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\resources\images" />
       <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\recourses\images" />
     </key>
@@ -146,17 +86,17 @@
       <method v="2" />
     </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="CMT120-CW2-Website" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\hasee\AppData\Local\Programs\Python\Python38\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
@@ -193,7 +133,8 @@
       <workItem from="1611892565711" duration="760000" />
       <workItem from="1611916454224" duration="7916000" />
       <workItem from="1612021887160" duration="92000" />
-      <workItem from="1612060859143" duration="20387000" />
+      <workItem from="1612060859143" duration="20941000" />
+      <workItem from="1612180371257" duration="10524000" />
     </task>
     <task id="LOCAL-00001" summary="add project common structure">
       <created>1611329189315</created>
@@ -244,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611934383378</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="refactor pro">
+      <created>1612100400150</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1612100400150</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,10 +249,11 @@
     <MESSAGE value="modify home page css" />
     <MESSAGE value="add blog view" />
     <MESSAGE value="modify blog function" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify blog function" />
+    <MESSAGE value="refactor pro" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor pro" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CMT120_CW2_Website$main.coverage" NAME="main Coverage Results" MODIFIED="1612098471936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CMT120_CW2_Website$main.coverage" NAME="main Coverage Results" MODIFIED="1612188791947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CMT120_CW2_Website$exam.coverage" NAME="exam Coverage Results" MODIFIED="1611319471380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

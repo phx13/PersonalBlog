@@ -35,19 +35,19 @@
 
             <div class="col-sm-12 col-md-12 col-lg-12">
                 {% if page == 1 %}
-                <a href="/blog/1">pre</a>
+                <a href="/blog-type/1-{{type}}">pre</a>
                 {% else %}
-                <a href="/blog/{{current_page - 1}}">pre</a>
+                <a href="/blog-type/{{current_page - 1}}-{{type}}">pre</a>
                 {% endif %}
 
                 {% for i in range(total_page) %}
-                <a href="/blog/{{i + 1}}">{{i + 1}}</a>
+                <a href="/blog-type/{{i + 1}}-{{type}}">{{i + 1}}</a>
                 {% endfor %}
 
                 {% if page == total_page %}
-                <a href="/blog/{{total_page}}">next</a>
+                <a href="/blog-type/{{total_page}}-{{type}}">next</a>
                 {% else %}
-                <a href="/blog/{{current_page + 1}}">next</a>
+                <a href="/blog-type/{{current_page + 1}}-{{type}}">next</a>
                 {% endif %}
             </div>
         </div>
