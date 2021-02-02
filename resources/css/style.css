@@ -166,6 +166,34 @@ ul, li, ol {
     transform: translate(0, 0);
 }
 
+.custom-section {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: 50px 0;
+}
+
+.custom-section-title {
+    display: block;
+    position: relative;
+}
+
+.custom-section-title h3 {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 60px;
+    margin: 0 0 25px;
+    padding: 0;
+    text-transform: none;
+}
+
+.custom-section-title p {
+    color: #999;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 40px;
+}
+
 /*------------------------------------------------------------------
     Navbar
 -------------------------------------------------------------------*/
@@ -236,7 +264,7 @@ ul, li, ol {
 }
 
 .heading {
-    color: #fff;
+    color: #ffffff;
     display: table-cell;
     vertical-align: middle;
     position: relative;
@@ -314,35 +342,9 @@ ul, li, ol {
 /* --------------------------------
     Blog
 -------------------------------- */
-.blog {
-    display: block;
-    position: relative;
-    overflow: hidden;
-    padding: 70px 0;
+
+.blog-section {
     background-color: #f2f3f5;
-}
-
-.blog-title {
-    display: block;
-    position: relative;
-    margin-bottom: 60px;
-}
-
-.blog-title p {
-    color: #999;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 33px;
-    margin: 0;
-}
-
-.blog-title h3 {
-    font-size: 38px;
-    font-weight: 500;
-    line-height: 62px;
-    margin: 0 0 25px;
-    padding: 0;
-    text-transform: none;
 }
 
 .blog-box {
@@ -352,13 +354,16 @@ ul, li, ol {
     margin-bottom: 20px;
 }
 
-.blog-box .date {
-    display: inline-block;
+.blog-box .tag-list {
     position: absolute;
     top: 15px;
     right: 15px;
+}
+
+.blog-box .tag {
+    display: inline-block;
     background: #333333;
-    color: #fff;
+    color: #ffffff;
     padding: 10px 15px;
     text-align: center;
 }
@@ -418,35 +423,9 @@ ul, li, ol {
 /* --------------------------------
     Contact
 -------------------------------- */
-.contact {
-    display: block;
-    position: relative;
-    overflow: hidden;
-    padding: 70px 0;
-    background-color: #2222;
-}
 
-.contact-title {
-    display: block;
-    position: relative;
-    margin-bottom: 60px;
-}
-
-.contact-title p {
-    color: #999;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 33px;
-    margin: 0;
-}
-
-.contact-title h3 {
-    font-size: 38px;
-    font-weight: 500;
-    line-height: 62px;
-    margin: 0 0 25px;
-    padding: 0;
-    text-transform: none;
+.contact-section {
+    background-color: #cccccc;
 }
 
 .contact-form {
@@ -457,7 +436,7 @@ ul, li, ol {
 }
 
 .contact-form .form-control {
-    background-color: #222222;
+    background-color: #333333;
     margin-bottom: 30px;
     border: 1px solid #ebebeb;
     box-sizing: border-box;

@@ -42,3 +42,10 @@ def blog_current_page_by_type(current_page, type):
     current_page_blogs = blog_model.search_blog_by_type(type, offset_count, blogs_per_page)
     total_page = math.ceil(blog_model.search_blog_total_count_by_type(type) / blogs_per_page)
     return render_template('blog_type.html', current_page_blogs=current_page_blogs, current_page=current_page, total_page=total_page, type=type)
+
+
+@blog_blueprint.route('/blog-article/<id>')
+def blog_article_page(id):
+    blog_model = BlogModel()
+    blog_article = blog_model.search_blog_by_id(id)
+    return render_template('blog_article.html', blog_article=blog_article[0])

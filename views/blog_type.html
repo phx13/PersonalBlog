@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+<div style="height: 70px"></div>
 <!-- Blog -->
-<div id="blog" class="blog">
+<div id="blog" class="custom-section blog-section">
     <div class="container">
-        <div class="blog-title">
+        <div class="custom-section-title">
             <h3>Blogs</h3>
             <p>A place where Phoenix writes articles</p>
         </div><!-- end title -->
@@ -14,11 +15,15 @@
                 <div class="blog-box">
                     <div class="blog-thumb">
                         <img src="/images/{{blog.thumb}}" class="img-fluid" alt="blog-img"/>
-                        <div class="date">
+
+                        <ul class="tag-list">
                             {% for blogType in blog.type.split(',') %}
-                            <span>{{blogType}}</span>
+                            <li class="tag">
+                                <span>{{blogType}}</span>
+                            </li>
                             {% endfor %}
-                        </div>
+                        </ul>
+
                     </div>
                     <div class="blog-info">
                         <h4><a href="#">{{blog.article}}</a></h4>
@@ -33,7 +38,7 @@
             </div>
             {% endfor %}
 
-            <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-12 col-md-12 col-lg-12 text-center">
                 {% if page == 1 %}
                 <a href="/blog-type/1-{{type}}">pre</a>
                 {% else %}

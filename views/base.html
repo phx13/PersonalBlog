@@ -45,15 +45,20 @@
                     <a class="nav-link js-scroll-trigger" href="/blog">blog</a>
                 </li>
                 {% if session.get('login') == 'true' %}
+                {% if session.get('email') == 'guoc9@cardiff.ac.uk' %}
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="/account">Account: {{session['nickname']}}</a>
+                    <a class="nav-link js-scroll-trigger" href="/post-blog">Post-Blog</a>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="/account">Account-{{session['nickname']}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="/logout">Logout</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" href="#staticBackdrop">Login / Signup</a>
+                    <a class="nav-link" data-toggle="modal" href="#staticBackdrop">Login/Register</a>
                 </li>
                 {% endif %}
             </ul>
@@ -132,5 +137,7 @@
 <script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="/js/base.js"></script>
+{% block scripts %}
+{% endblock %}
 </body>
 </html>
