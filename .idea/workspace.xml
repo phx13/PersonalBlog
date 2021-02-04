@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="705e7315-2262-457d-9081-df0bc17bb23d" name="Default Changelist" comment="add project common structure">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmt120_cw2/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmt120_cw2/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/wsgi.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +125,7 @@
       <workItem from="1612233268126" duration="16374000" />
       <workItem from="1612313215085" duration="26000" />
       <workItem from="1612313336026" duration="4325000" />
-      <workItem from="1612407415564" duration="5513000" />
+      <workItem from="1612407415564" duration="5825000" />
     </task>
     <task id="LOCAL-00001" summary="add project common structure">
       <created>1611329189315</created>
@@ -248,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612414744479</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="test remote env">
+      <created>1612415314243</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1612415314243</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
