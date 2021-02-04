@@ -45,13 +45,12 @@ def before_request():
             session['email'] = result[0].email
             session['nickname'] = result[0].nickname
 
-if __name__ == '__main__':
-    from controllers.index_controller import index_blueprint
-    from controllers.account_controller import account_blueprint
-    from controllers.blog_controller import blog_blueprint
-    from controllers.post_blog_controller import post_blog_blueprint
+from controllers.index_controller import index_blueprint
+from controllers.account_controller import account_blueprint
+from controllers.blog_controller import blog_blueprint
+from controllers.post_blog_controller import post_blog_blueprint
 
-    app.register_blueprint(index_blueprint)
-    app.register_blueprint(account_blueprint)
-    app.register_blueprint(blog_blueprint)
-    app.register_blueprint(post_blog_blueprint)
+app.register_blueprint(index_blueprint)
+app.register_blueprint(account_blueprint)
+app.register_blueprint(blog_blueprint)
+app.register_blueprint(post_blog_blueprint)
