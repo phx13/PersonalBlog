@@ -1,6 +1,5 @@
 from sqlalchemy import Table
-
-from commons.db_orm_helper import init_db
+from cmt120_cw2.commons.db_orm_helper import init_db
 
 db_session, db_model, db_metadata = init_db()
 

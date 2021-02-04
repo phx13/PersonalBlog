@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template
-from models.blog_model import BlogModel
+from cmt120_cw2.models.blog_model import BlogModel
 import math
 
 blog_blueprint = Blueprint('blog_blueprint', __name__)

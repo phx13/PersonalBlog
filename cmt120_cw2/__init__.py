@@ -1,9 +1,6 @@
 import os
 from flask import Flask, render_template, request, session
 import pymysql
-
-from cmt120_cw2.models.account_model import AccountModel
-
 pymysql.install_as_MySQLdb()
 from flask_sqlalchemy import SQLAlchemy
 
@@ -37,7 +34,7 @@ def before_request():
     if url in can_pass_urls or url.endswith('.js') or url.endswith('.jpg') or url.endswith('.png'):
         pass
     elif session.get('login') is None:
-
+        from cmt120_cw2.models.account_model import AccountModel
         account_model = AccountModel()
         email = request.cookies.get('email')
         password = request.cookies.get('password')
@@ -48,13 +45,12 @@ def before_request():
             session['nickname'] = result[0].nickname
 
 
-if __name__ == '__main__':
-    from cmt120_cw2.controllers.index_controller import index_blueprint
-    from cmt120_cw2.controllers.account_controller import account_blueprint
-    from cmt120_cw2.controllers.blog_controller import blog_blueprint
-    from cmt120_cw2.controllers.post_blog_controller import post_blog_blueprint
+from cmt120_cw2.controllers.index_controller import index_blueprint
+from cmt120_cw2.controllers.account_controller import account_blueprint
+from cmt120_cw2.controllers.blog_controller import blog_blueprint
+from cmt120_cw2.controllers.post_blog_controller import post_blog_blueprint
 
-    app.register_blueprint(index_blueprint)
-    app.register_blueprint(account_blueprint)
-    app.register_blueprint(blog_blueprint)
-    app.register_blueprint(post_blog_blueprint)
+app.register_blueprint(index_blueprint)
+app.register_blueprint(account_blueprint)
+app.register_blueprint(blog_blueprint)
+app.register_blueprint(post_blog_blueprint)

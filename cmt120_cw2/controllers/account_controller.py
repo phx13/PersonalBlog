@@ -3,7 +3,7 @@ import re
 import time
 
 from flask import Blueprint, request, session, url_for, make_response
-from models.account_model import AccountModel
+from cmt120_cw2.models.account_model import AccountModel
 
 account_blueprint = Blueprint('account_blueprint', __name__)
 
