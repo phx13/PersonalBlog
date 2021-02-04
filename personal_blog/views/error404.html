@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Banner -->
+<section id="mainBanner" class="main-banner">
+    <div class="heading">
+        <h1>Page is not found</h1>
+        <h1>Redirect homepage after 3 seconds</h1>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript" src="/js/error.js"></script>
+{% endblock %}

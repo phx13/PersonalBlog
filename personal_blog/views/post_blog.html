@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="height: 70px"></div>
+<!-- UEditor -->
+<div id="post-blog" class="custom-section">
+    <div class="container">
+        <div class="custom-section-title">
+            <h3>Post blog</h3>
+            <p>Recording the beauty and moving around</p>
+        </div><!-- end title -->
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 custom-section-title">
+                <h3>Title</h3>
+                <input type="text" class="form-control">
+            </div>
+            <div style="height: 70px"></div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <script type="text/plain" id="UEditor"></script>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="/ueditor/ueditor.all.js"></script>
+<script type="text/javascript" src="/ueditor/lang/en/en.js"></script>
+<script type="text/javascript" src="/js/post_blog.js"></script>
+{% endblock %}

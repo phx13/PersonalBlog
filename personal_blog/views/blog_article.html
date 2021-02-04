@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="height: 70px"></div>
+<!-- Blog -->
+<div id="blog" class="custom-section blog-section">
+    <div class="container">
+        <div class="custom-section-title">
+            <h3>{{blog_article.article}}</h3>
+        </div><!-- end title -->
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="blog-box">
+                    <p>{{blog_article.content | striptags }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
