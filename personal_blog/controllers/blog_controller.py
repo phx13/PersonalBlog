@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, abort
 from personal_blog.models.blog_model import BlogModel
 import math
 
@@ -46,6 +46,13 @@ def blog_current_page_by_type(current_page, type):
 
 @blog_blueprint.route('/blog-article/<id>')
 def blog_article_page(id):
-    blog_model = BlogModel()
-    blog_article = blog_model.search_blog_by_id(id)
+    try:
+        blog_model = BlogModel()
+        blog_article = blog_model.search_blog_by_id(id)
+        if blog_article is None:
+            abort(404)
+    except:
+        abort(500)
+
+    blog_model.update_blog_read_count(id)
     return render_template('blog_article.html', blog_article=blog_article[0])

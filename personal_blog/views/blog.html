@@ -10,8 +10,9 @@
         </div><!-- end title -->
 
         <div class="row">
-            {% for blog in current_page_blogs %}
-            <div class="col-md-12 col-sm-12 col-lg-12">
+
+            <div class="col-sm-12 col-md-9 col-lg-9">
+                {% for blog in current_page_blogs %}
                 <div class="blog-box">
                     <div class="blog-thumb">
                         <img src="/images/{{blog.thumb}}" class="img-fluid" alt="blog-img"/>
@@ -35,10 +36,8 @@
                         <p>{{blog.content | striptags | truncate(120)}}</p>
                     </div>
                 </div>
-            </div>
-            {% endfor %}
-
-            <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                {% endfor %}
+                <div class="text-center">
                 {% if page == 1 %}
                 <a href="/blog/1">pre</a>
                 {% else %}
@@ -55,6 +54,11 @@
                 <a href="/blog/{{current_page + 1}}">next</a>
                 {% endif %}
             </div>
+            </div>
+
+            {% include 'blog_side.html' %}
+
+
         </div>
     </div>
 </div>

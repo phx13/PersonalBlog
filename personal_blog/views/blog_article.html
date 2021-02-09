@@ -1,20 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
-<div style="height: 70px"></div>
-<!-- Blog -->
-<div id="blog" class="custom-section blog-section">
-    <div class="container">
-        <div class="custom-section-title">
-            <h3>{{blog_article.article}}</h3>
-        </div><!-- end title -->
+    <div style="height: 70px"></div>
+    <!-- Blog -->
+    <div id="blog" class="custom-section blog-section">
+        <div class="container">
+            <div class="custom-section-title blog-info">
+                <h3>{{ blog_article.article }}</h3>
+                <ul>
+                    <li><b>Read: </b>{{ blog_article.readcount }}</li>
+                    <li><b>Reply: </b>{{ blog_article.replycount }}</li>
+                    <li><b>Update: </b>{{ blog_article.updatetime }}</li>
+                </ul>
+            </div><!-- end title -->
 
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-lg-12">
-                <div class="blog-box">
-                    <p>{{blog_article.content | striptags }}</p>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="blog-box">
+                        <p>{{ blog_article.content | safe }}</p>
+                    </div>
                 </div>
             </div>
+            <form class="row custom-form">
+                <div class="form-group">
+                    <input class="form-control" name="comment" id="comment" type="text" placeholder="Your comment" required="required"
+                           data-validation-required-message="Please enter your comment.">
+                </div>
+            </form>
         </div>
     </div>
-</div>
 {% endblock %}

@@ -47,3 +47,9 @@ class BlogModel(db_model):
     def search_blog_total_count_by_type(self, type):
         result = db_session.query(BlogModel).filter(BlogModel.type.like('%' + type + '%')).count()
         return result
+
+    # 更新阅读次数
+    def update_blog_read_count(self, id):
+        result = db_session.query(BlogModel).filter_by(id=id).all()
+        result[0].readcount += 1
+        db_session.commit()
