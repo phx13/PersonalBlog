@@ -34,8 +34,7 @@ def before_request():
         from personal_blog.models.account_model import AccountModel
         account_model = AccountModel()
         email = request.cookies.get('email')
-        password = request.cookies.get('password')
-        if email is not None and password is not None:
+        if email is not None:
             result = account_model.search_account_by_email(email)
             session['login'] = 'true'
             session['email'] = result[0].email
@@ -46,8 +45,10 @@ from personal_blog.controllers.index_controller import index_blueprint
 from personal_blog.controllers.account_controller import account_blueprint
 from personal_blog.controllers.blog_controller import blog_blueprint
 from personal_blog.controllers.post_blog_controller import post_blog_blueprint
+from personal_blog.controllers.collection_controller import collection_blueprint
 
 app.register_blueprint(index_blueprint)
 app.register_blueprint(account_blueprint)
 app.register_blueprint(blog_blueprint)
 app.register_blueprint(post_blog_blueprint)
+app.register_blueprint(collection_blueprint)

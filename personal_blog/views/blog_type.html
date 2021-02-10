@@ -1,61 +1,67 @@
 {% extends 'base.html' %}
 {% block content %}
-<div style="height: 70px"></div>
-<!-- Blog -->
-<div id="blog" class="custom-section blog-section">
-    <div class="container">
-        <div class="custom-section-title">
-            <h3>Blogs</h3>
-            <p>A place where Phoenix writes articles</p>
-        </div><!-- end title -->
+    <div style="height: 70px"></div>
+    <!-- Blog -->
+    <div id="blog" class="custom-section blog-section">
+        <div class="container">
+            <div class="custom-section-title">
+                <h3>Blogs</h3>
+                <p>A place where Phoenix writes articles</p>
+            </div><!-- end title -->
 
-        <div class="row">
-            {% for blog in current_page_blogs %}
-            <div class="col-md-12 col-sm-12 col-lg-12">
-                <div class="blog-box">
-                    <div class="blog-thumb">
-                        <img src="/images/{{blog.thumb}}" class="img-fluid" alt="blog-img"/>
+            <div class="row">
+                <div class="col-sm-12 col-md-8 col-lg-8">
+                    {% for blog in current_page_blogs %}
+                        <div class="blog-box">
+                            <div class="blog-thumb">
+                                <img src="/images/{{ blog.thumb }}" class="img-fluid" alt="blog-img"/>
 
-                        <ul class="tag-list">
-                            {% for blogType in blog.type.split(',') %}
-                            <li class="tag">
-                                <span>{{blogType}}</span>
-                            </li>
-                            {% endfor %}
-                        </ul>
+                                <ul class="tag-list">
+                                    {% for blogType in blog.type.split(',') %}
+                                        <li class="tag">
+                                            <span>{{ blogType }}</span>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
 
-                    </div>
-                    <div class="blog-info">
-                        <h4><a href="/blog-article/{{blog.id}}">{{blog.article}}</a></h4>
-                        <ul>
-                            <li><b>Read: </b>{{blog.readcount}}</li>
-                            <li><b>Reply: </b>{{blog.replycount}}</li>
-                            <li><b>Update: </b>{{blog.updatetime}}</li>
-                        </ul>
-                        <p>{{blog.content | striptags | truncate(120)}}</p>
+                            </div>
+                            <div class="blog-info">
+                                <h4><a href="/blog-article/{{ blog.id }}">{{ blog.article }}</a></h4>
+                                <ul>
+                                    <li><b>Read: </b>{{ blog.readcount }}</li>
+                                    <li><b>Reply: </b>{{ blog.replycount }}</li>
+                                    <li><b>Update: </b>{{ blog.updatetime }}</li>
+                                </ul>
+                                <p>{{ blog.content | striptags | truncate(120) }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="text-center">
+                        {% if page == 1 %}
+                            <a href="/blog-type/1-{{ type }}">pre</a>
+                        {% else %}
+                            <a href="/blog-type/{{ current_page - 1 }}-{{ type }}">pre</a>
+                        {% endif %}
+
+                        {% for i in range(total_page) %}
+                            <a href="/blog-type/{{ i + 1 }}-{{ type }}">{{ i + 1 }}</a>
+                        {% endfor %}
+
+                        {% if page == total_page %}
+                            <a href="/blog-type/{{ total_page }}-{{ type }}">next</a>
+                        {% else %}
+                            <a href="/blog-type/{{ current_page + 1 }}-{{ type }}">next</a>
+                        {% endif %}
                     </div>
                 </div>
-            </div>
-            {% endfor %}
 
-            <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-                {% if page == 1 %}
-                <a href="/blog-type/1-{{type}}">pre</a>
-                {% else %}
-                <a href="/blog-type/{{current_page - 1}}-{{type}}">pre</a>
-                {% endif %}
+                {% include 'blog_side.html' %}
 
-                {% for i in range(total_page) %}
-                <a href="/blog-type/{{i + 1}}-{{type}}">{{i + 1}}</a>
-                {% endfor %}
-
-                {% if page == total_page %}
-                <a href="/blog-type/{{total_page}}-{{type}}">next</a>
-                {% else %}
-                <a href="/blog-type/{{current_page + 1}}-{{type}}">next</a>
-                {% endif %}
             </div>
         </div>
     </div>
-</div>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    <script type="text/javascript" src="/js/blog_side.js"></script>
 {% endblock %}

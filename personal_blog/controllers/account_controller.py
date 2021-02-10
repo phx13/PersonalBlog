@@ -23,7 +23,6 @@ def login():
 
         response = make_response('Success: Login successful')
         response.set_cookie('email', result[0].email, max_age=10 * 24 * 3600)
-        response.set_cookie('password', result[0].password, max_age=10 * 24 * 3600)
         return response
     else:
         return 'Fail: The account does not exist or the password is wrong'
@@ -53,7 +52,6 @@ def register():
 
         response = make_response('Success: Register successful')
         response.set_cookie('email', email, max_age=10 * 24 * 3600)
-        response.set_cookie('password', password, max_age=10 * 24 * 3600)
         return response
 
 
@@ -63,5 +61,4 @@ def logout():
     response = make_response('logout', 302)
     response.headers['Location'] = url_for('index_blueprint.index_page')
     response.delete_cookie('email')
-    response.delete_cookie('password')
     return response

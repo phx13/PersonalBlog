@@ -20,10 +20,10 @@ class BlogModel(db_model):
 
     # 根据id查询博客
     def search_blog_by_id(self, id):
-        result = db_session.query(BlogModel).filter_by(id=id).all()
+        result = db_session.query(BlogModel).filter_by(id=id).first()
         return result
 
-    # 查询指定数量的博客
+    # 查询指定数量的最新博客
     def search_blog_by_limit(self, start, count):
         result = db_session.query(BlogModel).order_by(BlogModel.updatetime.desc()).limit(count).offset(start)
         return result
@@ -50,6 +50,6 @@ class BlogModel(db_model):
 
     # 更新阅读次数
     def update_blog_read_count(self, id):
-        result = db_session.query(BlogModel).filter_by(id=id).all()
-        result[0].readcount += 1
+        result = db_session.query(BlogModel).filter_by(id=id).first()
+        result.readcount += 1
         db_session.commit()

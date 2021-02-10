@@ -6,11 +6,22 @@
         <div class="container">
             <div class="custom-section-title blog-info">
                 <h3>{{ blog_article.article }}</h3>
-                <ul>
-                    <li><b>Read: </b>{{ blog_article.readcount }}</li>
-                    <li><b>Reply: </b>{{ blog_article.replycount }}</li>
-                    <li><b>Update: </b>{{ blog_article.updatetime }}</li>
-                </ul>
+                <div class="row">
+                    <div class="col-sm-12 col-md-8 col-lg-8">
+                        <ul>
+                            <li><b>Read: </b>{{ blog_article.readcount }}</li>
+                            <li><b>Reply: </b>{{ blog_article.replycount }}</li>
+                            <li><b>Update: </b>{{ blog_article.updatetime }}</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        {% if is_collection == True %}
+                            <a class="custom-btn custom-btn-hover" id="collection" onclick="cancelCollection('{{ blog_article.id }}')">Collected</a>
+                        {% else %}
+                            <a class="custom-btn custom-btn-hover" id="collection" onclick="addCollection('{{ blog_article.id }}')">Collect</a>
+                        {% endif %}
+                    </div>
+                </div>
             </div><!-- end title -->
 
             <div class="row">
@@ -20,12 +31,17 @@
                     </div>
                 </div>
             </div>
-            <form class="row custom-form">
+            <form class="custom-form">
                 <div class="form-group">
-                    <input class="form-control" name="comment" id="comment" type="text" placeholder="Your comment" required="required"
-                           data-validation-required-message="Please enter your comment.">
+                    <textarea class="form-control" name="comment" id="comment" type="text" placeholder="Your comment" required="required"
+                           data-validation-required-message="Please enter your comment."></textarea>
+                    <a class="custom-btn custom-btn-hover text-center" id="comment">Comment</a>
                 </div>
             </form>
         </div>
     </div>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    <script type="text/javascript" src="/js/blog_article.js"></script>
 {% endblock %}
