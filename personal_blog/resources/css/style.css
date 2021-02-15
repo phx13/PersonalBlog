@@ -519,3 +519,12 @@ ul, li, ol {
 .contact-form textarea.form-control {
     min-height: 225px;
 }
+
+/* --------------------------------
+    Comment
+-------------------------------- */
+
+.blog-section .commentList .avatar {
+    width: 70px;
+    height: 70px;
+}

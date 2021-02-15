@@ -53,3 +53,9 @@ class BlogModel(db_model):
         result = db_session.query(BlogModel).filter_by(id=id).first()
         result.readcount += 1
         db_session.commit()
+
+    # 更新阅读次数
+    def update_blog_reply_count(self, id):
+        result = db_session.query(BlogModel).filter_by(id=id).first()
+        result.replycount += 1
+        db_session.commit()

@@ -8,7 +8,7 @@ function loginOrRegister() {
         $.post('/login', param, function (data) {
             alert(data);
             if (data.startsWith("Success")) {
-                setTimeout('location.reload()', 500)
+                setTimeout('location.reload()', 500);
                 $("#loginEmail").val("");
                 $("#loginPassword").val("");
             }
@@ -21,10 +21,14 @@ function loginOrRegister() {
         $.post('/register', param, function (data) {
             alert(data);
             if (data.startsWith("Success")) {
-                setTimeout('location.reload()', 500)
+                setTimeout('location.reload()', 500);
                 $("#registerEmail").val("");
                 $("#registerPassword").val("");
             }
         })
     }
+}
+
+function showModel(){
+    $('#accountModal').modal('show');
 }

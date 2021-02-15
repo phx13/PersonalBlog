@@ -1,9 +1,8 @@
 from flask import Blueprint, render_template, abort
 from personal_blog.models.blog_model import BlogModel
 from personal_blog.models.collection_model import CollectionModel
+from personal_blog.models.comment_model import CommentModel
 import math
-
-
 
 blog_blueprint = Blueprint('blog_blueprint', __name__)
 
@@ -66,4 +65,6 @@ def blog_article_page(id):
     blog_model.update_blog_read_count(id)
     collection_model = CollectionModel()
     is_collection = collection_model.check_collection(id)
-    return render_template('blog_article.html', blog_article=blog_article, is_collection=is_collection)
+    comment_model = CommentModel()
+    comment_account = comment_model.search_comment_with_account_by_limit(id, 0, 10)
+    return render_template('blog_article.html', blog_article=blog_article, is_collection=is_collection, comment_account=comment_account)

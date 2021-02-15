@@ -31,13 +31,53 @@
                     </div>
                 </div>
             </div>
+
             <form class="custom-form">
                 <div class="form-group">
-                    <textarea class="form-control" name="comment" id="comment" type="text" placeholder="Your comment" required="required"
-                           data-validation-required-message="Please enter your comment."></textarea>
-                    <a class="custom-btn custom-btn-hover text-center" id="comment">Comment</a>
+                    {% if session.get('login') == 'true' %}
+                        <label><b>Nickname: </b>{{ session.get('nickname') }}</label>
+                    {% else %}
+                        <label><b>Nickname: </b>You are not login</label>
+                    {% endif %}
+                    <textarea class="form-control" id="commentArea" type="text" placeholder="Your comment" required="required"
+                              data-validation-required-message="Please enter your comment."></textarea>
+                    {% if session.get('login') == 'true' %}
+                        <a class="custom-btn custom-btn-hover text-center" id="comment" onclick="addComment('{{ blog_article.id }}')">Comment</a>
+                    {% else %}
+                        <a class="custom-btn custom-btn-hover text-center" id="comment" onclick="showModel()">Login / Register</a>
+                    {% endif %}
                 </div>
             </form>
+
+            {% for comment,account in comment_account %}
+                <div class="row commentList">
+                    <div class="col-sm-12 col-md-2 col-lg-2">
+                        <img src="{{ account.avatar }}" class="avatar">
+                    </div>
+                    <div class="col-sm-12 col-md-10 col-lg-10">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-3 col-lg-3">
+                                <label><b>Nickname: </b>{{ account.nickname }}</label>
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                <label>{{ comment.updatetime }}</label>
+                            </div>
+                            <div class="col-sm-12 col-md-5 col-lg-5">
+                                {% if session.get('email') == 'guoc9@cardiff.ac.uk' or session.get('email') == comment.email %}
+                                    <label><b>Reply</b></label>
+                                {% else %}
+                                    <label><b>Reply</b></label>
+                                    <label><b>Agree({{ comment.agreecount }})</b></label>
+                                    <label><b>Disagree({{ comment.disagreecount }})</b></label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div>
+                            <label><b>{{ comment.content }}</b></label>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

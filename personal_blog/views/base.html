@@ -51,14 +51,14 @@
                         </li>
                     {% endif %}
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/account">Account-{{ session['nickname'] }}</a>
+                        <a class="nav-link js-scroll-trigger" href="/account">Account-{{ session.get('nickname') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="/logout">Logout</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" href="#staticBackdrop">Login/Register</a>
+                        <a class="nav-link" data-toggle="modal" href="#accountModal">Login/Register</a>
                     </li>
                 {% endif %}
             </ul>
@@ -67,22 +67,22 @@
 </nav>
 
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+<div class="modal fade" id="accountModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
      aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="login-tab" data-toggle="tab" href="#Login" role="tab"
+                        <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab"
                            aria-controls="login" aria-selected="true">
                             <h6>Login</h6>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="signup-tab" data-toggle="tab" href="#Signup" role="tab"
-                           aria-controls="signup" aria-selected="false">
-                            <h6>Signup</h6>
+                        <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab"
+                           aria-controls="register" aria-selected="false">
+                            <h6>Register</h6>
                         </a>
                     </li>
                 </ul>
@@ -92,7 +92,7 @@
             </div>
             <div class="modal-body">
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="Login" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
                         <form class="container custom-form">
                             <div class="form-group row">
                                 <input class="form-control" name="loginEmail" id="loginEmail" type="email" placeholder="Your email" required="required"
@@ -104,7 +104,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="tab-pane fade" id="Signup" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
                         <form class="container custom-form">
                             <div class="form-group row">
                                 <input class="form-control" name="registerEmail" id="registerEmail" type="email" placeholder="Your email" required="required"
@@ -120,7 +120,7 @@
             </div>
             <div class="modal-footer">
                 <a class="custom-btn custom-btn-hover" data-dismiss="modal" data-text="Close"><span>Close</span></a>
-                <a onclick="loginOrRegister()" class="custom-btn custom-btn-hover" data-text="Login / Signup"><span>Login / Signup</span></a>
+                <a onclick="loginOrRegister()" class="custom-btn custom-btn-hover" data-text="Login / Register"><span>Login / Register</span></a>
             </div>
         </div>
     </div>
