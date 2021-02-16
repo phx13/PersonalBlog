@@ -37,8 +37,8 @@ def before_request():
         if email is not None:
             result = account_model.search_account_by_email(email)
             session['login'] = 'true'
-            session['email'] = result[0].email
-            session['nickname'] = result[0].nickname
+            session['email'] = result.email
+            session['nickname'] = result.nickname
 
 
 from personal_blog.controllers.index_controller import index_blueprint

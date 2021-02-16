@@ -2,14 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68b2abaa-5f93-48aa-bd63-b26a5910b761" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/arthas.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/personal_blog/commons/base64_helper.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/2021-02-17-00-51-06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/2021-02-17-00-53-43.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/personal_blog/resources/js/account.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/commons/db_orm_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/commons/db_orm_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/controllers/blog_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/controllers/blog_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/controllers/comment_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/controllers/comment_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/models/comment_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/models/comment_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/controllers/account_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/controllers/account_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/models/account_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/models/account_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal_blog/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/resources/js/blog_article.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/js/blog_article.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/views/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/account.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal_blog/views/blog_article.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/blog_article.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,15 +45,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/personal_blog/resources/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/personal_blog/commons" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\personal_blog\commons" />
+      <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\personal_blog\resources\js" />
       <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\personal_blog\resources\images" />
       <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\personal_blog\controllers" />
       <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\personal_blog\models" />
-      <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\personal_blog\resources\js" />
-      <recent name="D:\Study in Cardiff\CMT120 Fundamentals of Programming\CMT120-CW2-Website\personal_blog\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -95,7 +97,8 @@
       <workItem from="1612927667424" duration="10511000" />
       <workItem from="1613123401113" duration="10000" />
       <workItem from="1613397618535" duration="10264000" />
-      <workItem from="1613445341801" duration="16372000" />
+      <workItem from="1613445341801" duration="16440000" />
+      <workItem from="1613488295452" duration="6059000" />
     </task>
     <task id="LOCAL-00001" summary="refactor prj">
       <created>1612417146300</created>
@@ -132,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613407629685</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="comment and reply">
+      <created>1613467418932</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1613467418932</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,9 +166,10 @@
     <MESSAGE value="blog logic" />
     <MESSAGE value="collection" />
     <MESSAGE value="comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="comment" />
+    <MESSAGE value="comment and reply" />
+    <option name="LAST_COMMIT_MESSAGE" value="comment and reply" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CMT120_CW2_Website$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1613467012708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CMT120_CW2_Website$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1613493360433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

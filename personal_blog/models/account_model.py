@@ -9,12 +9,12 @@ class AccountModel(db_model):
     __table__ = Table(__tablename__, db_metadata, autoload=True)
 
     def search_account_by_email(self, email):
-        result = db_session.query(AccountModel).filter_by(email=email).all()
+        result = db_session.query(AccountModel).filter_by(email=email).first()
         return result
 
-    def register_account(self, email, password, nickname, avatar, profile, create_time):
+    def register_account(self, email, password, nickname, avatar, profile, create_time, update_time):
         account_model = AccountModel(email=email, password=password, nickname=nickname, avatar=avatar,
-                                              profile=profile, createtime=create_time)
+                                     profile=profile, createtime=create_time, updatetime=update_time)
         db_session.add(account_model)
         db_session.commit()
 

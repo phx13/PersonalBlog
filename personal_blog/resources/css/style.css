@@ -537,10 +537,9 @@ ul, li, ol {
 }
 
 .blog-section .replyList {
-    background-color: #CCCCCC;
-    border: 1px solid;
+    background-color: #dddddd;
 }
 
 .blog-section .replyList label{
-    color: #80bdff;
+    color: #2D64B3;
 }
