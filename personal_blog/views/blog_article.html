@@ -24,7 +24,7 @@
                 </div>
             </div><!-- end title -->
 
-            <div class="row">
+            <div class="row custom-section">
                 <div class="col-md-12 col-sm-12 col-lg-12">
                     <div class="blog-box">
                         <p>{{ blog_article.content | safe }}</p>
@@ -49,35 +49,109 @@
                 </div>
             </form>
 
-            {% for comment,account in comment_account %}
-                <div class="row commentList">
-                    <div class="col-sm-12 col-md-2 col-lg-2">
-                        <img src="{{ account.avatar }}" class="avatar">
-                    </div>
-                    <div class="col-sm-12 col-md-10 col-lg-10">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-3 col-lg-3">
-                                <label><b>Nickname: </b>{{ account.nickname }}</label>
+            <div class="custom-section">
+                {% for comment in comment_reply_list %}
+                    <div class="row commentList">
+                        <div class="col-sm-12 col-md-2 col-lg-2">
+                            <img src="{{ comment.avatar }}" class="commentAvatar">
+                        </div>
+                        <div class="col-sm-12 col-md-10 col-lg-10">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-3 col-lg-3">
+                                    <label><b>Nickname: </b>{{ comment.nickname }}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <label>{{ comment.updatetime }}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-5 col-lg-5">
+                                    <a class="custom-btn custom-btn-hover text-center" data-toggle="collapse" href="#replyComment{{ comment.id }}" role="button"
+                                       aria-expanded="false"
+                                       aria-controls="replyComment{{ comment.id }}">
+                                        Reply
+                                    </a>
+                                    {% if session.get('email') == 'guoc9@cardiff.ac.uk' or session.get('email') == comment.email %}
+                                    {% else %}
+                                        <a class="custom-btn custom-btn-hover text-center">Agree({{ comment.agreecount }})</a>
+                                        <a class="custom-btn custom-btn-hover text-center">Disagree({{ comment.disagreecount }})</a>
+                                    {% endif %}
+                                </div>
                             </div>
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                <label>{{ comment.updatetime }}</label>
+                            <div>
+                                <label><b>{{ comment.content }}</b></label>
                             </div>
-                            <div class="col-sm-12 col-md-5 col-lg-5">
-                                {% if session.get('email') == 'guoc9@cardiff.ac.uk' or session.get('email') == comment.email %}
-                                    <label><b>Reply</b></label>
-                                {% else %}
-                                    <label><b>Reply</b></label>
-                                    <label><b>Agree({{ comment.agreecount }})</b></label>
-                                    <label><b>Disagree({{ comment.disagreecount }})</b></label>
-                                {% endif %}
+                            <div class="collapse" id="replyComment{{ comment.id }}">
+                                <form class="custom-form">
+                                    <div class="form-group">
+                                        {% if session.get('login') == 'true' %}
+                                            <label><b>Nickname: </b>{{ session.get('nickname') }}</label>
+                                        {% else %}
+                                            <label><b>Nickname: </b>You are not login</label>
+                                        {% endif %}
+                                        <textarea class="form-control" id="replyArea{{ comment.id }}" type="text" placeholder="Your reply" required="required"
+                                                  data-validation-required-message="Please enter your comment."></textarea>
+                                        {% if session.get('login') == 'true' %}
+                                            <a class="custom-btn custom-btn-hover text-center" id="reply" onclick="addReply('{{ blog_article.id }}','{{ comment.id }}')">Reply</a>
+                                        {% else %}
+                                            <a class="custom-btn custom-btn-hover text-center" id="reply" onclick="showModel()">Login / Register</a>
+                                        {% endif %}
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                        <div>
-                            <label><b>{{ comment.content }}</b></label>
-                        </div>
                     </div>
-                </div>
-            {% endfor %}
+
+                    {% for reply in comment.reply_list %}
+                        <div class="row replyList">
+                            <div class="col-sm-12 col-md-2 col-lg-2">
+                                <img src="{{ reply.avatar }}" class="replyAvatar">
+                            </div>
+                            <div class="col-sm-12 col-md-10 col-lg-10">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-3 col-lg-3">
+                                        <label><b>{{ reply.nickname }}</b>&nbsp;reply&nbsp;<b>{{ reply.respondent[0].nickname }}</b></label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 col-lg-4">
+                                        <label>{{ reply.updatetime }}</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-5 col-lg-5">
+                                        <a class="custom-btn custom-btn-hover text-center" data-toggle="collapse" href="#replyComment{{ reply.id }}" role="button"
+                                           aria-expanded="false"
+                                           aria-controls="replyComment{{ reply.id }}">
+                                            Reply
+                                        </a>
+                                        {% if session.get('email') == 'guoc9@cardiff.ac.uk' or session.get('email') == reply.email %}
+                                        {% else %}
+                                            <a class="custom-btn custom-btn-hover text-center">Agree({{ reply.agreecount }})</a>
+                                            <a class="custom-btn custom-btn-hover text-center">Disagree({{ reply.disagreecount }})</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div>
+                                    <label><b>{{ reply.content }}</b></label>
+                                </div>
+                                <div class="collapse" id="replyComment{{ reply.id }}">
+                                    <form class="custom-form">
+                                        <div class="form-group">
+                                            {% if session.get('login') == 'true' %}
+                                                <label><b>Nickname: </b>{{ session.get('nickname') }}</label>
+                                            {% else %}
+                                                <label><b>Nickname: </b>You are not login</label>
+                                            {% endif %}
+                                            <textarea class="form-control" id="replyArea{{ reply.id }}" type="text" placeholder="Your reply" required="required"
+                                                      data-validation-required-message="Please enter your reply."></textarea>
+                                            {% if session.get('login') == 'true' %}
+                                                <a class="custom-btn custom-btn-hover text-center" id="reply" onclick="addReply('{{ blog_article.id }}','{{ reply.id }}')">Reply</a>
+                                            {% else %}
+                                                <a class="custom-btn custom-btn-hover text-center" id="reply" onclick="showModel()">Login / Register</a>
+                                            {% endif %}
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

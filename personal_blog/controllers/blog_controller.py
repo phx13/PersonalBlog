@@ -66,5 +66,5 @@ def blog_article_page(id):
     collection_model = CollectionModel()
     is_collection = collection_model.check_collection(id)
     comment_model = CommentModel()
-    comment_account = comment_model.search_comment_with_account_by_limit(id, 0, 10)
-    return render_template('blog_article.html', blog_article=blog_article, is_collection=is_collection, comment_account=comment_account)
+    comment_reply_list = comment_model.get_comment_with_reply(id, 0, 10)
+    return render_template('blog_article.html', blog_article=blog_article, is_collection=is_collection, comment_reply_list=comment_reply_list)

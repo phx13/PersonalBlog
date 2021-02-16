@@ -524,7 +524,23 @@ ul, li, ol {
     Comment
 -------------------------------- */
 
-.blog-section .commentList .avatar {
+.blog-section .commentList .commentAvatar {
+    width: 100px;
+    height: 100px;
+    float: right;
+}
+
+.blog-section .replyList .replyAvatar {
     width: 70px;
     height: 70px;
+    float: right;
+}
+
+.blog-section .replyList {
+    background-color: #CCCCCC;
+    border: 1px solid;
+}
+
+.blog-section .replyList label{
+    color: #80bdff;
 }

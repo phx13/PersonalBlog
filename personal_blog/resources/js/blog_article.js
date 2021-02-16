@@ -35,3 +35,14 @@ function addComment(articleId) {
         }
     })
 }
+
+function addReply(articleId, commentId) {
+    let content = $.trim($("#replyArea" + commentId).val());
+    let param = "article_id=" + articleId + "&comment_id=" + commentId + "&content=" + content;
+    $.post('/reply', param, function (data) {
+        alert(data);
+        if (data.startsWith("Success")) {
+            setTimeout('location.reload()', 500);
+        }
+    })
+}
