@@ -1,5 +1,5 @@
 $(document).ready(function ($) {
-    var UEditor = UE.getEditor('UEditor', {
+    let UEditor = UE.getEditor('UEditor', {
         autoHeightEnabled: true,
         autoFloatEnabled: true,
         initialFrameHeight: 500

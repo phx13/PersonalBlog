@@ -1,10 +1,9 @@
-import hashlib
-import re
 import time
 
-from flask import Blueprint, request, session, url_for, make_response
-from personal_blog.models.comment_model import CommentModel
+from flask import Blueprint, request, session
+
 from personal_blog.models.blog_model import BlogModel
+from personal_blog.models.comment_model import CommentModel
 
 comment_blueprint = Blueprint('comment_blueprint', __name__)
 

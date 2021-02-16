@@ -1,7 +1,6 @@
 import hashlib
 import re
 import time
-import base64
 
 from flask import Blueprint, request, session, url_for, make_response, render_template
 

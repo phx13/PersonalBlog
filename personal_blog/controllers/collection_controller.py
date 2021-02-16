@@ -1,8 +1,7 @@
-import hashlib
-import re
 import time
 
-from flask import Blueprint, request, session, url_for, make_response
+from flask import Blueprint, request, session
+
 from personal_blog.models.collection_model import CollectionModel
 
 collection_blueprint = Blueprint('collection_blueprint', __name__)

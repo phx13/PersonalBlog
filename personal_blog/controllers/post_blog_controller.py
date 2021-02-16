@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template
-from personal_blog.models.blog_model import BlogModel
 
 post_blog_blueprint = Blueprint('post_blog_blueprint', __name__)
 

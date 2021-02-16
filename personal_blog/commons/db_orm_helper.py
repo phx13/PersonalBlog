@@ -11,12 +11,11 @@ def init_db():
 
 def list_model(result):
     list_model = []
-    for row in result:
-        dict_model = {}
-        for k, v in result:
-            if not k.startswith('_sa_instance_state'):
-                dict_model[k] = v
-        list_model.append(dict_model)
+    dict_model = {}
+    for k, v in result:
+        if not k.startswith('_sa_instance_state'):
+            dict_model[k] = v
+    list_model.append(dict_model)
     return list_model
 
 
