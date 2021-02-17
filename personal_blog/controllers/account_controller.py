@@ -36,7 +36,7 @@ def register():
     email = request.form.get('email')
     password = request.form.get('password')
 
-    if len(account_model.search_account_by_email(email)) > 0:
+    if account_model.search_account_by_email(email):
         return 'Fail: This account is already registered'
     elif not re.match('.+@.+\..+', email) or password == '':
         return 'Fail: Incorrect email or password format'
