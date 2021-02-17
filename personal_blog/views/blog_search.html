@@ -14,7 +14,7 @@
                     {% for blog in current_page_blogs %}
                         <div class="blog-box">
                             <div class="blog-thumb">
-                                <img src="/images/{{ blog.thumb }}" class="img-fluid" alt="blog-img"/>
+                                <a href="/blog-article/{{ blog.id }}"><img src="/images/{{ blog.thumb }}" class="img-fluid" alt="blog-img"/></a>
 
                                 <ul class="tag-list">
                                     {% for blogType in blog.type.split(',') %}
@@ -61,6 +61,7 @@
         </div>
     </div>
 {% endblock %}
+
 {% block scripts %}
     {{ super() }}
     <script type="text/javascript" src="/js/blog_side.js"></script>

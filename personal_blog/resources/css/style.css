@@ -115,10 +115,10 @@ ul, li, ol {
 
 .custom-btn-hover {
     color: #333333;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
     position: relative;
     border: 1px solid #333333;
     overflow: hidden;
@@ -245,7 +245,7 @@ ul, li, ol {
 -------------------------------------------------------------------*/
 
 .navbar-dark .navbar-nav .nav-link {
-    color: #ffffff;
+    color: #eeeeee;
     letter-spacing: 1px;
     font-size: 14px;
     position: relative;
@@ -255,13 +255,9 @@ ul, li, ol {
     color: #ffffff;
 }
 
-.navbar-dark .navbar-nav .nav-link.active {
-    font-weight: 600;
-}
-
-.navbar-dark .navbar-nav .nav-link::after {
+.navbar-dark .navbar-nav .nav-link.active::after {
     content: '';
-    width: 0;
+    width: 50%;
     height: 3px;
     background: #ffffff;
     position: absolute;
@@ -274,10 +270,6 @@ ul, li, ol {
     -webkit-transition: all .5s;
     transition: all .5s;
     z-index: -1;
-}
-
-.navbar-dark .navbar-nav .nav-link.active::after {
-    width: 50%;
 }
 
 /*------------------------------------------------------------------
@@ -418,25 +410,10 @@ ul, li, ol {
     position: relative;
 }
 
-.blog-box:hover .blog-thumb::before {
-    opacity: .6;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-}
-
-.blog-box .blog-thumb::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(51, 51, 51, 0.80);
-    opacity: 0;
-    -webkit-transition: all .5s;
-    transition: all .5s;
-    -webkit-transform: translateY(10px);
-    transform: translateY(10px);
+.blog-thumb:hover {
+    opacity: .8;
+    -webkit-transition: all .3s;
+    transition: all .3s;
 }
 
 .blog-info {

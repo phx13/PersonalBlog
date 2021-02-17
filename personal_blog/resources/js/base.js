@@ -32,3 +32,8 @@ function loginOrRegister() {
 function showModel(){
     $('#accountModal').modal('show');
 }
+
+$(".navbar-nav").find("li").click(function() {
+    $(this).siblings().find("a").removeClass("active");
+    $(this).find("a").addClass("active");
+})
