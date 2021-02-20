@@ -65,3 +65,11 @@ class CommentModel(db_model):
                     reply_list_dict.append(reply_reply)
             comment['reply_list'] = reply_list_dict
         return comment_reply_list
+
+    def update_comment_opinion_count(self, id, type):
+        result = db_session.query(CommentModel).filter_by(id=id).first()
+        if type == 'agree':
+            result.agreecount += 1
+        else:
+            result.disagreecount += 1
+        db_session.commit()

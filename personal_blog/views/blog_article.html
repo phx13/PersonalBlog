@@ -71,8 +71,8 @@
                                     </a>
                                     {% if session.get('email') == 'guoc9@cardiff.ac.uk' or session.get('email') == comment.email %}
                                     {% else %}
-                                        <a class="custom-btn custom-btn-hover text-center">Agree({{ comment.agreecount }})</a>
-                                        <a class="custom-btn custom-btn-hover text-center">Disagree({{ comment.disagreecount }})</a>
+                                        <a class="custom-btn custom-btn-hover text-center" onclick="updateOpinion('{{ comment.id }}','agree')">Agree({{ comment.agreecount }})</a>
+                                        <a class="custom-btn custom-btn-hover text-center" onclick="updateOpinion('{{ comment.id }}','disagree')">Disagree({{ comment.disagreecount }})</a>
                                     {% endif %}
                                 </div>
                             </div>
@@ -121,8 +121,8 @@
                                         </a>
                                         {% if session.get('email') == 'guoc9@cardiff.ac.uk' or session.get('email') == reply.email %}
                                         {% else %}
-                                            <a class="custom-btn custom-btn-hover text-center">Agree({{ reply.agreecount }})</a>
-                                            <a class="custom-btn custom-btn-hover text-center">Disagree({{ reply.disagreecount }})</a>
+                                            <a class="custom-btn custom-btn-hover text-center" onclick="updateOpinion('{{ reply.id }}','agree')">Agree({{ reply.agreecount }})</a>
+                                            <a class="custom-btn custom-btn-hover text-center" onclick="updateOpinion('{{ reply.id }}','disagree')">Disagree({{ reply.disagreecount }})</a>
                                         {% endif %}
                                     </div>
                                 </div>

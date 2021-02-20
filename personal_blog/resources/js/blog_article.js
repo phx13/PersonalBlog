@@ -46,3 +46,13 @@ function addReply(articleId, commentId) {
         }
     })
 }
+
+function updateOpinion(commentId, type) {
+    param = "comment_id=" + commentId + "&type=" + type;
+    $.post('/opinion', param, function (data) {
+        alert(data);
+        if (data.startsWith("Success")) {
+            setTimeout('location.reload()', 500);
+        }
+    })
+}

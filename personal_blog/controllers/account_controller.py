@@ -6,6 +6,7 @@ from flask import Blueprint, request, session, url_for, make_response, render_te
 
 from personal_blog.commons.base64_helper import Base64Helper
 from personal_blog.models.account_model import AccountModel
+from personal_blog.models.credit_model import CreditModel
 
 account_blueprint = Blueprint('account_blueprint', __name__)
 
@@ -51,6 +52,9 @@ def register():
         session['login'] = 'true'
         session['email'] = email
         session['nickname'] = nickname
+
+        credit_model = CreditModel()
+        credit_model.insert_credit('register', 'new register', 50, create_time)
 
         response = make_response('Success: Register successful')
         response.set_cookie('email', email, max_age=10 * 24 * 3600)

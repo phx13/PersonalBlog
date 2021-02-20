@@ -59,3 +59,18 @@ def insert_reply():
         except:
             return 'Fail: Reply failed'
     return 'Fail: You are not login'
+
+
+@comment_blueprint.route('/opinion', methods=['POST'])
+def update_opinion():
+    if session.get('login') == 'true':
+        try:
+            comment_id = request.form.get('comment_id')
+            type = request.form.get('type')
+
+            comment_model = CommentModel()
+            comment_model.update_comment_opinion_count(comment_id, type)
+            return 'Success: Opinion successful'
+        except:
+            return 'Fail: Opinion failed'
+    return 'Fail: You are not login'
