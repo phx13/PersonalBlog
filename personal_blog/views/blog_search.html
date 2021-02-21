@@ -36,23 +36,42 @@
                             </div>
                         </div>
                     {% endfor %}
-                    <div class="text-center">
-                        {% if page == 1 %}
-                            <a href="/blog-search/1-{{ keyword }}">pre</a>
-                        {% else %}
-                            <a href="/blog-search/{{ current_page - 1 }}-{{ keyword }}">pre</a>
-                        {% endif %}
 
-                        {% for i in range(total_page) %}
-                            <a href="/blog-search/{{ i + 1 }}-{{ keyword }}">{{ i + 1 }}</a>
-                        {% endfor %}
+                    <nav class="text-center">
+                        <ul class="pagination">
+                            {% if current_page == 1 %}
+                                <li class="page-item disabled">
+                                    <a class="page-link" tabindex="-1" aria-disabled="true" href="/blog-search/1-{{ keyword }}">pre</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item">
+                                    <a class="page-link" href="/blog-search/{{ current_page - 1 }}-{{ keyword }}">pre</a>
+                                </li>
+                            {% endif %}
 
-                        {% if page == total_page %}
-                            <a href="/blog-search/{{ total_page }}-{{ keyword }}">next</a>
-                        {% else %}
-                            <a href="/blog-search/{{ current_page + 1 }}-{{ keyword }}">next</a>
-                        {% endif %}
-                    </div>
+                            {% for i in range(total_page) %}
+                                {% if i == current_page - 1 %}
+                                    <li class="page-item active">
+                                        <a class="page-link" href="/blog-search/{{ i + 1 }}-{{ keyword }}">{{ i + 1 }}</a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="/blog-search/{{ i + 1 }}-{{ keyword }}">{{ i + 1 }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if current_page == total_page %}
+                                <li class="page-item disabled">
+                                    <a class="page-link" tabindex="-1" aria-disabled="true" href="/blog-search/{{ total_page }}-{{ keyword }}">next</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item">
+                                    <a class="page-link" href="/blog-search/{{ current_page + 1 }}-{{ keyword }}">next</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
                 </div>
 
                 {% include 'blog_side.html' %}

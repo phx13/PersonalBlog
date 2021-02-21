@@ -14,7 +14,7 @@ def insert_collection():
             collection_model = CollectionModel()
             article_id = request.form.get('article_id')
             create_time = time.strftime('%Y-%m-%d %H:%M:%S')
-            collection_model.insert_collection(article_id, create_time)
+            collection_model.insert_collection(article_id, session.get('email'), create_time)
             return 'Success: Collection successful'
         except:
             return 'Fail: Collection failed'
@@ -26,7 +26,7 @@ def cancel_collection(article_id):
     try:
         collection_model = CollectionModel()
         update_time = time.strftime('%Y-%m-%d %H:%M:%S')
-        collection_model.cancel_collection(article_id, update_time)
+        collection_model.cancel_collection(article_id, session.get('email'), update_time)
         return 'Success: Cancel successful'
     except:
         return 'Fail: Cancel failed'

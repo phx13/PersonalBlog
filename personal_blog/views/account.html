@@ -21,15 +21,15 @@
                         <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
                            role="tab"
                            aria-controls="nav-profile" aria-selected="false">Profile</a>
-                        <a class="nav-item nav-link" id="nav-collection-tab" data-toggle="tab" href="#nav-collection" role="tab"
-                           aria-controls="nav-collection" aria-selected="false">Collection</a>
+                        <a class="nav-item nav-link" id="nav-activity-tab" data-toggle="tab" href="#nav-activity" role="tab"
+                           aria-controls="nav-activity" aria-selected="false">Activity</a>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-profile" role="tabpanel"
                          aria-labelledby="nav-profile-tab">
                         <div style="height: 30px"></div>
-                        <form method="post" enctype="multipart/form-data">
+                        <form method="post" enctype="multipart/form-data" class="custom-form">
                             <img src="{{ current_account.avatar }}" id="avatar" class="rounded mx-auto d-block img-thumbnail"
                                  style="height: 250px; width: 250px; margin-bottom: 20px;">
                             <div class="input-group" style="width: 250px; margin: 20px auto;">
@@ -68,13 +68,32 @@
                                            value="{{ current_account.profile }}">
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-outline-success" style="float: right;"
+                            <button type="button" class="custom-btn custom-btn-hover" style="float: right;"
                                     onclick="updateProfile()">Update Profile
                             </button>
                         </form>
                     </div>
-                    <div class="tab-pane fade" id="nav-collection" role="tabpanel" aria-labelledby="nav-collection-tab">
-
+                    <div class="tab-pane fade" id="nav-activity" role="tabpanel" aria-labelledby="nav-activity-tab">
+                        <div class="custom-section">
+                            <div class="custom-section-title">
+                                <h3>Credit activities</h3>
+                            </div><!-- end title -->
+                            <ul>
+                                {% for activity in credit_activities %}
+                                    <li>{{ activity.event }}: {{ activity.credit }} {{ activity.updatetime }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="custom-section">
+                            <div class="custom-section-title">
+                                <h3>Collection activities</h3>
+                            </div><!-- end title -->
+                            <ul>
+                                {% for activity in collection_activities %}
+                                    <li><a href="/blog-article/{{ activity.articleid }}">{{ activity.articleid }}: {{ activity.updatetime }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

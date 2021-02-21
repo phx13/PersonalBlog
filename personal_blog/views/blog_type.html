@@ -36,23 +36,42 @@
                             </div>
                         </div>
                     {% endfor %}
-                    <div class="text-center">
-                        {% if page == 1 %}
-                            <a href="/blog-type/1-{{ type }}">pre</a>
-                        {% else %}
-                            <a href="/blog-type/{{ current_page - 1 }}-{{ type }}">pre</a>
-                        {% endif %}
 
-                        {% for i in range(total_page) %}
-                            <a href="/blog-type/{{ i + 1 }}-{{ type }}">{{ i + 1 }}</a>
-                        {% endfor %}
+                    <nav class="text-center">
+                        <ul class="pagination">
+                            {% if current_page == 1 %}
+                                <li class="page-item disabled">
+                                    <a class="page-link" tabindex="-1" aria-disabled="true" href="/blog-type/1-{{ type }}">pre</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item">
+                                    <a class="page-link" href="/blog-type/{{ current_page - 1 }}-{{ type }}">pre</a>
+                                </li>
+                            {% endif %}
 
-                        {% if page == total_page %}
-                            <a href="/blog-type/{{ total_page }}-{{ type }}">next</a>
-                        {% else %}
-                            <a href="/blog-type/{{ current_page + 1 }}-{{ type }}">next</a>
-                        {% endif %}
-                    </div>
+                            {% for i in range(total_page) %}
+                                {% if i == current_page - 1 %}
+                                    <li class="page-item active">
+                                        <a class="page-link" href="/blog-type/{{ i + 1 }}-{{ type }}">{{ i + 1 }}</a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="/blog-type/{{ i + 1 }}-{{ type }}">{{ i + 1 }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if current_page == total_page %}
+                                <li class="page-item disabled">
+                                    <a class="page-link" tabindex="-1" aria-disabled="true" href="/blog-type/{{ total_page }}-{{ type }}">next</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item">
+                                    <a class="page-link" href="/blog-type/{{ current_page + 1 }}-{{ type }}">next</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
                 </div>
 
                 {% include 'blog_side.html' %}

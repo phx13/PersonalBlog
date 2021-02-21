@@ -49,3 +49,9 @@ class BlogModel(db_model):
         result = db_session.query(BlogModel).filter_by(id=id).first()
         result.replycount += 1
         db_session.commit()
+
+    def update_blog_rate(self, id, rate):
+        result = db_session.query(BlogModel).filter_by(id=id).first()
+        result.rate = rate
+        result.ratecount += 1
+        db_session.commit()

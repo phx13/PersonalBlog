@@ -2,8 +2,10 @@ import time
 
 from flask import Blueprint, request, session
 
+from personal_blog.models.account_model import AccountModel
 from personal_blog.models.blog_model import BlogModel
 from personal_blog.models.comment_model import CommentModel
+from personal_blog.models.credit_model import CreditModel
 
 comment_blueprint = Blueprint('comment_blueprint', __name__)
 
@@ -22,11 +24,16 @@ def insert_comment():
                 return 'Fail: Comment content less than 5 letter or more than 200 letter'
 
             comment_model = CommentModel()
-            if not comment_model.check_limit_comment(start_time, end_time):
-                comment_model.insert_comment(article_id, content, create_time)
+            if not comment_model.check_limit_comment(session.get('email'), start_time, end_time):
+                comment_model.insert_comment(session.get('email'), article_id, content, create_time)
                 blog_model = BlogModel()
                 blog_model.update_blog_reply_count(article_id)
-                return 'Success: Comment successful'
+
+                credit_model = CreditModel()
+                credit_model.insert_credit(session.get('email'), 'comment', 'insert comment', article_id, 5, create_time)
+                account_model = AccountModel()
+                account_model.update_credit(session.get('email'), 5)
+                return 'Success: Comment successful, credit +5'
             else:
                 return 'Fail: Today\'s comments over 10'
         except:
@@ -49,11 +56,16 @@ def insert_reply():
                 return 'Fail: Reply content less than 5 letter or more than 200 letter'
 
             comment_model = CommentModel()
-            if not comment_model.check_limit_comment(start_time, end_time):
-                comment_model.insert_reply(article_id, comment_id, content, create_time)
+            if not comment_model.check_limit_comment(session.get('email'), start_time, end_time):
+                comment_model.insert_reply(session.get('email'), article_id, comment_id, content, create_time)
                 blog_model = BlogModel()
                 blog_model.update_blog_reply_count(article_id)
-                return 'Success: Reply successful'
+
+                credit_model = CreditModel()
+                credit_model.insert_credit(session.get('email'), 'comment', 'reply comment', comment_id, 5, create_time)
+                account_model = AccountModel()
+                account_model.update_credit(session.get('email'), 5)
+                return 'Success: Reply successful, credit +5'
             else:
                 return 'Fail: Today\'s reply over 10'
         except:
@@ -67,10 +79,17 @@ def update_opinion():
         try:
             comment_id = request.form.get('comment_id')
             type = request.form.get('type')
-
-            comment_model = CommentModel()
-            comment_model.update_comment_opinion_count(comment_id, type)
-            return 'Success: Opinion successful'
+            create_time = time.strftime('%Y-%m-%d %H:%M:%S')
+            credit_model = CreditModel()
+            if credit_model.check_credit(session.get('email'), 'opinion', comment_id):
+                return 'Fail: You have opinion on this comment'
+            else:
+                comment_model = CommentModel()
+                comment_model.update_comment_opinion_count(comment_id, type)
+                credit_model.insert_credit(session.get('email'), 'opinion', 'update opinion', comment_id, 1, create_time)
+                account_model = AccountModel()
+                account_model.update_credit(session.get('email'), 1)
+            return 'Success: Opinion successful, credit +1'
         except:
             return 'Fail: Opinion failed'
     return 'Fail: You are not login'

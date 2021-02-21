@@ -1,8 +1,14 @@
-from flask import Blueprint, render_template, abort
+import time
+
+from flask import Blueprint, render_template, abort, session
+
+from personal_blog.models.account_model import AccountModel
 from personal_blog.models.blog_model import BlogModel
 from personal_blog.models.collection_model import CollectionModel
 from personal_blog.models.comment_model import CommentModel
 import math
+
+from personal_blog.models.credit_model import CreditModel
 
 blog_blueprint = Blueprint('blog_blueprint', __name__)
 
@@ -64,7 +70,30 @@ def blog_article_page(id):
 
     blog_model.update_blog_read_count(id)
     collection_model = CollectionModel()
-    is_collection = collection_model.check_collection(id)
+    is_collection = collection_model.check_collection(id, session.get('email'))
     comment_model = CommentModel()
     comment_reply_list = comment_model.get_comment_with_reply(id, 0, 10)
     return render_template('blog_article.html', blog_article=blog_article, is_collection=is_collection, comment_reply_list=comment_reply_list)
+
+
+@blog_blueprint.route('/blog-article/<int:id>/<int:rate>', methods=['POST'])
+def blog_article_rate(id, rate):
+    try:
+        blog_model = BlogModel()
+        blog_article = blog_model.search_blog_by_id(id)
+        if blog_article is None:
+            abort(404)
+    except:
+        abort(500)
+
+    rate = (blog_article.rate * blog_article.ratecount + rate) / (blog_article.ratecount + 1)
+    blog_model.update_blog_rate(id, rate)
+
+    create_time = time.strftime('%Y-%m-%d %H:%M:%S')
+    credit_model = CreditModel()
+    credit_model.insert_credit(session.get('email'), 'blog', 'rate blog', id, 5, create_time)
+
+    account_model = AccountModel()
+    account_model.update_credit(session.get('email'), 5)
+
+    return 'Success: Rate successful, credit +5'

@@ -7,11 +7,17 @@
             <div class="custom-section-title blog-info">
                 <h3>{{ blog_article.article }}</h3>
                 <div class="row">
-                    <div class="col-sm-12 col-md-8 col-lg-8">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
                         <ul>
                             <li><b>Read: </b>{{ blog_article.readcount }}</li>
                             <li><b>Reply: </b>{{ blog_article.replycount }}</li>
                             <li><b>Update: </b>{{ blog_article.updatetime }}</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <ul>
+                            <h4>Rate: {{ blog_article.rate }}</h4>
+                            <li><b>{{ blog_article.ratecount }}</b> ratings</li>
                         </ul>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4">
@@ -72,7 +78,8 @@
                                     {% if session.get('email') == 'guoc9@cardiff.ac.uk' or session.get('email') == comment.email %}
                                     {% else %}
                                         <a class="custom-btn custom-btn-hover text-center" onclick="updateOpinion('{{ comment.id }}','agree')">Agree({{ comment.agreecount }})</a>
-                                        <a class="custom-btn custom-btn-hover text-center" onclick="updateOpinion('{{ comment.id }}','disagree')">Disagree({{ comment.disagreecount }})</a>
+                                        <a class="custom-btn custom-btn-hover text-center"
+                                           onclick="updateOpinion('{{ comment.id }}','disagree')">Disagree({{ comment.disagreecount }})</a>
                                     {% endif %}
                                 </div>
                             </div>
@@ -122,7 +129,8 @@
                                         {% if session.get('email') == 'guoc9@cardiff.ac.uk' or session.get('email') == reply.email %}
                                         {% else %}
                                             <a class="custom-btn custom-btn-hover text-center" onclick="updateOpinion('{{ reply.id }}','agree')">Agree({{ reply.agreecount }})</a>
-                                            <a class="custom-btn custom-btn-hover text-center" onclick="updateOpinion('{{ reply.id }}','disagree')">Disagree({{ reply.disagreecount }})</a>
+                                            <a class="custom-btn custom-btn-hover text-center"
+                                               onclick="updateOpinion('{{ reply.id }}','disagree')">Disagree({{ reply.disagreecount }})</a>
                                         {% endif %}
                                     </div>
                                 </div>

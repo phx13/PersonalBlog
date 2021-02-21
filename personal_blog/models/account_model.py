@@ -12,9 +12,9 @@ class AccountModel(db_model):
         result = db_session.query(AccountModel).filter_by(email=email).first()
         return result
 
-    def register_account(self, email, password, nickname, avatar, profile, create_time, update_time):
+    def register_account(self, email, password, nickname, avatar, profile, credit, time):
         account_model = AccountModel(email=email, password=password, nickname=nickname, avatar=avatar,
-                                     profile=profile, createtime=create_time, updatetime=update_time)
+                                     profile=profile, credit=credit, createtime=time, updatetime=time)
         db_session.add(account_model)
         db_session.commit()
 
@@ -24,3 +24,9 @@ class AccountModel(db_model):
              'updatetime': update_time})
         db_session.commit()
         return result
+
+    def update_credit(self, email, credit):
+        result = self.search_account_by_email(email)
+        result.credit = int(result.credit) + credit
+        db_session.commit()
+

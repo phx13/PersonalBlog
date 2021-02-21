@@ -6,6 +6,7 @@ from flask import Blueprint, request, session, url_for, make_response, render_te
 
 from personal_blog.commons.base64_helper import Base64Helper
 from personal_blog.models.account_model import AccountModel
+from personal_blog.models.collection_model import CollectionModel
 from personal_blog.models.credit_model import CreditModel
 
 account_blueprint = Blueprint('account_blueprint', __name__)
@@ -23,6 +24,14 @@ def login():
         session['login'] = 'true'
         session['email'] = result.email
         session['nickname'] = result.nickname
+
+        create_time = time.strftime('%Y-%m-%d %H:%M:%S')
+        start_time = time.strftime('%Y-%m-%d 00:00:00')
+        end_time = time.strftime('%Y-%m-%d 23:59:59')
+        credit_model = CreditModel()
+        if len(credit_model.check_credit_by_time(session.get('email'), 'login', start_time, end_time)) == 0:
+            credit_model.insert_credit(session.get('email'), 'login', 'Today\'s first login', 0, 5, create_time)
+            account_model.update_credit(session.get('email'), 5)
 
         response = make_response('Success: Login successful')
         response.set_cookie('email', result.email, max_age=10 * 24 * 3600)
@@ -47,16 +56,17 @@ def register():
         avatar = '/images/cardiff_university_logo.jpg'
         profile = 'Hello, this is ' + nickname
         create_time = time.strftime('%Y-%m-%d %H:%M:%S')
-        account_model.register_account(email, password, nickname, avatar, profile, create_time, create_time)
+        account_model.register_account(email, password, nickname, avatar, profile, 0, create_time)
 
         session['login'] = 'true'
         session['email'] = email
         session['nickname'] = nickname
 
         credit_model = CreditModel()
-        credit_model.insert_credit('register', 'new register', 50, create_time)
+        credit_model.insert_credit(session.get('email'), 'register', 'new register', 0, 50, create_time)
+        account_model.update_credit(session.get('email'), 50)
 
-        response = make_response('Success: Register successful')
+        response = make_response('Success: Register successful, credit +50')
         response.set_cookie('email', email, max_age=10 * 24 * 3600)
         return response
 
@@ -74,7 +84,11 @@ def logout():
 def account_page():
     account_model = AccountModel()
     current_account = account_model.search_account_by_email(session.get('email'))
-    return render_template('account.html', current_account=current_account)
+    credit_model = CreditModel()
+    credit_activities = credit_model.search_credit_by_email(session.get('email'))
+    collection_model = CollectionModel()
+    collection_activities = collection_model.search_collection_by_email(session.get('email'))
+    return render_template('account.html', current_account=current_account, credit_activities=credit_activities, collection_activities=collection_activities)
 
 
 @account_blueprint.route('/account/profile', methods=['POST'])
