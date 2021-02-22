@@ -12,50 +12,69 @@ from personal_blog.models.credit_model import CreditModel
 
 blog_blueprint = Blueprint('blog_blueprint', __name__)
 
+side_page_blogs_count = 5
 
 @blog_blueprint.route('/blog')
 def blog_page():
     blog_model = BlogModel()
-    blogs_per_page = 6
+    blogs_per_page = 5
     current_page_blogs = blog_model.search_blog_by_limit(0, blogs_per_page)
+    side_page_blogs = blog_model.search_blog_by_limit(0, side_page_blogs_count)
     total_page = math.ceil(blog_model.search_blog_total_count() / blogs_per_page)
-    return render_template('blog.html', current_page_blogs=current_page_blogs, current_page=1, total_page=total_page)
+    return render_template('blog.html', current_page_blogs=current_page_blogs, side_page_blogs=side_page_blogs, current_page=1, total_page=total_page)
 
 
 @blog_blueprint.route('/blog/<int:current_page>')
 def blog_current_page(current_page):
     blog_model = BlogModel()
-    blogs_per_page = 6
+    blogs_per_page = 5
     offset_count = (current_page - 1) * blogs_per_page
     current_page_blogs = blog_model.search_blog_by_limit(offset_count, blogs_per_page)
+    side_page_blogs = blog_model.search_blog_by_limit(0, side_page_blogs_count)
     total_page = math.ceil(blog_model.search_blog_total_count() / blogs_per_page)
-    return render_template('blog.html', current_page_blogs=current_page_blogs, current_page=current_page, total_page=total_page)
+    return render_template('blog.html', current_page_blogs=current_page_blogs, side_page_blogs=side_page_blogs, current_page=current_page, total_page=total_page)
 
 
-@blog_blueprint.route('/blog-search/<int:current_page>-<keyword>')
-def blog_current_page_by_search(current_page, keyword):
+@blog_blueprint.route('/blog-search-article/<int:current_page>-<keyword>')
+def blog_current_page_by_search_article(current_page, keyword):
     keyword = keyword.strip()
-    if keyword is None or keyword == "" or '%' in keyword or len(keyword) > 10:
+    if keyword is None or keyword == "" or '%' in keyword or len(keyword) > 20:
         abort(404)
     blog_model = BlogModel()
-    blogs_per_page = 6
+    blogs_per_page = 5
     offset_count = (current_page - 1) * blogs_per_page
-    current_page_blogs = blog_model.search_blog_by_query_article(keyword, offset_count, blogs_per_page)
+    current_page_blogs = blog_model.search_blog_by_article(keyword, offset_count, blogs_per_page)
+    side_page_blogs = blog_model.search_blog_by_limit(0, side_page_blogs_count)
     total_page = math.ceil(blog_model.search_blog_total_count_by_article(keyword) / blogs_per_page)
-    return render_template('blog_search.html', current_page_blogs=current_page_blogs, current_page=current_page, total_page=total_page, keyword=keyword)
+    return render_template('blog_search.html', current_page_blogs=current_page_blogs, side_page_blogs=side_page_blogs, current_page=current_page, total_page=total_page, keyword=keyword)
+
+
+@blog_blueprint.route('/blog-search-content/<int:current_page>-<keyword>')
+def blog_current_page_by_search_content(current_page, keyword):
+    keyword = keyword.strip()
+    if keyword is None or keyword == "" or '%' in keyword or len(keyword) > 20:
+        abort(404)
+    blog_model = BlogModel()
+    blogs_per_page = 5
+    offset_count = (current_page - 1) * blogs_per_page
+    current_page_blogs = blog_model.search_blog_by_content(keyword, offset_count, blogs_per_page)
+    side_page_blogs = blog_model.search_blog_by_limit(0, side_page_blogs_count)
+    total_page = math.ceil(blog_model.search_blog_total_count_by_content(keyword) / blogs_per_page)
+    return render_template('blog_search.html', current_page_blogs=current_page_blogs, side_page_blogs=side_page_blogs, current_page=current_page, total_page=total_page, keyword=keyword)
 
 
 @blog_blueprint.route('/blog-type/<int:current_page>-<type>')
 def blog_current_page_by_type(current_page, type):
     try:
         blog_model = BlogModel()
-        blogs_per_page = 6
+        blogs_per_page = 5
         offset_count = (current_page - 1) * blogs_per_page
         current_page_blogs = blog_model.search_blog_by_type(type, offset_count, blogs_per_page)
+        side_page_blogs = blog_model.search_blog_by_limit(0, side_page_blogs_count)
         total_page = math.ceil(blog_model.search_blog_total_count_by_type(type) / blogs_per_page)
     except:
         abort(500)
-    return render_template('blog_type.html', current_page_blogs=current_page_blogs, current_page=current_page, total_page=total_page, type=type)
+    return render_template('blog_type.html', current_page_blogs=current_page_blogs, side_page_blogs=side_page_blogs, current_page=current_page, total_page=total_page, type=type)
 
 
 @blog_blueprint.route('/blog-article/<int:id>')
@@ -95,5 +114,4 @@ def blog_article_rate(id, rate):
 
     account_model = AccountModel()
     account_model.update_credit(session.get('email'), 5)
-
     return 'Success: Rate successful, credit +5'

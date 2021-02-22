@@ -1,5 +1,13 @@
 <div class="col-sm-12 col-md-4 col-lg-4">
     <form class="custom-form">
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="searchArticle" name="searchRadio" class="custom-control-input" checked="true">
+            <label class="custom-control-label" for="searchArticle">Article</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="searchContent" name="searchRadio" class="custom-control-input">
+            <label class="custom-control-label" for="searchContent">Content</label>
+        </div>
         <div class="form-group">
             <input class="form-control" id="search" type="text" placeholder="Your search" required="required"
                    data-validation-required-message="Please enter your search.">
@@ -7,28 +15,21 @@
         </div>
     </form>
     <div>
-        {% for blog in current_page_blogs %}
-            <div class="blog-box">
-                <div class="blog-thumb">
-                    <a href="/blog-article/{{ blog.id }}"><img src="/images/{{ blog.thumb }}" class="img-fluid" alt="blog-img"/></a>
-
-                    <ul class="tag-list">
-                        {% for blogType in blog.type.split(',') %}
-                            <li class="tag">
-                                <span>{{ blogType }}</span>
-                            </li>
-                        {% endfor %}
-                    </ul>
-
-                </div>
+        <div class="custom-section-title">
+            <h3>Latest Blogs</h3>
+        </div><!-- end title -->
+        {% for blog in side_page_blogs %}
+            <div class="blog-box side-blog">
                 <div class="blog-info">
-                    <h4><a href="/blog-article/{{ blog.id }}">{{ blog.article }}</a></h4>
-                    <ul>
-                        <li><b>Read: </b>{{ blog.readcount }}</li>
-                        <li><b>Reply: </b>{{ blog.replycount }}</li>
-                        <li><b>Update: </b>{{ blog.updatetime }}</li>
-                    </ul>
-                    <p>{{ blog.content | striptags | truncate(120) }}</p>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-8 col-lg-8">
+                            <h4><a href="/blog-article/{{ blog.id }}">{{ blog.article }}</a></h4>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <h4>Rate: {{ blog.rate }}</h4>
+                        </div>
+                    </div>
+                    <p><b>Update: </b>{{ blog.updatetime }}</p>
                 </div>
             </div>
         {% endfor %}

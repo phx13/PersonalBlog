@@ -14,7 +14,7 @@
                     {% for blog in current_page_blogs %}
                         <div class="blog-box">
                             <div class="blog-thumb">
-                                <a href="/blog-article/{{ blog.id }}"><img src="/images/{{ blog.thumb }}" class="img-fluid" alt="blog-img"/></a>
+                                <a href="/blog-article/{{ blog.id }}"><img src="{{ blog.thumb }}" class="img-fluid" alt="blog-img"/></a>
 
                                 <ul class="tag-list">
                                     {% for blogType in blog.type.split(',') %}

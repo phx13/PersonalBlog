@@ -392,6 +392,12 @@ ul, li, ol {
     margin-bottom: 20px;
 }
 
+.blog-box.side-blog {
+    -webkit-box-shadow: 0px 5px 35px 0px rgba(148, 146, 245, 0.15);
+    box-shadow: 0px 5px 35px 0px rgba(148, 146, 245, 0.15);
+    background: #ffffff;
+}
+
 .blog-box .tag-list {
     position: absolute;
     top: 15px;

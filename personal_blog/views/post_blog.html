@@ -1,26 +1,66 @@
 {% extends 'base.html' %}
 {% block content %}
     <div style="height: 70px"></div>
-    <!-- UEditor -->
-    <div id="post-blog" class="custom-section">
-        <div class="container">
-            <div class="custom-section-title">
-                <h3>Post blog</h3>
-                <p>Recording the beauty and moving around</p>
-            </div><!-- end title -->
 
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12 custom-section-title">
-                    <h3>Title</h3>
-                    <input type="text" class="form-control">
-                </div>
-                <div style="height: 70px"></div>
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <script type="text/plain" id="UEditor"></script>
+    <div class="container custom-section">
+        <div class="custom-section-title">
+            <h3>Post blog</h3>
+            <p>Recording the beauty and moving around</p>
+        </div><!-- end title -->
+
+        <div class="row">
+            <div class="col-sm-12 col-md-2 col-lg-2">
+                <h4>New Blog</h4>
+                <a onclick="newBlog()" class="custom-btn custom-btn-hover" data-text="New Blog"><span>New Blog</span></a>
+                <hr>
+                <h4>Draft Blogs</h4>
+                {% for blog in draft_blogs %}
+                    <a onclick="loadBlog({{ blog.id }})" class="custom-btn custom-btn-hover" data-text="{{ blog.article }}"><span>{{ blog.article }}</span></a>
+                {% endfor %}
+                <hr>
+                <h4>Publish Blogs</h4>
+                {% for blog in publish_blogs %}
+                    <a onclick="loadBlog({{ blog.id }})" class="custom-btn custom-btn-hover" data-text="{{ blog.article }}"><span>{{ blog.article }}</span></a>
+                {% endfor %}
+            </div>
+            <div class="col-sm-12 col-md-10 col-lg-10">
+                <!-- UEditor -->
+                <div id="post-blog">
+                    <div class="container">
+                        <div class="custom-form">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <h4>Title</h4>
+                                    <div id="blogId" style="display: none"></div>
+                                    <input id="blogTitle" type="text" class="form-control">
+                                    <h4>Type (Please separate types with ',')</h4>
+                                    <input id="blogType" type="text" class="form-control">
+                                </div>
+
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <img src="" id="thumb" class="rounded mx-auto d-block img-thumbnail" style="height: 160px; margin-bottom: 10px;">
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input onchange="fileChange(this)" type="file" class="custom-file-input" id="inputGroupFile" aria-describedby="inputGroupFileAddon">
+                                            <label class="custom-file-label" id="filenameLabel" for="inputGroupFile">Choose thumb image</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <script type="text/plain" id="UEditor"></script>
+                                </div>
+
+                                <a onclick="postBlog('draft')" class="custom-btn custom-btn-hover" data-text="Draft" id="draftBtn"><span>Draft</span></a>
+                                <a onclick="postBlog('publish')" class="custom-btn custom-btn-hover" data-text="Publish" id="publishBtn"><span>Publish</span></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 {% endblock %}
 
 {% block scripts %}
