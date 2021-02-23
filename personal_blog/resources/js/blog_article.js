@@ -48,11 +48,26 @@ function addReply(articleId, commentId) {
 }
 
 function updateOpinion(commentId, type) {
-    param = "comment_id=" + commentId + "&type=" + type;
+    let param = "comment_id=" + commentId + "&type=" + type;
     $.post('/opinion', param, function (data) {
         alert(data);
         if (data.startsWith("Success")) {
             setTimeout('location.reload()', 500);
         }
     })
+}
+
+function addRate(articleId) {
+    try {
+        let rate = $("input[name='rate']:checked")[0].value;
+        let param = "article_id=" + articleId + "&rate=" + rate;
+        $.post('/rate', param, function (data) {
+            alert(data);
+            if (data.startsWith("Success")) {
+                setTimeout('location.reload()', 500);
+            }
+        })
+    } catch (error) {
+        alert("Fail: Please choose a rate star");
+    }
 }

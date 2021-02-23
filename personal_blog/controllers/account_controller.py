@@ -30,10 +30,12 @@ def login():
         end_time = time.strftime('%Y-%m-%d 23:59:59')
         credit_model = CreditModel()
         if len(credit_model.check_credit_by_time(session.get('email'), 'login', start_time, end_time)) == 0:
-            credit_model.insert_credit(session.get('email'), 'login', 'Today\'s first login', 0, 5, create_time)
+            credit_model.insert_credit(session.get('email'), 'login', 'today\'s first login', 0, 5, create_time)
             account_model.update_credit(session.get('email'), 5)
+            response = make_response('Success: Today\'s first login, credit +5')
+        else:
+            response = make_response('Success: Login successful')
 
-        response = make_response('Success: Login successful')
         response.set_cookie('email', result.email, max_age=10 * 24 * 3600)
         return response
     else:
@@ -48,8 +50,8 @@ def register():
 
     if account_model.search_account_by_email(email):
         return 'Fail: This account is already registered'
-    elif not re.match('.+@.+\..+', email) or password == '':
-        return 'Fail: Incorrect email or password format'
+    elif not re.match('.+@.+\..+', email) or len(password) < 3:
+        return 'Fail: Invalid email or password less than 3 letters'
     else:
         password = hashlib.md5(password.encode()).hexdigest()
         nickname = email.split('@')[0]

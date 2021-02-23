@@ -1,4 +1,4 @@
-from sqlalchemy import Table
+from sqlalchemy import Table, distinct
 from personal_blog.commons.db_orm_helper import init_db
 
 db_session, db_model, db_metadata = init_db()
@@ -16,6 +16,16 @@ class BlogModel(db_model):
         result = db_session.query(BlogModel).filter_by(draft=1).all()
         return result
 
+    def search_all_type(self):
+        result = db_session.query(distinct(BlogModel.type)).filter_by(draft=0).all()
+        res = []
+        for item in result:
+            for subtype in item[0].strip().split(','):
+                if subtype not in res:
+                    res.append(subtype)
+        result = ','.join(res)
+        return result
+
     def search_blog_total_count(self):
         result = db_session.query(BlogModel).filter_by(draft=0).count()
         return result
@@ -24,30 +34,50 @@ class BlogModel(db_model):
         result = db_session.query(BlogModel).filter_by(id=id).first()
         return result
 
-    def search_blog_by_limit(self, start, count):
-        result = db_session.query(BlogModel).filter_by(draft=0).order_by(BlogModel.updatetime.desc()).limit(count).offset(start)
+    def search_blog_by_hot(self, start, count):
+        result = db_session.query(BlogModel).filter_by(draft=0).order_by(BlogModel.readcount.desc()).limit(count).offset(start)
         return result
 
-    def search_blog_by_article(self, keyword, start, count):
-        result = db_session.query(BlogModel).filter(BlogModel.article.like('%' + keyword + '%'), BlogModel.draft == 0).order_by(BlogModel.updatetime.desc()).limit(count).offset(
-            start)
+    def search_blog_by_limit(self, start, count, sort):
+        if sort == 1:
+            result = db_session.query(BlogModel).filter_by(draft=0).order_by(BlogModel.updatetime.desc()).limit(count).offset(start)
+        else:
+            result = db_session.query(BlogModel).filter_by(draft=0).order_by(BlogModel.updatetime.asc()).limit(count).offset(start)
+        return result
+
+    def search_blog_by_article(self, keyword, start, count, sort):
+        if sort == 1:
+            result = db_session.query(BlogModel).filter(BlogModel.article.like('%' + keyword + '%'), BlogModel.draft == 0).order_by(BlogModel.updatetime.desc()).limit(
+                count).offset(start)
+        else:
+            result = db_session.query(BlogModel).filter(BlogModel.article.like('%' + keyword + '%'), BlogModel.draft == 0).order_by(BlogModel.updatetime.asc()).limit(
+                count).offset(start)
         return result
 
     def search_blog_total_count_by_article(self, keyword):
         result = db_session.query(BlogModel).filter(BlogModel.article.like('%' + keyword + '%'), BlogModel.draft == 0).count()
         return result
 
-    def search_blog_by_content(self, keyword, start, count):
-        result = db_session.query(BlogModel).filter(BlogModel.content.like('%' + keyword + '%'), BlogModel.draft == 0).order_by(BlogModel.updatetime.desc()).limit(count).offset(
-            start)
+    def search_blog_by_content(self, keyword, start, count, sort):
+        if sort == 1:
+            result = db_session.query(BlogModel).filter(BlogModel.content.like('%' + keyword + '%'), BlogModel.draft == 0).order_by(BlogModel.updatetime.desc()).limit(
+                count).offset(start)
+        else:
+            result = db_session.query(BlogModel).filter(BlogModel.content.like('%' + keyword + '%'), BlogModel.draft == 0).order_by(BlogModel.updatetime.asc()).limit(
+                count).offset(start)
         return result
 
     def search_blog_total_count_by_content(self, keyword):
         result = db_session.query(BlogModel).filter(BlogModel.content.like('%' + keyword + '%'), BlogModel.draft == 0).count()
         return result
 
-    def search_blog_by_type(self, type, start, count):
-        result = db_session.query(BlogModel).filter(BlogModel.type.like('%' + type + '%'), BlogModel.draft == 0).order_by(BlogModel.updatetime.desc()).limit(count).offset(start)
+    def search_blog_by_type(self, type, start, count, sort):
+        if sort == 1:
+            result = db_session.query(BlogModel).filter(BlogModel.type.like('%' + type + '%'), BlogModel.draft == 0).order_by(BlogModel.updatetime.desc()).limit(count).offset(
+                start)
+        else:
+            result = db_session.query(BlogModel).filter(BlogModel.type.like('%' + type + '%'), BlogModel.draft == 0).order_by(BlogModel.updatetime.asc()).limit(count).offset(
+                start)
         return result
 
     def search_blog_total_count_by_type(self, type):

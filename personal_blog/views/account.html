@@ -77,22 +77,46 @@
                         <div class="custom-section">
                             <div class="custom-section-title">
                                 <h3>Credit activities</h3>
-                            </div><!-- end title -->
-                            <ul>
+                            </div>
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Event</th>
+                                    <th scope="col">Credit</th>
+                                    <th scope="col">Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
                                 {% for activity in credit_activities %}
-                                    <li>{{ activity.event }}: {{ activity.credit }} {{ activity.updatetime }}</li>
+                                    <tr>
+                                        <td>{{ activity.event }}</td>
+                                        <td>{{ activity.credit }}</td>
+                                        <td>{{ activity.updatetime }}</td>
+                                    </tr>
                                 {% endfor %}
-                            </ul>
+                                </tbody>
+                            </table>
                         </div>
                         <div class="custom-section">
                             <div class="custom-section-title">
                                 <h3>Collection activities</h3>
-                            </div><!-- end title -->
-                            <ul>
+                            </div>
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Blog</th>
+                                    <th scope="col">Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
                                 {% for activity in collection_activities %}
-                                    <li><a href="/blog-article/{{ activity.articleid }}">{{ activity.articleid }}: {{ activity.updatetime }}</a></li>
+                                    <tr>
+                                        <td><a href="/blog-article/{{ activity.articleid }}">{{ activity.article }}</a></td>
+                                        <td>{{ activity.updatetime }}</td>
+                                    </tr>
                                 {% endfor %}
-                            </ul>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

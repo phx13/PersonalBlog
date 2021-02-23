@@ -523,6 +523,40 @@ ul, li, ol {
     background-color: #dddddd;
 }
 
-.blog-section .replyList label{
+.blog-section .replyList label {
     color: #2D64B3;
+}
+
+/* --------------------------------
+    Rate
+-------------------------------- */
+
+.rating {
+    font-size: 0;
+    display: table;
+}
+
+.rating > label {
+    color: #ddd;
+    float: right;
+}
+
+.rating > label:before {
+    padding: 5px;
+    font-size: 20px;
+    line-height: 1em;
+    display: inline-block;
+    content: "★";
+}
+
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: #FFD700;
+}
+
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label {
+    opacity: 0.5;
 }

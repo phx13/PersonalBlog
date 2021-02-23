@@ -1,6 +1,7 @@
 from sqlalchemy import Table
 
-from personal_blog.commons.db_orm_helper import init_db
+from personal_blog.commons.db_orm_helper import init_db, join_list_model
+from personal_blog.models.blog_model import BlogModel
 
 db_session, db_model, db_metadata = init_db()
 
@@ -33,5 +34,8 @@ class CollectionModel(db_model):
         return True
 
     def search_collection_by_email(self, email):
-        result = db_session.query(CollectionModel).filter_by(email=email, cancel=0).order_by(CollectionModel.updatetime.desc()).all()
-        return result
+        result = db_session.query(CollectionModel, BlogModel).join(BlogModel, BlogModel.id == CollectionModel.articleid).filter(CollectionModel.email == email,
+                                                                                                                                CollectionModel.cancel == 0).order_by(
+            CollectionModel.updatetime.desc()).all()
+        collection_article_list = join_list_model(result)
+        return collection_article_list
