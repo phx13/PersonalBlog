@@ -220,7 +220,7 @@ ul, li, ol {
 .custom-form textarea {
     color: #bcbcbc;
     padding: 20px 25px !important;
-    height: 150px !important;
+    height: 130px !important;
 }
 
 .custom-form .form-control::-webkit-input-placeholder {
@@ -237,7 +237,7 @@ ul, li, ol {
 }
 
 .custom-form textarea.form-control {
-    min-height: 210px;
+    min-height: 130px;
 }
 
 /*------------------------------------------------------------------

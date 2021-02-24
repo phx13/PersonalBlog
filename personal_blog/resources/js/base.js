@@ -22,12 +22,15 @@ function loginOrRegister() {
             }
         })
     } else {
+        let firstName = $.trim($("#registerFirstName").val());
+        let lastName = $.trim($("#registerLastName").val());
         let email = $.trim($("#registerEmail").val());
         let password = $.trim($("#registerPassword").val());
         let emailCode = $.trim($("#registerCode").val());
         let param = "email=" + email;
         param += "&password=" + password;
         param += "&email_code=" + emailCode;
+        param += "&name=" + firstName + " " + lastName;
         $.post('/register', param, function (data) {
             alert(data);
             if (data.startsWith("Success")) {
@@ -47,7 +50,7 @@ function loginOrRegister() {
     }
 }
 
-function sendEmail(element) {
+function sendVerificationEmail(element) {
     let email = $.trim($("#registerEmail").val());
     if (email.match(/.+@.+\..+/)) {
         let param = "email=" + email;
@@ -80,6 +83,8 @@ $(document).ready(function () {
     $("#registerEmail").bind('input propertychange', monitorInput);
     $("#loginPassword").bind('input propertychange', monitorInput);
     $("#registerPassword").bind('input propertychange', monitorInput);
+    $("#registerFirstName").bind('input propertychange', monitorInput);
+    $("#registerLastName").bind('input propertychange', monitorInput);
 })
 
 function monitorInput() {
@@ -121,5 +126,27 @@ function monitorInput() {
         $("#registerPassword").attr("class", "form-control is-valid");
         $("#registerPasswordVerification").attr("class", "valid-feedback");
         $("#registerPasswordVerification").html("Valid Password");
+    }
+
+    let re = new RegExp(/[.,\/#!$%\^&\*;:{}=\-_`~()?0-9]/g);
+
+    if (re.test($.trim($("#registerFirstName").val())) || $.trim($("#registerFirstName").val()) == "") {
+        $("#registerFirstName").attr("class", "form-control col-sm-12 col-md-6 col-lg-6 is-invalid");
+        $("#registerNameVerification").attr("class", "invalid-feedback");
+        $("#registerNameVerification").html("Invalid name");
+    } else {
+        $("#registerFirstName").attr("class", "form-control col-sm-12 col-md-6 col-lg-6 is-valid");
+        $("#registerNameVerification").attr("class", "valid-feedback");
+        $("#registerNameVerification").html("Valid Name");
+    }
+
+    if (re.test($.trim($("#registerLastName").val())) || $.trim($("#registerLastName").val()) == "") {
+        $("#registerLastName").attr("class", "form-control col-sm-12 col-md-6 col-lg-6 is-invalid");
+        $("#registerNameVerification").attr("class", "invalid-feedback");
+        $("#registerNameVerification").html("Invalid name");
+    } else {
+        $("#registerLastName").attr("class", "form-control col-sm-12 col-md-6 col-lg-6 is-valid");
+        $("#registerNameVerification").attr("class", "valid-feedback");
+        $("#registerNameVerification").html("Valid Name");
     }
 }

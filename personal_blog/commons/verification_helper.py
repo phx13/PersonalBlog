@@ -65,3 +65,20 @@ class EmailVerificationHelper:
 
     def generate_code(self):
         return ''.join(random.sample(string.ascii_letters + string.digits, 6))
+
+
+class EmailContactHelper:
+    def send_email(self, sender, name, message_content):
+        sender = '945871257@qq.com'
+        content = '<b>' + name + '</b>' + '<hr>' + message_content
+        message = MIMEText(content, 'html', 'utf-8')
+        message['Subject'] = Header(name + ' contact you', 'utf-8')
+        message['From'] = formataddr((name, sender))
+        message['To'] = 'guoc9@cardiff.ac.uk'
+        try:
+            smtp = SMTP_SSL('smtp.qq.com', 465)
+            smtp.login(sender, 'uppfznrxulnabbjc')
+            smtp.sendmail(sender, 'guoc9@cardiff.ac.uk', str(message))
+            smtp.quit()
+        except SMTPException:
+            return 'Fail: Send failed'

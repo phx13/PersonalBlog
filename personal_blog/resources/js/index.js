@@ -171,3 +171,30 @@ $(document).ready(function ($) {
     }
 });
 
+function sendContactEmail() {
+    let contactName = $.trim($("#contactName").val());
+    let contactEmail = $.trim($("#contactEmail").val());
+    let contactMessage = $.trim($("#contactMessage").val());
+    if (contactEmail.match(/.+@.+\..+/)) {
+        let param = "email=" + contactEmail;
+        param += "&name=" + contactName;
+        param += "&message=" + contactMessage;
+        $.post('/contact', param, function (data) {
+            alert(data);
+            if (data.startsWith("Success")) {
+                $("#contactName").val("");
+                $("#contactEmail").val("");
+                $("#contactMessage").val("");
+                $("#sendMessageButton").attr("disabled", true);
+                return false;
+            }
+        })
+    } else {
+        alert("Fail: Invalid email");
+        $("#contactName").val("");
+        $("#contactEmail").val("");
+        $("#contactMessage").val("");
+        $("#contactName").focus();
+    }
+}
+

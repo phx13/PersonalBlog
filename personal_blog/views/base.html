@@ -15,8 +15,9 @@
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="/images/mobile_favicon.ico" type="image/x-icon">
 
-    <!-- Bootstrap CSS -->
+    <!-- Import CSS -->
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
 
     <!-- Site CSS -->
     <link rel="stylesheet" href="/css/style.css">
@@ -113,6 +114,11 @@
                     <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
                         <form class="container custom-form">
                             <div class="form-group row">
+                                <input class="form-control col-sm-12 col-md-6 col-lg-6" id="registerFirstName" placeholder="Your firstName" required="required">
+                                <input class="form-control col-sm-12 col-md-6 col-lg-6" id="registerLastName" placeholder="Your lastName" required="required">
+                                <h4 id="registerNameVerification"></h4>
+                            </div>
+                            <div class="form-group row">
                                 <input class="form-control" name="registerEmail" id="registerEmail" type="email" placeholder="Your email" required="required">
                                 <h4 id="registerEmailVerification"></h4>
                             </div>
@@ -123,7 +129,7 @@
                             <div class="form-group row">
                                 <input class="form-control col-sm-12 col-md-6 col-lg-6" name="registerCode" id="registerCode" type="text" placeholder="Email code"
                                        required="required">
-                                <button class="custom-btn custom-btn-hover col-sm-12 col-md-6 col-lg-6" data-text="Get email code" onclick="sendEmail()" id="registerCodeBtn">
+                                <button class="custom-btn custom-btn-hover col-sm-12 col-md-6 col-lg-6" data-text="Get email code" onclick="sendVerificationEmail(this)" id="registerCodeBtn">
                                     Get email code
                                 </button>
                             </div>

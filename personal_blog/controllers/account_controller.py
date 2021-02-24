@@ -52,6 +52,7 @@ def register():
     email = request.form.get('email').strip()
     password = request.form.get('password').strip()
     email_code = request.form.get('email_code').strip()
+    name = request.form.get('name').strip()
 
     if account_model.search_account_by_email(email):
         return 'Fail: This account is already registered'
@@ -61,7 +62,7 @@ def register():
         return 'Fail: Incorrect email verification code'
     else:
         password = hashlib.md5(password.encode()).hexdigest()
-        nickname = email.split('@')[0]
+        nickname = name
         avatar = '/images/cardiff_university_logo.jpg'
         profile = 'Hello, this is ' + nickname
         create_time = time.strftime('%Y-%m-%d %H:%M:%S')

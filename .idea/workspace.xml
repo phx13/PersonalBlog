@@ -2,125 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68b2abaa-5f93-48aa-bd63-b26a5910b761" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/personal_blog/commons/verification_helper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/personal_blog/docs/~$bsite Blog Project.doc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/BdfFontFile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/BlpImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/BmpImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/BufrStubImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ContainerIO.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/CurImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/DcxImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/DdsImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/EpsImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ExifTags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/FitsStubImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/FliImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/FontFile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/FpxImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/FtexImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/GbrImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/GdImageFile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/GifImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/GimpGradientFile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/GimpPaletteFile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/GribStubImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/Hdf5StubImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/IcnsImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/IcoImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/Image.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageChops.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageCms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageColor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageDraw.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageDraw2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageEnhance.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageFile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageFilter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageFont.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageGrab.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageMath.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageMode.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageMorph.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageOps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImagePalette.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImagePath.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageQt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageSequence.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageShow.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageStat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageTk.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageTransform.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImageWin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/ImtImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/IptcImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/Jpeg2KImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/JpegImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/JpegPresets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/McIdasImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/MicImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/MpegImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/MpoImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/MspImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/PSDraw.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/PaletteFile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/PalmImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/PcdImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/PcfFontFile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/PcxImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/PdfImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/PdfParser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/PixarImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/PngImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/PpmImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/PsdImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/PyAccess.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/SgiImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/SpiderImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/SunImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/TarIO.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/TgaImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/TiffImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/TiffTags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/WalImageFile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/WebPImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/WmfImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/XVThumbImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/XbmImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/XpmImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/__main__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/_binary.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/_imaging.cp38-win_amd64.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/_imagingcms.cp38-win_amd64.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/_imagingft.cp38-win_amd64.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/_imagingmath.cp38-win_amd64.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/_imagingmorph.cp38-win_amd64.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/_imagingtk.cp38-win_amd64.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/_tkinter_finder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/_util.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/_version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/_webp.cp38-win_amd64.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/PIL/features.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/Pillow-8.0.1.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/Pillow-8.0.1.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/Pillow-8.0.1.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/Pillow-8.0.1.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/Pillow-8.0.1.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/Pillow-8.0.1.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/Pillow-8.0.1.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv_personal_blog/Lib/site-packages/Pillow-8.0.1.dist-info/zip-safe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/personal_blog/resources/docs/Functionality requirements.xls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/personal_blog/resources/docs/Website Blog Project.doc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/personal_blog/resources/docs/phoenix.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/commons/base64_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/commons/base64_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/commons/verification_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/commons/verification_helper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal_blog/controllers/account_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/controllers/account_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/controllers/blog_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/controllers/blog_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/docs/Functionality requirements.xls" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/docs/Functionality requirements.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/controllers/index_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/controllers/index_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/docs/Functionality requirements.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/docs/Website Blog Project.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/docs/~$bsite Blog Project.doc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/personal_blog/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/js/account.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/js/account.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal_blog/resources/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/js/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/views/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/account.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal_blog/views/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/views/blog_article.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/blog_article.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/views/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/views/blog_search.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/blog_search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/views/blog_type.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/blog_type.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,7 +174,8 @@
       <workItem from="1613966032438" duration="19579000" />
       <workItem from="1614009305259" duration="612000" />
       <workItem from="1614046809113" duration="24247000" />
-      <workItem from="1614128200431" duration="19219000" />
+      <workItem from="1614128200431" duration="19430000" />
+      <workItem from="1614166680325" duration="13295000" />
     </task>
     <task id="LOCAL-00001" summary="refactor prj">
       <created>1612417146300</created>
@@ -365,7 +268,21 @@
       <option name="project" value="LOCAL" />
       <updated>1614096929412</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="verification">
+      <created>1614150822899</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1614150822900</updated>
+    </task>
+    <task id="LOCAL-00015" summary="verification">
+      <created>1614150892317</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1614150892317</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,11 +313,12 @@
     <MESSAGE value="credit" />
     <MESSAGE value="post blog" />
     <MESSAGE value="blog side func" />
-    <option name="LAST_COMMIT_MESSAGE" value="blog side func" />
+    <MESSAGE value="verification" />
+    <option name="LAST_COMMIT_MESSAGE" value="verification" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CMT120_CW2_Website$verify_helper.coverage" NAME="verify_helper Coverage Results" MODIFIED="1614136386424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/personal_blog/commons" />
-    <SUITE FILE_PATH="coverage/CMT120_CW2_Website$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1614150134587" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CMT120_CW2_Website$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1614169463465" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CMT120_CW2_Website$verification_helper__1_.coverage" NAME="verification_helper (1) Coverage Results" MODIFIED="1614140302186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/personal_blog/commons" />
   </component>
 </project>

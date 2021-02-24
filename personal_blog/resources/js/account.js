@@ -37,3 +37,17 @@ function updateProfile() {
         }
     });
 }
+
+function cancelCollection(articleId) {
+    $.ajax({
+        url: '/collection/' + articleId,
+        type: 'delete',
+        success: function (data) {
+            alert(data);
+            if (data.startsWith("Success")) {
+                $("#collection").html("Welcome you collect again");
+                setTimeout('location.reload()', 1000);
+            }
+        }
+    });
+}

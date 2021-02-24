@@ -7,8 +7,8 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__, template_folder='views', static_url_path='/', static_folder='resources')
 app.config['SECRET_KEY'] = os.urandom(24)
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:phx25891863@localhost:3306/cw2?charset=utf8'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://c2068740:Phx25891863@csmysql.cs.cf.ac.uk:3306/c2068740_cw2?charset=utf8'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:phx25891863@localhost:3306/cw2?charset=utf8'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://c2068740:Phx25891863@csmysql.cs.cf.ac.uk:3306/c2068740_cw2?charset=utf8'
 app.config['SQLALCHEMY_POOL_SIZE'] = 1000
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -28,7 +28,7 @@ def error500(e):
 def before_request():
     url = request.path
     can_pass_urls = ['/login', '/register', '/logout']
-    if url in can_pass_urls or url.endswith('.js') or url.endswith('.jpg') or url.endswith('.png'):
+    if url in can_pass_urls or url.endswith('.js') or url.endswith('.jpg') or url.endswith('.png') or url.endswith('.pdf'):
         pass
     elif session.get('login') is None:
         from personal_blog.models.account_model import AccountModel

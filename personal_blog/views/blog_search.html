@@ -37,37 +37,37 @@
                         </div>
                     {% endfor %}
 
-                    <nav class="text-center">
-                        <ul class="pagination">
+                    <nav>
+                        <ul class="pagination justify-content-center">
                             {% if current_page == 1 %}
                                 <li class="page-item disabled">
-                                    <a class="page-link" tabindex="-1" aria-disabled="true" href="/blog-search/1-{{ keyword }}">pre</a>
+                                    <a class="page-link custom-btn custom-btn-hover" tabindex="-1" aria-disabled="true" href="/blog-search/1-{{ keyword }}">pre</a>
                                 </li>
                             {% else %}
                                 <li class="page-item">
-                                    <a class="page-link" href="/blog-search/{{ current_page - 1 }}-{{ keyword }}">pre</a>
+                                    <a class="page-link custom-btn custom-btn-hover" href="/blog-search/{{ current_page - 1 }}-{{ keyword }}">pre</a>
                                 </li>
                             {% endif %}
 
                             {% for i in range(total_page) %}
                                 {% if i == current_page - 1 %}
                                     <li class="page-item active">
-                                        <a class="page-link" href="/blog-search/{{ i + 1 }}-{{ keyword }}">{{ i + 1 }}</a>
+                                        <a class="page-link custom-btn custom-btn-hover" href="/blog-search/{{ i + 1 }}-{{ keyword }}">{{ i + 1 }}</a>
                                     </li>
                                 {% else %}
                                     <li class="page-item">
-                                        <a class="page-link" href="/blog-search/{{ i + 1 }}-{{ keyword }}">{{ i + 1 }}</a>
+                                        <a class="page-link custom-btn custom-btn-hover" href="/blog-search/{{ i + 1 }}-{{ keyword }}">{{ i + 1 }}</a>
                                     </li>
                                 {% endif %}
                             {% endfor %}
 
                             {% if current_page == total_page %}
                                 <li class="page-item disabled">
-                                    <a class="page-link" tabindex="-1" aria-disabled="true" href="/blog-search/{{ total_page }}-{{ keyword }}">next</a>
+                                    <a class="page-link custom-btn custom-btn-hover" tabindex="-1" aria-disabled="true" href="/blog-search/{{ total_page }}-{{ keyword }}">next</a>
                                 </li>
                             {% else %}
                                 <li class="page-item">
-                                    <a class="page-link" href="/blog-search/{{ current_page + 1 }}-{{ keyword }}">next</a>
+                                    <a class="page-link custom-btn custom-btn-hover" href="/blog-search/{{ current_page + 1 }}-{{ keyword }}">next</a>
                                 </li>
                             {% endif %}
                         </ul>
