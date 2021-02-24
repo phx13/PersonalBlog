@@ -86,9 +86,8 @@ def verification_code():
     try:
         code, byte_code = ImageVerificationHelper().get_code()
         session['image_code'] = code.lower()
-        print(session.get('image_code'))
         response = make_response(byte_code)
-        response.headers['Content-type'] = 'image/jpeg'
+        response.headers['Content-Type'] = 'image/png'
     except:
         return 'Fail: Image generate failed'
     return response
@@ -100,7 +99,6 @@ def verification_email():
         email = request.form.get('email')
         code = EmailVerificationHelper().generate_code()
         session['email_code'] = code
-        print(session.get('email_code'))
         EmailVerificationHelper().send_email(email, code)
         return 'Success: Email send successful'
     except:

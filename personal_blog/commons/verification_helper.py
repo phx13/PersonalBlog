@@ -1,3 +1,4 @@
+import base64
 import random
 import string
 from email.header import Header
@@ -41,7 +42,7 @@ class ImageVerificationHelper:
     def get_code(self):
         image, code = self.generate_image_code()
         buffer = BytesIO()
-        image.save(buffer, 'jpeg')
+        image.save(buffer, 'png')
         byte_code = buffer.getvalue()
         return code, byte_code
 
@@ -52,7 +53,6 @@ class EmailVerificationHelper:
         content = f"<br/>Welcome to register for Phoenix Blog account, your email verification code is <span style='color:orange;'>{code}</span><br/>Please enter this verification code in the registration form to complete the registration"
         message = MIMEText(content, 'html', 'utf-8')
         message['Subject'] = Header('Email verification code for Phoenix Blog', 'utf-8')
-        # message['From'] = Header('Phoenix <guoc9@cardiff.ac.uk>', 'utf-8')
         message['From'] = formataddr(('Phoenix', 'guoc9@cardiff.ac.uk'))
         message['To'] = receiver
         try:

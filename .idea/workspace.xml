@@ -4,6 +4,8 @@
     <list default="true" id="68b2abaa-5f93-48aa-bd63-b26a5910b761" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal_blog/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/commons/verification_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/commons/verification_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/controllers/account_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/controllers/account_controller.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +159,7 @@
       <workItem from="1614046809113" duration="24247000" />
       <workItem from="1614128200431" duration="19430000" />
       <workItem from="1614166680325" duration="13804000" />
-      <workItem from="1614188052204" duration="649000" />
+      <workItem from="1614188052204" duration="2701000" />
     </task>
     <task id="LOCAL-00001" summary="refactor prj">
       <created>1612417146300</created>
@@ -278,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614186021357</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="verification">
+      <created>1614189085659</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1614189085659</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,13 +318,13 @@
     <MESSAGE value="credit" />
     <MESSAGE value="post blog" />
     <MESSAGE value="blog side func" />
-    <MESSAGE value="verification" />
     <MESSAGE value="update advanced func" />
-    <option name="LAST_COMMIT_MESSAGE" value="update advanced func" />
+    <MESSAGE value="verification" />
+    <option name="LAST_COMMIT_MESSAGE" value="verification" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CMT120_CW2_Website$verify_helper.coverage" NAME="verify_helper Coverage Results" MODIFIED="1614136386424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/personal_blog/commons" />
-    <SUITE FILE_PATH="coverage/CMT120_CW2_Website$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1614188127828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CMT120_CW2_Website$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1614190633187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CMT120_CW2_Website$verification_helper__1_.coverage" NAME="verification_helper (1) Coverage Results" MODIFIED="1614140302186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/personal_blog/commons" />
   </component>
 </project>
