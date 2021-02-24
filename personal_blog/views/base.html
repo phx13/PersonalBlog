@@ -95,28 +95,37 @@
                     <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
                         <form class="container custom-form">
                             <div class="form-group row">
-                                <input class="form-control" name="loginEmail" id="loginEmail" type="email" placeholder="Your email" required="required"
-                                       data-validation-required-message="Please enter your email.">
-                                <h4 id="loginEmailValidation"></h4>
+                                <input class="form-control" name="loginEmail" id="loginEmail" type="email" placeholder="Your email" required="required">
+                                <h4 id="loginEmailVerification"></h4>
                             </div>
                             <div class="form-group row">
-                                <input class="form-control" name="loginPassword" id="loginPassword" type="password" placeholder="Your password" required="required"
-                                       data-validation-required-message="Please enter your password.">
-                                <h4 id="loginPasswordValidation"></h4>
+                                <input class="form-control" name="loginPassword" id="loginPassword" type="password" placeholder="Your password" required="required">
+                                <h4 id="loginPasswordVerification"></h4>
+                            </div>
+                            <div class="form-group row">
+                                <input class="form-control col-sm-12 col-md-6 col-lg-6" name="loginCode" id="loginCode" type="text" placeholder="Image code"
+                                       required="required">
+                                <img src="/verification/image" class="col-sm-12 col-md-6 col-lg-6" id="loginCodeImg" style="cursor:pointer; height: 50px;"
+                                     onclick="refreshImageCode()">
                             </div>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
                         <form class="container custom-form">
                             <div class="form-group row">
-                                <input class="form-control" name="registerEmail" id="registerEmail" type="email" placeholder="Your email" required="required"
-                                       data-validation-required-message="Please enter your email.">
-                                <h4 id="registerEmailValidation"></h4>
+                                <input class="form-control" name="registerEmail" id="registerEmail" type="email" placeholder="Your email" required="required">
+                                <h4 id="registerEmailVerification"></h4>
                             </div>
                             <div class="form-group row">
-                                <input class="form-control" name="registerPassword" id="registerPassword" type="password" placeholder="Your password" required="required"
-                                       data-validation-required-message="Please enter your password.">
-                                <h4 id="registerPasswordValidation"></h4>
+                                <input class="form-control" name="registerPassword" id="registerPassword" type="password" placeholder="Your password" required="required">
+                                <h4 id="registerPasswordVerification"></h4>
+                            </div>
+                            <div class="form-group row">
+                                <input class="form-control col-sm-12 col-md-6 col-lg-6" name="registerCode" id="registerCode" type="text" placeholder="Email code"
+                                       required="required">
+                                <button class="custom-btn custom-btn-hover col-sm-12 col-md-6 col-lg-6" data-text="Get email code" onclick="sendEmail()" id="registerCodeBtn">
+                                    Get email code
+                                </button>
                             </div>
                         </form>
                     </div>

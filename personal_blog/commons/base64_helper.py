@@ -42,8 +42,8 @@ class Base64Helper(object):
                 os.mkdir('personal_blog/resources/images')
             img_data = base64.b64decode(self.picture.split(",")[-1].encode("utf-8"))
             create_time = time.strftime("%Y-%m-%d-%H-%M-%S")
-            with open('personal_blog/resources/images/{0}.png'.format(create_time), 'wb') as f:
+            with open('personal_blog/resources/images/{0}.jpg'.format(create_time), 'wb') as f:
                 f.write(img_data)
-            return '/images/{0}.png'.format(create_time)
+            return '/images/{0}.jpg'.format(create_time)
         else:
             raise Exception

@@ -2,31 +2,68 @@ function loginOrRegister() {
     if ($("#login-tab")[0].ariaSelected === 'true') {
         let email = $.trim($("#loginEmail").val());
         let password = $.trim($("#loginPassword").val());
+        let imageCode = $.trim($("#loginCode").val());
 
         let param = "email=" + email;
         param += "&password=" + password;
+        param += "&image_code=" + imageCode;
         $.post('/login', param, function (data) {
             alert(data);
             if (data.startsWith("Success")) {
                 setTimeout('location.reload()', 500);
+            } else if (data == "Fail: Incorrect image verification code") {
+                $("#loginCode").val("");
+                $("#loginCode").focus();
+            } else {
                 $("#loginEmail").val("");
                 $("#loginPassword").val("");
+                $("#loginCode").val("");
+                $("#loginEmail").focus();
             }
         })
     } else {
         let email = $.trim($("#registerEmail").val());
         let password = $.trim($("#registerPassword").val());
+        let emailCode = $.trim($("#registerCode").val());
         let param = "email=" + email;
         param += "&password=" + password;
+        param += "&email_code=" + emailCode;
         $.post('/register', param, function (data) {
             alert(data);
             if (data.startsWith("Success")) {
                 setTimeout('location.reload()', 500);
+            } else if (data == "Fail: Incorrect email verification code") {
+                $("#registerCode").val("");
+                $("#registerCode").focus();
+            } else {
+                $("#registerEmail").attr("disabled", false);
+                $("#registerCodeBtn").attr("disabled", false);
                 $("#registerEmail").val("");
                 $("#registerPassword").val("");
+                $("#registerCode").val("");
+                $("#registerEmail").focus();
             }
         })
     }
+}
+
+function sendEmail(element) {
+    let email = $.trim($("#registerEmail").val());
+    if (email.match(/.+@.+\..+/)) {
+        let param = "email=" + email;
+        $.post('/verification/email', param, function (data) {
+            alert(data);
+            if (data.startsWith("Success")) {
+                $("#registerEmail").attr("disabled", true);
+                $("#registerCodeBtn").attr("disabled", true);
+                return false;
+            }
+        })
+    }
+}
+
+function refreshImageCode() {
+    $('#loginCodeImg').attr("src", "/verification/image?r=" + Math.random());
 }
 
 function showModel() {
@@ -38,69 +75,51 @@ $(".navbar-nav").find("li").click(function () {
     $(this).find("a").addClass("active");
 })
 
-let loginEmail = document.getElementById("loginEmail");
-let registerEmail = document.getElementById("registerEmail");
-let loginPassword = document.getElementById("loginPassword");
-let registerPassword = document.getElementById("registerPassword");
+$(document).ready(function () {
+    $("#loginEmail").bind('input propertychange', monitorInput);
+    $("#registerEmail").bind('input propertychange', monitorInput);
+    $("#loginPassword").bind('input propertychange', monitorInput);
+    $("#registerPassword").bind('input propertychange', monitorInput);
+})
 
-let monitorInput = function () {
-    let loginEmailValue = loginEmail.value;
-    let loginEmailValidation = document.getElementById("loginEmailValidation");
-    if (!loginEmailValue.match(/.+@.+\..+/)) {
-        loginEmail.setAttribute("class", "form-control is-invalid");
-        loginEmailValidation.setAttribute("class", "invalid-feedback");
-        loginEmailValidation.innerHTML = "Invalid Email";
+function monitorInput() {
+    if (!$.trim($("#loginEmail").val()).match(/.+@.+\..+/)) {
+        $("#loginEmail").attr("class", "form-control is-invalid");
+        $("#loginEmailVerification").attr("class", "invalid-feedback");
+        $("#loginEmailVerification").html("Invalid Email");
     } else {
-        loginEmail.setAttribute("class", "form-control is-valid");
-        loginEmailValidation.setAttribute("class", "valid-feedback");
-        loginEmailValidation.innerHTML = "Valid Email";
+        $("#loginEmail").attr("class", "form-control is-valid");
+        $("#loginEmailVerification").attr("class", "valid-feedback");
+        $("#loginEmailVerification").html("Valid Email");
     }
 
-    let registerEmailValue = registerEmail.value;
-    let registerEmailValidation = document.getElementById("registerEmailValidation");
-    if (!registerEmailValue.match(/.+@.+\..+/)) {
-        registerEmail.setAttribute("class", "form-control is-invalid");
-        registerEmailValidation.setAttribute("class", "invalid-feedback");
-        registerEmailValidation.innerHTML = "Invalid Email";
+    if (!$.trim($("#registerEmail").val()).match(/.+@.+\..+/)) {
+        $("#registerEmail").attr("class", "form-control is-invalid");
+        $("#registerEmailVerification").attr("class", "invalid-feedback");
+        $("#registerEmailVerification").html("Invalid Email");
     } else {
-        registerEmail.setAttribute("class", "form-control is-valid");
-        registerEmailValidation.setAttribute("class", "valid-feedback");
-        registerEmailValidation.innerHTML = "Valid Email";
+        $("#registerEmail").attr("class", "form-control is-valid");
+        $("#registerEmailVerification").attr("class", "valid-feedback");
+        $("#registerEmailVerification").html("Valid Email");
     }
 
-    let loginPasswordValue = loginPassword.value;
-    let loginPasswordValidation = document.getElementById("loginPasswordValidation");
-    if (loginPasswordValue.length < 3) {
-        loginPassword.setAttribute("class", "form-control is-invalid");
-        loginPasswordValidation.setAttribute("class", "invalid-feedback");
-        loginPasswordValidation.innerHTML = "Password less than 3 letters";
+    if ($.trim($("#loginPassword").val()).length < 3) {
+        $("#loginPassword").attr("class", "form-control is-invalid");
+        $("#loginPasswordVerification").attr("class", "invalid-feedback");
+        $("#loginPasswordVerification").html("Password less than 3 letters");
     } else {
-        loginPassword.setAttribute("class", "form-control is-valid");
-        loginPasswordValidation.setAttribute("class", "valid-feedback");
-        loginPasswordValidation.innerHTML = "Valid Password";
+        $("#loginPassword").attr("class", "form-control is-valid");
+        $("#loginPasswordVerification").attr("class", "valid-feedback");
+        $("#loginPasswordVerification").html("Valid Password");
     }
 
-    let registerPasswordValue = registerPassword.value;
-    let registerPasswordValidation = document.getElementById("registerPasswordValidation");
-    if (registerPasswordValue.length < 3) {
-        registerPassword.setAttribute("class", "form-control is-invalid");
-        registerPasswordValidation.setAttribute("class", "invalid-feedback");
-        registerPasswordValidation.innerHTML = "Password less than 3 letters";
+    if ($.trim($("#registerPassword").val()).length < 3) {
+        $("#registerPassword").attr("class", "form-control is-invalid");
+        $("#registerPasswordVerification").attr("class", "invalid-feedback");
+        $("#registerPasswordVerification").html("Password less than 3 letters");
     } else {
-        registerPassword.setAttribute("class", "form-control is-valid");
-        registerPasswordValidation.setAttribute("class", "valid-feedback");
-        registerPasswordValidation.innerHTML = "Valid Password";
+        $("#registerPassword").attr("class", "form-control is-valid");
+        $("#registerPasswordVerification").attr("class", "valid-feedback");
+        $("#registerPasswordVerification").html("Valid Password");
     }
-};
-
-if (!+[1,]) {
-    loginEmail.onpropertychange = monitorInput;
-    registerEmail.onpropertychange = monitorInput;
-    loginPassword.onpropertychange = monitorInput;
-    registerPassword.onpropertychange = monitorInput;
-} else {
-    loginEmail.oninput = monitorInput;
-    registerEmail.oninput = monitorInput;
-    loginPassword.oninput = monitorInput;
-    registerPassword.oninput = monitorInput;
 }

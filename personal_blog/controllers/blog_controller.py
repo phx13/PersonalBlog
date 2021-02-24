@@ -139,23 +139,25 @@ def blog_article_page(id):
 
 @blog_blueprint.route('/rate', methods=['POST'])
 def blog_article_rate():
-    try:
-        article_id = request.form.get('article_id')
-        rate = request.form.get('rate')
-        blog_model = BlogModel()
-        blog_article = blog_model.search_blog_by_id(article_id)
-        if blog_article is None:
-            abort(404)
-    except:
-        abort(500)
+    if session.get('login') == 'true':
+        try:
+            article_id = request.form.get('article_id')
+            rate = request.form.get('rate')
+            blog_model = BlogModel()
+            blog_article = blog_model.search_blog_by_id(article_id)
+            if blog_article is None:
+                abort(404)
+        except:
+            abort(500)
 
-    rate = (int(blog_article.rate) * int(blog_article.ratecount) + int(rate)) / (int(blog_article.ratecount) + 1)
-    blog_model.update_blog_rate(article_id, rate)
+        rate = (int(blog_article.rate) * int(blog_article.ratecount) + int(rate)) / (int(blog_article.ratecount) + 1)
+        blog_model.update_blog_rate(article_id, rate)
 
-    create_time = time.strftime('%Y-%m-%d %H:%M:%S')
-    credit_model = CreditModel()
-    credit_model.insert_credit(session.get('email'), 'rate', 'rate blog', article_id, 5, create_time)
+        create_time = time.strftime('%Y-%m-%d %H:%M:%S')
+        credit_model = CreditModel()
+        credit_model.insert_credit(session.get('email'), 'rate', 'rate blog', article_id, 5, create_time)
 
-    account_model = AccountModel()
-    account_model.update_credit(session.get('email'), 5)
-    return 'Success: Rate successful, credit +5'
+        account_model = AccountModel()
+        account_model.update_credit(session.get('email'), 5)
+        return 'Success: Rate successful, credit +5'
+    return 'Fail: You are not login'

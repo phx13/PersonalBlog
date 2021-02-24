@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-sm-12 col-md-2 col-lg-2 text-center">
                         {% if is_rate == True %}
-                            <a class="custom-btn custom-btn-hover" id="rateBtn" disabled="disabled">Rated</a>
+                            <button class="custom-btn custom-btn-hover" id="rateBtn" disabled="true">Rated</button>
                         {% else %}
                             <div class="rating">
                                 <input type="radio" id="star5" name="rate" value="100" hidden/>
@@ -36,7 +36,7 @@
                                 <input type="radio" id="star1" name="rate" value="20" hidden/>
                                 <label for="star1"></label>
                             </div>
-                            <a class="custom-btn custom-btn-hover" id="rateBtn" onclick="addRate('{{ blog_article.id }}')">Rate</a>
+                            <button class="custom-btn custom-btn-hover" id="rateBtn" onclick="addRate('{{ blog_article.id }}')">Rate</button>
                         {% endif %}
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4 text-center">
