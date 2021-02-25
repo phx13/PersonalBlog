@@ -114,13 +114,15 @@ def forget():
         email = request.form.get('email').strip()
         if not email:
             return 'Fail: Please enter invalid email'
-        password = ForgetPasswordHelper().generate_password()
-        ForgetPasswordHelper().send_email(email, password)
-        password = hashlib.md5(password.encode()).hexdigest()
         account_model = AccountModel()
         current_account = account_model.search_account_by_email(email)
         if not current_account:
             return 'Fail: Account is not existed'
+
+        password = ForgetPasswordHelper().generate_password()
+        ForgetPasswordHelper().send_email(email, password)
+
+        password = hashlib.md5(password.encode()).hexdigest()
         update_time = time.strftime('%Y-%m-%d %H:%M:%S')
         account_model.update_account(current_account.email, current_account.avatar, current_account.nickname, password, current_account.profile, update_time)
         return 'Success: Email send successful'

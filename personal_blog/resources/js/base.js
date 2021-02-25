@@ -68,12 +68,16 @@ function sendVerificationEmail() {
         return false;
     }
     if (email.match(/.+@.+\..+/)) {
+        $("#registerEmail").attr("disabled", true);
+        $("#registerCodeBtn").attr("disabled", true);
         let param = "email=" + email;
         $.post('/verification/email', param, function (data) {
             alert(data);
             if (data.startsWith("Success")) {
-                $("#registerEmail").attr("disabled", true);
                 $("#registerCodeBtn").html("Email has sent");
+            } else {
+                $("#registerEmail").attr("disabled", false);
+                $("#registerCodeBtn").attr("disabled", false);
             }
         })
     } else {
@@ -90,6 +94,8 @@ function sendForgetPasswordEmail() {
         return false;
     }
     if (email.match(/.+@.+\..+/)) {
+        $("#loginEmail").attr("disabled", true);
+        $("#loginPasswordBtn").attr("disabled", true);
         let param = "email=" + email;
         $.post('/forget', param, function (data) {
             alert(data);
@@ -98,6 +104,9 @@ function sendForgetPasswordEmail() {
                 $("#loginCode").val("");
                 $("#loginPasswordBtn").html("Password has sent");
                 $("#loginPassword").focus();
+            } else {
+                $("#loginEmail").attr("disabled", false);
+                $("#loginPasswordBtn").attr("disabled", false);
             }
         })
     } else {
