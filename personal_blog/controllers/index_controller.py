@@ -21,6 +21,6 @@ def contact():
         name = request.form.get('name').strip()
         message = request.form.get('message').strip()
         EmailContactHelper().send_email(email, name, message)
-        return 'Success: Email send successful'
+        return 'Success (Server) : Contact email send successful'
     except:
-        return 'Fail: Email send failed'
+        return 'Fail (Server) : Contact email send failed'
