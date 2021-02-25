@@ -30,40 +30,27 @@ class ImageVerificationHelper:
 
     def generate_image_code(self):
         code = self.generate_code()
-        print(code)
-        print('generate code success')
         width, height = 100, 50
         image = Image.new('RGB', (width, height), 'white')
-        print(image)
-        print('generate image success')
         font = ImageFont.truetype('arial.ttf', 30)
-        print(font)
-        print('generate font success')
         draw = ImageDraw.Draw(image)
-        print(draw)
-        print('generate draw success')
         for i in range(4):
             draw.text((10 + random.randint(-10, 10) + 20 * i, 10 + random.randint(-10, 10)), code[i], self.generate_color(), font)
         self.generate_line(draw, width, height)
-        print(image)
-        print('generate line success')
         return image, code
 
     def get_code(self):
         image, code = self.generate_image_code()
+        print(image)
+        print('generate line success')
+        print(code)
+        print('generate code success')
         buffer = BytesIO()
         image.save(buffer, 'jpeg')
         byte_code = buffer.getvalue()
-        print(byte_code)
-        print('byte_code success')
         base64_code = base64.b64encode(byte_code)
-        print(base64_code)
-        print('base64_code success')
         base64_str = base64_code.decode()
-        print(base64_str)
-        print('base64_str success')
         return code, 'data:image/jpeg;base64,%s' % base64_str
-        # return code, base64_code
 
 
 class EmailVerificationHelper:
@@ -87,12 +74,12 @@ class EmailVerificationHelper:
 
 
 class EmailContactHelper:
-    def send_email(self, sender, name, message_content):
+    def send_email(self, email, name, message_content):
         sender = '945871257@qq.com'
         content = '<b>' + name + '</b>' + '<hr>' + message_content
         message = MIMEText(content, 'html', 'utf-8')
         message['Subject'] = Header(name + ' contact you', 'utf-8')
-        message['From'] = formataddr((name, sender))
+        message['From'] = formataddr((name, email))
         message['To'] = 'guoc9@cardiff.ac.uk'
         try:
             smtp = SMTP_SSL('smtp.qq.com', 465)

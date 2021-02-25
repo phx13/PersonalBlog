@@ -86,8 +86,8 @@ def verification_code():
     try:
         code, base64_str = ImageVerificationHelper().get_code()
         session['image_code'] = code.lower()
-        # response = make_response(byte_code)
-        # response.headers['Content-Type'] = 'image/jpeg;'
+        print(session.get('image_code'))
+        print(base64_str)
     except:
         return 'Fail: Image generate failed'
     return base64_str
@@ -101,10 +101,11 @@ def verification_email():
             return 'Fail: Please enter invalid email'
         code = EmailVerificationHelper().generate_code()
         session['email_code'] = code
+        print(session.get('email_code'))
         EmailVerificationHelper().send_email(email, code)
-        return 'Success: Email send successful'
+        return 'Success: Verification email send successful'
     except:
-        return 'Fail: Email send failed'
+        return 'Fail: Verification email send failed'
 
 
 @account_blueprint.route('/forget', methods=['POST'])

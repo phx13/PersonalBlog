@@ -83,13 +83,9 @@ function sendForgetPasswordEmail(element) {
 
 
 function refreshImageCode() {
-    // $('#loginCodeImg').attr("src", "/verification/image?r=" + Math.random());
     $.ajax({
         type: "get",
         url: "/verification/image",
-        // headers: {
-        //     Accept: "image/jpeg"
-        // },
         success: function (data) {
             $('#loginCodeImg').attr("src", data);
         }
