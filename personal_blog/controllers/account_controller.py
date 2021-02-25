@@ -73,7 +73,7 @@ def register():
             return 'Fail (Server) : Password less than 3 letters'
 
         if email_code != session.get('email_code'):
-            return 'Fail (Server) : Incorrect email verification code, input is %s, session is %s' % email_code % session.get('email_code')
+            return 'Fail (Server) : Incorrect email verification code, input is ' + email_code + ', session is ' + session.get('email_code')
 
         password = hashlib.md5(password.encode()).hexdigest()
         nickname = name
