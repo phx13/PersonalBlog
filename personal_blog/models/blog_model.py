@@ -1,4 +1,5 @@
 from sqlalchemy import Table, distinct
+
 from personal_blog.commons.db_orm_helper import init_db
 
 db_session, db_model, db_metadata = init_db()

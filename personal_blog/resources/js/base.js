@@ -1,83 +1,108 @@
 function loginOrRegister() {
     if ($("#login-tab")[0].ariaSelected === 'true') {
-        let email = $.trim($("#loginEmail").val());
-        let password = $.trim($("#loginPassword").val());
-        let imageCode = $.trim($("#loginCode").val());
+        if ($("#loginEmailVerification").html() == "Valid Email" && $("#loginPasswordVerification").html() == "Valid Password") {
+            let email = $.trim($("#loginEmail").val());
+            let password = $.trim($("#loginPassword").val());
+            let imageCode = $.trim($("#loginCode").val());
 
-        let param = "email=" + email;
-        param += "&password=" + password;
-        param += "&image_code=" + imageCode;
-        $.post('/login', param, function (data) {
-            alert(data);
-            if (data.startsWith("Success")) {
-                setTimeout('location.reload()', 500);
-            } else if (data == "Fail: Incorrect image verification code") {
-                $("#loginCode").val("");
-                $("#loginCode").focus();
-            } else {
-                $("#loginEmail").val("");
-                $("#loginPassword").val("");
-                $("#loginCode").val("");
-                $("#loginEmail").focus();
-            }
-        })
+            let param = "email=" + email;
+            param += "&password=" + password;
+            param += "&image_code=" + imageCode;
+            $.post('/login', param, function (data) {
+                alert(data);
+                if (data.startsWith("Success")) {
+                    setTimeout('location.reload()', 500);
+                } else if (data == "Fail: Incorrect image verification code") {
+                    $("#loginCode").val("");
+                    $("#loginCode").focus();
+                } else {
+                    $("#loginEmail").val("");
+                    $("#loginPassword").val("");
+                    $("#loginCode").val("");
+                    $("#loginEmail").focus();
+                }
+            })
+        } else {
+            alert("Fail: Invalid information");
+            return false;
+        }
     } else {
-        let firstName = $.trim($("#registerFirstName").val());
-        let lastName = $.trim($("#registerLastName").val());
-        let email = $.trim($("#registerEmail").val());
-        let password = $.trim($("#registerPassword").val());
-        let emailCode = $.trim($("#registerCode").val());
-        let param = "email=" + email;
-        param += "&password=" + password;
-        param += "&email_code=" + emailCode;
-        param += "&name=" + firstName + " " + lastName;
-        $.post('/register', param, function (data) {
-            alert(data);
-            if (data.startsWith("Success")) {
-                setTimeout('location.reload()', 500);
-            } else if (data == "Fail: Incorrect email verification code") {
-                $("#registerCode").val("");
-                $("#registerCode").focus();
-            } else {
-                $("#registerEmail").attr("disabled", false);
-                $("#registerCodeBtn").attr("disabled", false);
-                $("#registerEmail").val("");
-                $("#registerPassword").val("");
-                $("#registerCode").val("");
-                $("#registerEmail").focus();
-            }
-        })
+        if ($("#registerEmailVerification").html() == "Valid Email" && $("#registerPasswordVerification").html() == "Valid Password" && $("#registerNameVerification").html() == "Valid Name") {
+            let firstName = $.trim($("#registerFirstName").val());
+            let lastName = $.trim($("#registerLastName").val());
+            let email = $.trim($("#registerEmail").val());
+            let password = $.trim($("#registerPassword").val());
+            let emailCode = $.trim($("#registerCode").val());
+            let param = "email=" + email;
+            param += "&password=" + password;
+            param += "&email_code=" + emailCode;
+            param += "&name=" + firstName + " " + lastName;
+            $.post('/register', param, function (data) {
+                alert(data);
+                if (data.startsWith("Success")) {
+                    setTimeout('location.reload()', 500);
+                } else if (data == "Fail: Incorrect email verification code") {
+                    $("#registerCode").val("");
+                    $("#registerCode").focus();
+                } else {
+                    $("#registerEmail").attr("disabled", false);
+                    $("#registerCodeBtn").attr("disabled", false);
+                    $("#registerEmail").val("");
+                    $("#registerPassword").val("");
+                    $("#registerCode").val("");
+                    $("#registerEmail").focus();
+                }
+            })
+        } else {
+            alert("Fail: Invalid information");
+            return false;
+        }
     }
 }
 
-function sendVerificationEmail(element) {
+function sendVerificationEmail() {
     let email = $.trim($("#registerEmail").val());
+    let registerCodeBtn = $.trim($("#registerCodeBtn").html());
+    if (registerCodeBtn == "Email has sent") {
+        alert("Fail: Email has sent");
+        return false;
+    }
     if (email.match(/.+@.+\..+/)) {
         let param = "email=" + email;
         $.post('/verification/email', param, function (data) {
             alert(data);
             if (data.startsWith("Success")) {
                 $("#registerEmail").attr("disabled", true);
-                $("#registerCodeBtn").attr("disabled", true);
-                return false;
+                $("#registerCodeBtn").html("Email has sent");
             }
         })
+    } else {
+        alert("Fail: Invalid email");
+        return false;
     }
 }
 
-function sendForgetPasswordEmail(element) {
+function sendForgetPasswordEmail() {
     let email = $.trim($("#loginEmail").val());
+    let loginPasswordBtn = $.trim($("#loginPasswordBtn").html());
+    if (loginPasswordBtn == "Password has sent") {
+        alert("Fail: Password has sent");
+        return false;
+    }
     if (email.match(/.+@.+\..+/)) {
         let param = "email=" + email;
         $.post('/forget', param, function (data) {
             alert(data);
             if (data.startsWith("Success")) {
-                $("#loginEmail").val("");
                 $("#loginPassword").val("");
                 $("#loginCode").val("");
-                $("#loginEmail").focus();
+                $("#loginPasswordBtn").html("Password has sent");
+                $("#loginPassword").focus();
             }
         })
+    } else {
+        alert("Fail: Invalid email");
+        return false;
     }
 }
 

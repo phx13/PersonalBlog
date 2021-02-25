@@ -1,4 +1,5 @@
 from sqlalchemy import Table
+
 from personal_blog.commons.db_orm_helper import init_db
 
 db_session, db_model, db_metadata = init_db()
@@ -29,4 +30,3 @@ class AccountModel(db_model):
         result = self.search_account_by_email(email)
         result.credit = int(result.credit) + credit
         db_session.commit()
-
