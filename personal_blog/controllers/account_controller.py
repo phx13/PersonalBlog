@@ -2,7 +2,7 @@ import hashlib
 import re
 import time
 
-from flask import Blueprint, request, session, url_for, make_response, render_template, abort
+from flask import Blueprint, request, session, url_for, make_response, render_template
 
 from personal_blog.commons.base64_helper import Base64Helper
 from personal_blog.commons.verification_helper import ImageVerificationHelper, EmailVerificationHelper, ForgetPasswordHelper
@@ -99,11 +99,16 @@ def verification_email():
         email = request.form.get('email').strip()
         if not email:
             return 'Fail: Please enter invalid email'
+
+        account_model = AccountModel()
+        current_account = account_model.search_account_by_email(email)
+        if current_account:
+            return 'Fail: Account is existed'
+
         code = EmailVerificationHelper().generate_code()
         session['email_code'] = code
-        print(session.get('email_code'))
         EmailVerificationHelper().send_email(email, code)
-        return 'Success: Verification email send successful'
+        return 'Success: Verification email send successful, code is' + session.get('email_code')
     except:
         return 'Fail: Verification email send failed'
 
