@@ -29,7 +29,7 @@ def blog_page():
         types = blog_model.search_all_type()
     except:
         abort(500)
-    return render_template('blog.html', current_page_blogs=current_page_blogs, side_page_blogs=side_page_blogs, current_page=1, total_page=total_page, types=types)
+    return render_template('blog.html', current_page_blogs=current_page_blogs, side_page_blogs=side_page_blogs, current_page=1, total_page=total_page, types=types, is_home=False)
 
 
 @blog_blueprint.route('/blog/<int:current_page>')
@@ -47,7 +47,8 @@ def blog_current_page(current_page):
         types = blog_model.search_all_type()
     except:
         abort(500)
-    return render_template('blog.html', current_page_blogs=current_page_blogs, side_page_blogs=side_page_blogs, current_page=current_page, total_page=total_page, types=types)
+    return render_template('blog.html', current_page_blogs=current_page_blogs, side_page_blogs=side_page_blogs, current_page=current_page, total_page=total_page, types=types,
+                           is_home=False)
 
 
 @blog_blueprint.route('/blog-search-article/<int:current_page>-<keyword>')
@@ -69,7 +70,7 @@ def blog_current_page_by_search_article(current_page, keyword):
     except:
         abort(500)
     return render_template('blog_search.html', current_page_blogs=current_page_blogs, side_page_blogs=side_page_blogs, current_page=current_page, total_page=total_page,
-                           keyword=keyword, types=types)
+                           keyword=keyword, types=types, is_home=False)
 
 
 @blog_blueprint.route('/blog-search-content/<int:current_page>-<keyword>')
@@ -91,7 +92,7 @@ def blog_current_page_by_search_content(current_page, keyword):
     except:
         abort(500)
     return render_template('blog_search.html', current_page_blogs=current_page_blogs, side_page_blogs=side_page_blogs, current_page=current_page, total_page=total_page,
-                           keyword=keyword, types=types)
+                           keyword=keyword, types=types, is_home=False)
 
 
 @blog_blueprint.route('/blog-type/<int:current_page>-<type>')
@@ -110,7 +111,7 @@ def blog_current_page_by_type(current_page, type):
     except:
         abort(500)
     return render_template('blog_type.html', current_page_blogs=current_page_blogs, side_page_blogs=side_page_blogs, current_page=current_page, total_page=total_page, type=type,
-                           types=types)
+                           types=types, is_home=False)
 
 
 @blog_blueprint.route('/blog-article/<int:id>')

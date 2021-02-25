@@ -5,7 +5,7 @@ import time
 from flask import Blueprint, request, session, url_for, make_response, render_template, abort
 
 from personal_blog.commons.base64_helper import Base64Helper
-from personal_blog.commons.verification_helper import ImageVerificationHelper, EmailVerificationHelper
+from personal_blog.commons.verification_helper import ImageVerificationHelper, EmailVerificationHelper, ForgetPasswordHelper
 from personal_blog.models.account_model import AccountModel
 from personal_blog.models.collection_model import CollectionModel
 from personal_blog.models.credit_model import CreditModel
@@ -84,22 +84,44 @@ def register():
 @account_blueprint.route('/verification/image')
 def verification_code():
     try:
-        code, byte_code = ImageVerificationHelper().get_code()
+        code, base64_str = ImageVerificationHelper().get_code()
         session['image_code'] = code.lower()
-        response = make_response(byte_code)
-        response.headers['Content-Type'] = 'image/png'
+        # response = make_response(byte_code)
+        # response.headers['Content-Type'] = 'image/jpeg;'
     except:
         return 'Fail: Image generate failed'
-    return response
+    return base64_str
 
 
 @account_blueprint.route('/verification/email', methods=['POST'])
 def verification_email():
     try:
-        email = request.form.get('email')
+        email = request.form.get('email').strip()
+        if not email:
+            return 'Fail: Please enter invalid email'
         code = EmailVerificationHelper().generate_code()
         session['email_code'] = code
         EmailVerificationHelper().send_email(email, code)
+        return 'Success: Email send successful'
+    except:
+        return 'Fail: Email send failed'
+
+
+@account_blueprint.route('/forget', methods=['POST'])
+def forget():
+    try:
+        email = request.form.get('email').strip()
+        if not email:
+            return 'Fail: Please enter invalid email'
+        password = ForgetPasswordHelper().generate_password()
+        ForgetPasswordHelper().send_email(email, password)
+        password = hashlib.md5(password.encode()).hexdigest()
+        account_model = AccountModel()
+        current_account = account_model.search_account_by_email(email)
+        if not current_account:
+            return 'Fail: Account is not existed'
+        update_time = time.strftime('%Y-%m-%d %H:%M:%S')
+        account_model.update_account(current_account.email, current_account.avatar, current_account.nickname, password, current_account.profile, update_time)
         return 'Success: Email send successful'
     except:
         return 'Fail: Email send failed'

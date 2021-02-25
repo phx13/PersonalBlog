@@ -59,6 +59,11 @@ function updateOpinion(commentId, type) {
 
 function addRate(articleId) {
     try {
+        let rateBtn = $.trim($("#rateBtn").html());
+        if (rateBtn == "Rated") {
+            alert("Fail: You have rated");
+            return false;
+        }
         let rate = $("input[name='rate']:checked")[0].value;
         let param = "article_id=" + articleId + "&rate=" + rate;
         $.post('/rate', param, function (data) {

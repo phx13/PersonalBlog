@@ -9,8 +9,9 @@ index_blueprint = Blueprint('index_blueprint', __name__)
 @index_blueprint.route('/')
 def index_page():
     blog_model = BlogModel()
-    index_page_blogs = blog_model.search_blog_by_hot(0, 3)
-    return render_template('index.html', index_page_blogs=index_page_blogs)
+    index_page_blogs = blog_model.search_blog_by_hot(0, 4)
+    types = blog_model.search_all_type()
+    return render_template('index.html', index_page_blogs=index_page_blogs, types=types, is_home=True)
 
 
 @index_blueprint.route('/contact', methods=['POST'])

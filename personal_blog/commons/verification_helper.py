@@ -42,9 +42,12 @@ class ImageVerificationHelper:
     def get_code(self):
         image, code = self.generate_image_code()
         buffer = BytesIO()
-        image.save(buffer, 'png')
+        image.save(buffer, 'jpeg')
         byte_code = buffer.getvalue()
-        return code, byte_code
+        base64_code = base64.b64encode(byte_code)
+        base64_str = base64_code.decode()
+        return code, 'data:image/jpeg;base64,%s' % base64_str
+        # return code, base64_code
 
 
 class EmailVerificationHelper:
@@ -82,3 +85,23 @@ class EmailContactHelper:
             smtp.quit()
         except SMTPException:
             return 'Fail: Send failed'
+
+
+class ForgetPasswordHelper:
+    def send_email(self, receiver, password):
+        sender = '945871257@qq.com'
+        content = f"<br/>Welcome to login Phoenix Blog, your password is reset as <span style='color:orange;'>{password}</span>"
+        message = MIMEText(content, 'html', 'utf-8')
+        message['Subject'] = Header('Password for Phoenix Blog', 'utf-8')
+        message['From'] = formataddr(('Phoenix', 'guoc9@cardiff.ac.uk'))
+        message['To'] = receiver
+        try:
+            smtp = SMTP_SSL('smtp.qq.com', 465)
+            smtp.login(sender, 'uppfznrxulnabbjc')
+            smtp.sendmail(sender, receiver, str(message))
+            smtp.quit()
+        except SMTPException:
+            return 'Fail: Send failed'
+
+    def generate_password(self):
+        return ''.join(random.sample(string.ascii_letters + string.digits, 5))

@@ -3,9 +3,11 @@
         <div class="custom-section-title">
             <h3>Tool Box</h3>
         </div>
-        <h4>Sort</h4>
-        <a onclick="sortArticle()" class="custom-btn custom-btn-hover" id="sort">Sort By Asc</a>
-        <hr>
+        {% if is_home == False %}
+            <h4>Sort</h4>
+            <a onclick="sortArticle()" class="custom-btn custom-btn-hover" id="sort">Sort By Asc</a>
+            <hr>
+        {% endif %}
         <h4>Search</h4>
         <div class="form-group">
             <div class="custom-control custom-radio custom-control-inline">
@@ -26,24 +28,24 @@
             <a onclick="typeBlog(this)" class="custom-btn custom-btn-hover">{{ t }}</a>
         {% endfor %}
     </form>
-    <div class="custom-section">
-        <div class="custom-section-title">
-            <h3>Latest Blogs</h3>
-        </div>
-        {% for blog in side_page_blogs %}
-            <div class="blog-box side-blog">
-                <div class="blog-info">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-7 col-lg-7">
-                            <h4><a href="/blog-article/{{ blog.id }}">{{ blog.article }}</a></h4>
-                        </div>
-                        <div class="col-sm-12 col-md-5 col-lg-5">
-                            <h4>Rate: {{ blog.rate }}</h4>
-                        </div>
-                    </div>
-                    <p class="text-center"><b>Update: </b>{{ blog.updatetime }}</p>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+    {#    <div class="custom-section">#}
+    {#        <div class="custom-section-title">#}
+    {#            <h3>Latest Blogs</h3>#}
+    {#        </div>#}
+    {#        {% for blog in side_page_blogs %}#}
+    {#            <div class="blog-box side-blog">#}
+    {#                <div class="blog-info">#}
+    {#                    <div class="row">#}
+    {#                        <div class="col-sm-12 col-md-7 col-lg-7">#}
+    {#                            <h4><a href="/blog-article/{{ blog.id }}">{{ blog.article }}</a></h4>#}
+    {#                        </div>#}
+    {#                        <div class="col-sm-12 col-md-5 col-lg-5">#}
+    {#                            <h4>Rate: {{ blog.rate }}</h4>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                    <p class="text-center"><b>Update: </b>{{ blog.updatetime }}</p>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        {% endfor %}#}
+    {#    </div>#}
 </div>

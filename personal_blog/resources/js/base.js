@@ -65,8 +65,35 @@ function sendVerificationEmail(element) {
     }
 }
 
+function sendForgetPasswordEmail(element) {
+    let email = $.trim($("#loginEmail").val());
+    if (email.match(/.+@.+\..+/)) {
+        let param = "email=" + email;
+        $.post('/forget', param, function (data) {
+            alert(data);
+            if (data.startsWith("Success")) {
+                $("#loginEmail").val("");
+                $("#loginPassword").val("");
+                $("#loginCode").val("");
+                $("#loginEmail").focus();
+            }
+        })
+    }
+}
+
+
 function refreshImageCode() {
-    $('#loginCodeImg').attr("src", "/verification/image?r=" + Math.random());
+    // $('#loginCodeImg').attr("src", "/verification/image?r=" + Math.random());
+    $.ajax({
+        type: "get",
+        url: "/verification/image",
+        // headers: {
+        //     Accept: "image/jpeg"
+        // },
+        success: function (data) {
+            $('#loginCodeImg').attr("src", data);
+        }
+    })
 }
 
 function showModel() {
@@ -85,6 +112,7 @@ $(document).ready(function () {
     $("#registerPassword").bind('input propertychange', monitorInput);
     $("#registerFirstName").bind('input propertychange', monitorInput);
     $("#registerLastName").bind('input propertychange', monitorInput);
+    refreshImageCode();
 })
 
 function monitorInput() {
@@ -109,11 +137,11 @@ function monitorInput() {
     }
 
     if ($.trim($("#loginPassword").val()).length < 3) {
-        $("#loginPassword").attr("class", "form-control is-invalid");
+        $("#loginPassword").attr("class", "form-control col-sm-12 col-md-6 col-lg-6 is-invalid");
         $("#loginPasswordVerification").attr("class", "invalid-feedback");
         $("#loginPasswordVerification").html("Password less than 3 letters");
     } else {
-        $("#loginPassword").attr("class", "form-control is-valid");
+        $("#loginPassword").attr("class", "form-control col-sm-12 col-md-6 col-lg-6 is-valid");
         $("#loginPasswordVerification").attr("class", "valid-feedback");
         $("#loginPasswordVerification").html("Valid Password");
     }

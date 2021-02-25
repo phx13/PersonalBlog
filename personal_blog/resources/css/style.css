@@ -423,10 +423,10 @@ ul, li, ol {
 }
 
 .blog-info {
-    padding: 0px 15px 40px 15px;
+    padding: 20px;
     background: #ffffff;
     text-align: left;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .blog-info p {

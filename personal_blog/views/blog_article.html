@@ -20,32 +20,35 @@
                             <li><b>{{ blog_article.ratecount }}</b> ratings</li>
                         </ul>
                     </div>
-                    <div class="col-sm-12 col-md-2 col-lg-2 text-center">
-                        {% if is_rate == True %}
-                            <button class="custom-btn custom-btn-hover" id="rateBtn" disabled="true">Rated</button>
-                        {% else %}
-                            <div class="rating">
-                                <input type="radio" id="star5" name="rate" value="100" hidden/>
-                                <label for="star5"></label>
-                                <input type="radio" id="star4" name="rate" value="80" hidden/>
-                                <label for="star4"></label>
-                                <input type="radio" id="star3" name="rate" value="60" hidden/>
-                                <label for="star3"></label>
-                                <input type="radio" id="star2" name="rate" value="40" hidden/>
-                                <label for="star2"></label>
-                                <input type="radio" id="star1" name="rate" value="20" hidden/>
-                                <label for="star1"></label>
-                            </div>
-                            <button class="custom-btn custom-btn-hover" id="rateBtn" onclick="addRate('{{ blog_article.id }}')">Rate</button>
-                        {% endif %}
-                    </div>
-                    <div class="col-sm-12 col-md-4 col-lg-4 text-center">
-                        {% if is_collection == True %}
-                            <a class="custom-btn custom-btn-hover" id="collection" onclick="cancelCollection('{{ blog_article.id }}')">Collected</a>
-                        {% else %}
-                            <a class="custom-btn custom-btn-hover" id="collection" onclick="addCollection('{{ blog_article.id }}')">Collect</a>
-                        {% endif %}
-                    </div>
+                    {% if session.get('login') == 'true' %}
+                        <div class="col-sm-12 col-md-2 col-lg-2 text-center">
+                            {% if is_rate == True %}
+                                <button class="custom-btn custom-btn-hover" id="rateBtn" onclick="addRate('{{ blog_article.id }}')">Rated</button>
+                            {% else %}
+                                <div class="rating">
+                                    <input type="radio" id="star5" name="rate" value="100" hidden/>
+                                    <label for="star5"></label>
+                                    <input type="radio" id="star4" name="rate" value="80" hidden/>
+                                    <label for="star4"></label>
+                                    <input type="radio" id="star3" name="rate" value="60" hidden/>
+                                    <label for="star3"></label>
+                                    <input type="radio" id="star2" name="rate" value="40" hidden/>
+                                    <label for="star2"></label>
+                                    <input type="radio" id="star1" name="rate" value="20" hidden/>
+                                    <label for="star1"></label>
+                                </div>
+                                <button class="custom-btn custom-btn-hover" id="rateBtn" onclick="addRate('{{ blog_article.id }}')">Rate</button>
+                            {% endif %}
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4 text-center">
+                            {% if is_collection == True %}
+                                <a class="custom-btn custom-btn-hover" id="collection" onclick="cancelCollection('{{ blog_article.id }}')">Collected</a>
+                            {% else %}
+                                <a class="custom-btn custom-btn-hover" id="collection" onclick="addCollection('{{ blog_article.id }}')">Collect</a>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                    {% endif %}
                 </div>
             </div><!-- end title -->
 
@@ -172,7 +175,9 @@
                                         </div>
                                     </form>
                                 </div>
+                                <hr>
                             </div>
+                            <br>
                         </div>
                     {% endfor %}
                     <hr>

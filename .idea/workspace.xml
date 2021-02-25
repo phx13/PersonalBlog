@@ -6,6 +6,15 @@
       <change beforePath="$PROJECT_DIR$/personal_blog/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal_blog/commons/verification_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/commons/verification_helper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal_blog/controllers/account_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/controllers/account_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/controllers/blog_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/controllers/blog_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/controllers/index_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/controllers/index_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/js/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/js/blog_article.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/js/blog_article.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/views/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/views/blog_article.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/blog_article.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/views/blog_side.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/blog_side.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,6 +169,7 @@
       <workItem from="1614128200431" duration="19430000" />
       <workItem from="1614166680325" duration="13804000" />
       <workItem from="1614188052204" duration="2701000" />
+      <workItem from="1614213854649" duration="11917000" />
     </task>
     <task id="LOCAL-00001" summary="refactor prj">
       <created>1612417146300</created>
@@ -324,7 +334,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CMT120_CW2_Website$verify_helper.coverage" NAME="verify_helper Coverage Results" MODIFIED="1614136386424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/personal_blog/commons" />
-    <SUITE FILE_PATH="coverage/CMT120_CW2_Website$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1614190633187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CMT120_CW2_Website$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1614217055510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CMT120_CW2_Website$verification_helper__1_.coverage" NAME="verification_helper (1) Coverage Results" MODIFIED="1614140302186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/personal_blog/commons" />
   </component>
 </project>
