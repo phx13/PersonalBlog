@@ -120,6 +120,9 @@ function refreshImageCode() {
     $.ajax({
         type: "get",
         url: "/verification/image",
+        headers: {
+            "Accept": "text/html"
+        },
         success: function (data) {
             $('#loginCodeImg').attr("src", data);
         }

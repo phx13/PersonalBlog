@@ -51,7 +51,7 @@ def login():
         response.set_cookie('email', result.email, max_age=10 * 24 * 3600)
         return response
     except:
-        abort(500)
+        return 'Fail (Server) : Login failed'
 
 
 @account_blueprint.route('/register', methods=['POST'])
@@ -94,7 +94,7 @@ def register():
         response.set_cookie('email', email, max_age=10 * 24 * 3600)
         return response
     except:
-        abort(500)
+        return 'Fail (Server) : Register failed'
 
 
 @account_blueprint.route('/verification/image')
@@ -104,7 +104,7 @@ def verification_code():
         session['image_code'] = code.lower()
         return base64_str
     except:
-        abort(500)
+        return 'Fail (Server) : Image code generate failed'
 
 
 @account_blueprint.route('/verification/email', methods=['POST'])
@@ -124,7 +124,7 @@ def verification_email():
         EmailVerificationHelper().send_email(email, code)
         return 'Success (Server) : Verification email send successful, code is ' + session.get('email_code')
     except:
-        abort(500)
+        return 'Fail (Server) : Verification email send failed'
 
 
 @account_blueprint.route('/forget', methods=['POST'])
@@ -147,7 +147,7 @@ def forget():
         account_model.update_account(current_account.email, current_account.avatar, current_account.nickname, password, current_account.profile, update_time)
         return 'Success (Server) : Password email send successful'
     except:
-        abort(500)
+        return 'Fail (Server) : Password email send failed'
 
 
 @account_blueprint.route('/logout')
@@ -159,7 +159,7 @@ def logout():
         response.delete_cookie('email')
         return response
     except:
-        abort(500)
+        return 'Fail (Server) : Logout failed'
 
 
 @account_blueprint.route('/account')
@@ -176,7 +176,7 @@ def account_page():
         collection_activities = collection_model.search_collection_by_email(session.get('email'))
         return render_template('account.html', current_account=current_account, credit_activities=credit_activities, collection_activities=collection_activities)
     except:
-        abort(500)
+        return 'Fail (Server) : Account page init failed'
 
 
 @account_blueprint.route('/account/profile', methods=['POST'])
@@ -197,4 +197,4 @@ def update_profile():
     profile = request.form.get('profile')
     update_time = time.strftime('%Y-%m-%d %H:%M:%S')
     account_model.update_account(session.get('email'), avatar, nickname, password, profile, update_time)
-    return 'Success: Update profile successful'
+    return 'Success (Server) : Update profile successful'
