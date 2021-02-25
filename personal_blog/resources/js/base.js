@@ -3,13 +3,13 @@ function loginOrRegister() {
         if ($("#loginEmailVerification").html() == "Valid Email" && $("#loginPasswordVerification").html() == "Valid Password") {
             let email = $.trim($("#loginEmail").val());
             let password = $.trim($("#loginPassword").val());
-            let imageCode = $.trim($("#loginCode").val());
+            // let imageCode = $.trim($("#loginCode").val());
 
             $("#loginAndRegister").attr("disabled", true);
 
             let param = "email=" + email;
             param += "&password=" + password;
-            param += "&image_code=" + imageCode;
+            // param += "&image_code=" + imageCode;
             $.post('/login', param, function (data) {
                 alert(data);
                 if (data.startsWith("Success")) {
@@ -18,7 +18,7 @@ function loginOrRegister() {
                     $("#loginAndRegister").attr("disabled", false);
                     $("#loginEmail").val("");
                     $("#loginPassword").val("");
-                    $("#loginCode").val("");
+                    // $("#loginCode").val("");
                     $("#loginEmail").focus();
                 }
             })
@@ -32,14 +32,14 @@ function loginOrRegister() {
             let lastName = $.trim($("#registerLastName").val());
             let email = $.trim($("#registerEmail").val());
             let password = $.trim($("#registerPassword").val());
-            let emailCode = $.trim($("#registerCode").val());
+            // let emailCode = $.trim($("#registerCode").val());
 
             $("#loginAndRegister").attr("disabled", true);
 
             let param = "email=" + email;
             param += "&password=" + password;
-            param += "&email_code=" + emailCode;
             param += "&name=" + firstName + " " + lastName;
+            // param += "&email_code=" + emailCode;
             $.post('/register', param, function (data) {
                 alert(data);
                 if (data.startsWith("Success")) {
@@ -47,10 +47,10 @@ function loginOrRegister() {
                 } else {
                     $("#loginAndRegister").attr("disabled", false);
                     $("#registerEmail").attr("disabled", false);
-                    $("#registerCodeBtn").attr("disabled", false);
+                    // $("#registerCodeBtn").attr("disabled", false);
                     $("#registerEmail").val("");
                     $("#registerPassword").val("");
-                    $("#registerCode").val("");
+                    // $("#registerCode").val("");
                     $("#registerEmail").focus();
                 }
             })
@@ -145,7 +145,7 @@ $(document).ready(function () {
     $("#registerPassword").bind('input propertychange', monitorInput);
     $("#registerFirstName").bind('input propertychange', monitorInput);
     $("#registerLastName").bind('input propertychange', monitorInput);
-    refreshImageCode();
+    // refreshImageCode();
 })
 
 function monitorInput() {
@@ -190,7 +190,6 @@ function monitorInput() {
     }
 
     let re = new RegExp(/[.,\/#!$%\^&\*;:{}=\-_`~()?0-9]/g);
-
     if (re.test($.trim($("#registerFirstName").val())) || $.trim($("#registerFirstName").val()) == "") {
         $("#registerFirstName").attr("class", "form-control col-sm-12 col-md-6 col-lg-6 is-invalid");
         $("#registerNameVerification").attr("class", "invalid-feedback");

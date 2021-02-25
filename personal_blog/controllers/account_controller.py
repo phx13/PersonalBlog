@@ -20,11 +20,11 @@ def login():
         email = request.form.get('email').strip()
         password = request.form.get('password').strip()
         password = hashlib.md5(password.encode()).hexdigest()
-        image_code = request.form.get('image_code').lower().strip()
+        # image_code = request.form.get('image_code').lower().strip()
         result = account_model.search_account_by_email(email)
 
-        if image_code != session.get('image_code'):
-            return 'Fail (Server) : Incorrect image verification code'
+        # if image_code != session.get('image_code'):
+        #     return 'Fail (Server) : Incorrect image verification code'
 
         if not result:
             return 'Fail (Server) : Account does not exist'
@@ -60,8 +60,8 @@ def register():
         account_model = AccountModel()
         email = request.form.get('email').strip()
         password = request.form.get('password').strip()
-        email_code = request.form.get('email_code').strip()
         name = request.form.get('name').strip()
+        # email_code = request.form.get('email_code').strip()
 
         if account_model.search_account_by_email(email):
             return 'Fail (Server) : Account is exist'
@@ -72,8 +72,8 @@ def register():
         if len(password) < 3:
             return 'Fail (Server) : Password less than 3 letters'
 
-        if email_code != session.get('email_code'):
-            return 'Fail (Server) : Incorrect email verification code, input is ' + email_code + ', session is ' + session.get('email_code')
+        # if email_code != session.get('email_code'):
+        #     return 'Fail (Server) : Incorrect email verification code, input is ' + email_code + ', session is ' + session.get('email_code')
 
         password = hashlib.md5(password.encode()).hexdigest()
         nickname = name
