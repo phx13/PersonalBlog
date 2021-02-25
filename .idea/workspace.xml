@@ -4,6 +4,8 @@
     <list default="true" id="68b2abaa-5f93-48aa-bd63-b26a5910b761" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal_blog/controllers/account_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/controllers/account_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/js/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/views/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +163,7 @@
       <workItem from="1614213854649" duration="12542000" />
       <workItem from="1614238830071" duration="18000" />
       <workItem from="1614240258685" duration="1956000" />
-      <workItem from="1614254067416" duration="9719000" />
+      <workItem from="1614254067416" duration="12718000" />
     </task>
     <task id="LOCAL-00001" summary="refactor prj">
       <created>1612417146300</created>
@@ -331,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614262937226</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="front verification">
+      <created>1614264353127</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1614264353127</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -2,7 +2,7 @@ import hashlib
 import re
 import time
 
-from flask import Blueprint, request, session, url_for, make_response, render_template
+from flask import Blueprint, request, session, url_for, make_response, render_template, abort
 
 from personal_blog.commons.base64_helper import Base64Helper
 from personal_blog.commons.verification_helper import ImageVerificationHelper, EmailVerificationHelper, ForgetPasswordHelper
@@ -15,52 +15,66 @@ account_blueprint = Blueprint('account_blueprint', __name__)
 
 @account_blueprint.route('/login', methods=['POST'])
 def login():
-    account_model = AccountModel()
-    email = request.form.get('email').strip()
-    password = request.form.get('password').strip()
-    password = hashlib.md5(password.encode()).hexdigest()
-    image_code = request.form.get('image_code').lower().strip()
-    result = account_model.search_account_by_email(email)
+    try:
+        account_model = AccountModel()
+        email = request.form.get('email').strip()
+        password = request.form.get('password').strip()
+        password = hashlib.md5(password.encode()).hexdigest()
+        image_code = request.form.get('image_code').lower().strip()
+        result = account_model.search_account_by_email(email)
 
-    if image_code == session.get('image_code'):
-        if result and result.password == password:
-            session['login'] = 'true'
-            session['email'] = result.email
-            session['nickname'] = result.nickname
+        if image_code != session.get('image_code'):
+            return 'Fail (Server) : Incorrect image verification code'
 
-            create_time = time.strftime('%Y-%m-%d %H:%M:%S')
-            start_time = time.strftime('%Y-%m-%d 00:00:00')
-            end_time = time.strftime('%Y-%m-%d 23:59:59')
-            credit_model = CreditModel()
-            if len(credit_model.check_credit_by_time(session.get('email'), 'login', start_time, end_time)) == 0:
-                credit_model.insert_credit(session.get('email'), 'login', 'today\'s first login', 0, 5, create_time)
-                account_model.update_credit(session.get('email'), 5)
-                response = make_response('Success: Today\'s first login, credit +5')
-            else:
-                response = make_response('Success: Login successful')
+        if not result:
+            return 'Fail (Server) : Account does not exist'
 
-            response.set_cookie('email', result.email, max_age=10 * 24 * 3600)
-            return response
+        if result.password != password:
+            return 'Fail (Server) : Password is wrong'
+
+        session['login'] = 'true'
+        session['email'] = result.email
+        session['nickname'] = result.nickname
+
+        create_time = time.strftime('%Y-%m-%d %H:%M:%S')
+        start_time = time.strftime('%Y-%m-%d 00:00:00')
+        end_time = time.strftime('%Y-%m-%d 23:59:59')
+
+        credit_model = CreditModel()
+        if len(credit_model.check_credit_by_time(session.get('email'), 'login', start_time, end_time)) == 0:
+            credit_model.insert_credit(session.get('email'), 'login', 'today\'s first login', 0, 5, create_time)
+            account_model.update_credit(session.get('email'), 5)
+            response = make_response('Success (Server) : Today\'s first login, credit +5')
         else:
-            return 'Fail: The account does not exist or the password is wrong'
-    return 'Fail: Incorrect image verification code'
+            response = make_response('Success (Server) : Login successful')
+
+        response.set_cookie('email', result.email, max_age=10 * 24 * 3600)
+        return response
+    except:
+        abort(500)
 
 
 @account_blueprint.route('/register', methods=['POST'])
 def register():
-    account_model = AccountModel()
-    email = request.form.get('email').strip()
-    password = request.form.get('password').strip()
-    email_code = request.form.get('email_code').strip()
-    name = request.form.get('name').strip()
+    try:
+        account_model = AccountModel()
+        email = request.form.get('email').strip()
+        password = request.form.get('password').strip()
+        email_code = request.form.get('email_code').strip()
+        name = request.form.get('name').strip()
 
-    if account_model.search_account_by_email(email):
-        return 'Fail: This account is already registered'
-    elif not re.match('.+@.+\..+', email) or len(password) < 3:
-        return 'Fail: Invalid email or password less than 3 letters'
-    elif email_code != session.get('email_code'):
-        return 'Fail: Incorrect email verification code'
-    else:
+        if account_model.search_account_by_email(email):
+            return 'Fail (Server) : Account is exist'
+
+        if not re.match('.+@.+\..+', email):
+            return 'Fail (Server) : Invalid email'
+
+        if len(password) < 3:
+            return 'Fail (Server) : Password less than 3 letters'
+
+        if email_code != session.get('email_code'):
+            return 'Fail (Server) : Incorrect email verification code'
+
         password = hashlib.md5(password.encode()).hexdigest()
         nickname = name
         avatar = '/images/cardiff_university_logo.jpg'
@@ -76,9 +90,11 @@ def register():
         credit_model.insert_credit(session.get('email'), 'register', 'new register', 0, 50, create_time)
         account_model.update_credit(session.get('email'), 50)
 
-        response = make_response('Success: Register successful, credit +50')
+        response = make_response('Success (Server) : Register successful, credit +50')
         response.set_cookie('email', email, max_age=10 * 24 * 3600)
         return response
+    except:
+        abort(500)
 
 
 @account_blueprint.route('/verification/image')
@@ -86,11 +102,9 @@ def verification_code():
     try:
         code, base64_str = ImageVerificationHelper().get_code()
         session['image_code'] = code.lower()
-        print(session.get('image_code'))
-        print(base64_str)
+        return base64_str
     except:
-        return 'Fail: Image generate failed'
-    return base64_str
+        abort(500)
 
 
 @account_blueprint.route('/verification/email', methods=['POST'])
@@ -98,19 +112,19 @@ def verification_email():
     try:
         email = request.form.get('email').strip()
         if not email:
-            return 'Fail: Please enter invalid email'
+            return 'Fail (Server) : Invalid email'
 
         account_model = AccountModel()
         current_account = account_model.search_account_by_email(email)
         if current_account:
-            return 'Fail: Account is existed'
+            return 'Fail (Server) : Account is existed'
 
         code = EmailVerificationHelper().generate_code()
         session['email_code'] = code
         EmailVerificationHelper().send_email(email, code)
-        return 'Success: Verification email send successful, code is' + session.get('email_code')
+        return 'Success (Server) : Verification email send successful, code is ' + session.get('email_code')
     except:
-        return 'Fail: Verification email send failed'
+        abort(500)
 
 
 @account_blueprint.route('/forget', methods=['POST'])
@@ -118,11 +132,12 @@ def forget():
     try:
         email = request.form.get('email').strip()
         if not email:
-            return 'Fail: Please enter invalid email'
+            return 'Fail (Server) : Invalid email'
+
         account_model = AccountModel()
         current_account = account_model.search_account_by_email(email)
         if not current_account:
-            return 'Fail: Account is not existed'
+            return 'Fail (Server) : Account is not existed'
 
         password = ForgetPasswordHelper().generate_password()
         ForgetPasswordHelper().send_email(email, password)
@@ -130,29 +145,38 @@ def forget():
         password = hashlib.md5(password.encode()).hexdigest()
         update_time = time.strftime('%Y-%m-%d %H:%M:%S')
         account_model.update_account(current_account.email, current_account.avatar, current_account.nickname, password, current_account.profile, update_time)
-        return 'Success: Email send successful'
+        return 'Success (Server) : Password email send successful'
     except:
-        return 'Fail: Email send failed'
+        abort(500)
 
 
 @account_blueprint.route('/logout')
 def logout():
-    session.clear()
-    response = make_response('logout', 302)
-    response.headers['Location'] = url_for('index_blueprint.index_page')
-    response.delete_cookie('email')
-    return response
+    try:
+        session.clear()
+        response = make_response('logout', 302)
+        response.headers['Location'] = url_for('index_blueprint.index_page')
+        response.delete_cookie('email')
+        return response
+    except:
+        abort(500)
 
 
 @account_blueprint.route('/account')
 def account_page():
-    account_model = AccountModel()
-    current_account = account_model.search_account_by_email(session.get('email'))
-    credit_model = CreditModel()
-    credit_activities = credit_model.search_credit_by_email(session.get('email'))
-    collection_model = CollectionModel()
-    collection_activities = collection_model.search_collection_by_email(session.get('email'))
-    return render_template('account.html', current_account=current_account, credit_activities=credit_activities, collection_activities=collection_activities)
+    try:
+        account_model = AccountModel()
+        current_account = account_model.search_account_by_email(session.get('email'))
+        if not current_account:
+            return 'Fail (Server) : Account is not existed'
+
+        credit_model = CreditModel()
+        credit_activities = credit_model.search_credit_by_email(session.get('email'))
+        collection_model = CollectionModel()
+        collection_activities = collection_model.search_collection_by_email(session.get('email'))
+        return render_template('account.html', current_account=current_account, credit_activities=credit_activities, collection_activities=collection_activities)
+    except:
+        abort(500)
 
 
 @account_blueprint.route('/account/profile', methods=['POST'])

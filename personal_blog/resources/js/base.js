@@ -5,6 +5,8 @@ function loginOrRegister() {
             let password = $.trim($("#loginPassword").val());
             let imageCode = $.trim($("#loginCode").val());
 
+            $("#loginAndRegister").attr("disabled", true);
+
             let param = "email=" + email;
             param += "&password=" + password;
             param += "&image_code=" + imageCode;
@@ -12,10 +14,8 @@ function loginOrRegister() {
                 alert(data);
                 if (data.startsWith("Success")) {
                     setTimeout('location.reload()', 500);
-                } else if (data == "Fail: Incorrect image verification code") {
-                    $("#loginCode").val("");
-                    $("#loginCode").focus();
                 } else {
+                    $("#loginAndRegister").attr("disabled", false);
                     $("#loginEmail").val("");
                     $("#loginPassword").val("");
                     $("#loginCode").val("");
@@ -23,7 +23,7 @@ function loginOrRegister() {
                 }
             })
         } else {
-            alert("Fail: Invalid information");
+            alert("Fail (Front) : Invalid email or password");
             return false;
         }
     } else {
@@ -33,6 +33,9 @@ function loginOrRegister() {
             let email = $.trim($("#registerEmail").val());
             let password = $.trim($("#registerPassword").val());
             let emailCode = $.trim($("#registerCode").val());
+
+            $("#loginAndRegister").attr("disabled", true);
+
             let param = "email=" + email;
             param += "&password=" + password;
             param += "&email_code=" + emailCode;
@@ -41,10 +44,8 @@ function loginOrRegister() {
                 alert(data);
                 if (data.startsWith("Success")) {
                     setTimeout('location.reload()', 500);
-                } else if (data == "Fail: Incorrect email verification code") {
-                    $("#registerCode").val("");
-                    $("#registerCode").focus();
                 } else {
+                    $("#loginAndRegister").attr("disabled", false);
                     $("#registerEmail").attr("disabled", false);
                     $("#registerCodeBtn").attr("disabled", false);
                     $("#registerEmail").val("");
@@ -54,7 +55,7 @@ function loginOrRegister() {
                 }
             })
         } else {
-            alert("Fail: Invalid information");
+            alert("Fail (Front) : Invalid name or email or password");
             return false;
         }
     }
@@ -64,7 +65,7 @@ function sendVerificationEmail() {
     let email = $.trim($("#registerEmail").val());
     let registerCodeBtn = $.trim($("#registerCodeBtn").html());
     if (registerCodeBtn == "Email has sent") {
-        alert("Fail: Email has sent");
+        alert("Fail (Front) : Email has sent");
         return false;
     }
     if (email.match(/.+@.+\..+/)) {
@@ -81,7 +82,7 @@ function sendVerificationEmail() {
             }
         })
     } else {
-        alert("Fail: Invalid email");
+        alert("Fail (Front) : Invalid email");
         return false;
     }
 }
@@ -90,7 +91,7 @@ function sendForgetPasswordEmail() {
     let email = $.trim($("#loginEmail").val());
     let loginPasswordBtn = $.trim($("#loginPasswordBtn").html());
     if (loginPasswordBtn == "Password has sent") {
-        alert("Fail: Password has sent");
+        alert("Fail (Front) : Password has sent");
         return false;
     }
     if (email.match(/.+@.+\..+/)) {
@@ -110,11 +111,10 @@ function sendForgetPasswordEmail() {
             }
         })
     } else {
-        alert("Fail: Invalid email");
+        alert("Fail (Front) : Invalid email");
         return false;
     }
 }
-
 
 function refreshImageCode() {
     $.ajax({
