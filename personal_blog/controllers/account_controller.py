@@ -20,11 +20,11 @@ def login():
         email = request.form.get('email').strip()
         password = request.form.get('password').strip()
         password = hashlib.md5(password.encode()).hexdigest()
-        # image_code = request.form.get('image_code').lower().strip()
+        image_code = request.form.get('image_code').lower().strip()
         result = account_model.search_account_by_email(email)
 
-        # if image_code != session.get('image_code'):
-        #     return 'Fail (Server) : Incorrect image verification code'
+        if image_code != session.get('image_code'):
+            return 'Fail (Server) : Incorrect image verification code'
 
         if not result:
             return 'Fail (Server) : Account does not exist'

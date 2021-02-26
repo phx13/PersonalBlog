@@ -3,13 +3,13 @@ function loginOrRegister() {
         if ($("#loginEmailVerification").html() == "Valid Email" && $("#loginPasswordVerification").html() == "Valid Password") {
             let email = $.trim($("#loginEmail").val());
             let password = $.trim($("#loginPassword").val());
-            // let imageCode = $.trim($("#loginCode").val());
+            let imageCode = $.trim($("#loginCode").val());
 
             $("#loginAndRegister").attr("disabled", true);
 
             let param = "email=" + email;
             param += "&password=" + password;
-            // param += "&image_code=" + imageCode;
+            param += "&image_code=" + imageCode;
             $.post('/login', param, function (data) {
                 alert(data);
                 if (data.startsWith("Success")) {
@@ -145,7 +145,7 @@ $(document).ready(function () {
     $("#registerPassword").bind('input propertychange', monitorInput);
     $("#registerFirstName").bind('input propertychange', monitorInput);
     $("#registerLastName").bind('input propertychange', monitorInput);
-    // refreshImageCode();
+    refreshImageCode();
 })
 
 function monitorInput() {
