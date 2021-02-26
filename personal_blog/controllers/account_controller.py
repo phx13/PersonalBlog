@@ -61,7 +61,7 @@ def register():
         email = request.form.get('email').strip()
         password = request.form.get('password').strip()
         name = request.form.get('name').strip()
-        # email_code = request.form.get('email_code').strip()
+        email_code = request.form.get('email_code').strip()
 
         if account_model.search_account_by_email(email):
             return 'Fail (Server) : Account is exist'
@@ -72,8 +72,8 @@ def register():
         if len(password) < 3:
             return 'Fail (Server) : Password less than 3 letters'
 
-        # if email_code != session.get('email_code'):
-        #     return 'Fail (Server) : Incorrect email verification code, input is ' + email_code + ', session is ' + session.get('email_code')
+        if email_code != session.get('email_code'):
+            return 'Fail (Server) : Incorrect email verification code, input is ' + email_code + ', session is ' + session.get('email_code')
 
         password = hashlib.md5(password.encode()).hexdigest()
         nickname = name

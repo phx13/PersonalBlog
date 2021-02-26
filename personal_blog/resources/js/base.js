@@ -18,7 +18,7 @@ function loginOrRegister() {
                     $("#loginAndRegister").attr("disabled", false);
                     $("#loginEmail").val("");
                     $("#loginPassword").val("");
-                    // $("#loginCode").val("");
+                    $("#loginCode").val("");
                     $("#loginEmail").focus();
                 }
             })
@@ -32,14 +32,14 @@ function loginOrRegister() {
             let lastName = $.trim($("#registerLastName").val());
             let email = $.trim($("#registerEmail").val());
             let password = $.trim($("#registerPassword").val());
-            // let emailCode = $.trim($("#registerCode").val());
+            let emailCode = $.trim($("#registerCode").val());
 
             $("#loginAndRegister").attr("disabled", true);
 
             let param = "email=" + email;
             param += "&password=" + password;
             param += "&name=" + firstName + " " + lastName;
-            // param += "&email_code=" + emailCode;
+            param += "&email_code=" + emailCode;
             $.post('/register', param, function (data) {
                 alert(data);
                 if (data.startsWith("Success")) {
@@ -47,10 +47,10 @@ function loginOrRegister() {
                 } else {
                     $("#loginAndRegister").attr("disabled", false);
                     $("#registerEmail").attr("disabled", false);
-                    // $("#registerCodeBtn").attr("disabled", false);
+                    $("#registerCodeBtn").attr("disabled", false);
                     $("#registerEmail").val("");
                     $("#registerPassword").val("");
-                    // $("#registerCode").val("");
+                    $("#registerCode").val("");
                     $("#registerEmail").focus();
                 }
             })
