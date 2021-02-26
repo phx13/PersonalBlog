@@ -176,6 +176,7 @@ function sendContactEmail() {
     let contactEmail = $.trim($("#contactEmail").val());
     let contactMessage = $.trim($("#contactMessage").val());
     if (contactEmail.match(/.+@.+\..+/)) {
+        $("#sendMessageButton").attr("disabled", true);
         let param = "email=" + contactEmail;
         param += "&name=" + contactName;
         param += "&message=" + contactMessage;
@@ -185,8 +186,7 @@ function sendContactEmail() {
                 $("#contactName").val("");
                 $("#contactEmail").val("");
                 $("#contactMessage").val("");
-                $("#sendMessageButton").attr("disabled", true);
-                return false;
+                $("#sendMessageButton").attr("disabled", false);
             }
         })
     } else {
