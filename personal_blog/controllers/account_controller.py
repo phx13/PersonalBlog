@@ -2,7 +2,7 @@ import hashlib
 import re
 import time
 
-from flask import Blueprint, request, session, url_for, make_response, render_template, abort
+from flask import Blueprint, request, session, url_for, make_response, render_template
 
 from personal_blog.commons.base64_helper import Base64Helper
 from personal_blog.commons.verification_helper import ImageVerificationHelper, EmailVerificationHelper, ForgetPasswordHelper
@@ -25,31 +25,29 @@ def login():
 
         if image_code != session.get('image_code'):
             return 'Fail (Server) : Incorrect image verification code'
-
-        if not result:
+        elif not result:
             return 'Fail (Server) : Account does not exist'
-
-        if result.password != password:
+        elif result.password != password:
             return 'Fail (Server) : Password is wrong'
-
-        session['login'] = 'true'
-        session['email'] = result.email
-        session['nickname'] = result.nickname
-
-        create_time = time.strftime('%Y-%m-%d %H:%M:%S')
-        start_time = time.strftime('%Y-%m-%d 00:00:00')
-        end_time = time.strftime('%Y-%m-%d 23:59:59')
-
-        credit_model = CreditModel()
-        if len(credit_model.check_credit_by_time(session.get('email'), 'login', start_time, end_time)) == 0:
-            credit_model.insert_credit(session.get('email'), 'login', 'today\'s first login', 0, 5, create_time)
-            account_model.update_credit(session.get('email'), 5)
-            response = make_response('Success (Server) : Today\'s first login, credit +5')
         else:
-            response = make_response('Success (Server) : Login successful')
+            session['login'] = 'true'
+            session['email'] = result.email
+            session['nickname'] = result.nickname
 
-        response.set_cookie('email', result.email, max_age=10 * 24 * 3600)
-        return response
+            create_time = time.strftime('%Y-%m-%d %H:%M:%S')
+            start_time = time.strftime('%Y-%m-%d 00:00:00')
+            end_time = time.strftime('%Y-%m-%d 23:59:59')
+
+            credit_model = CreditModel()
+            if len(credit_model.check_credit_by_time(session.get('email'), 'login', start_time, end_time)) == 0:
+                credit_model.insert_credit(session.get('email'), 'login', 'today\'s first login', 0, 5, create_time)
+                account_model.update_credit(session.get('email'), 5)
+                response = make_response('Success (Server) : Today\'s first login, credit +5')
+            else:
+                response = make_response('Success (Server) : Login successful')
+
+            response.set_cookie('email', result.email, max_age=10 * 24 * 3600)
+            return response
     except:
         return 'Fail (Server) : Login failed'
 
@@ -65,34 +63,31 @@ def register():
 
         if account_model.search_account_by_email(email):
             return 'Fail (Server) : Account is exist'
-
-        if not re.match('.+@.+\..+', email):
+        elif not re.match('.+@.+\..+', email):
             return 'Fail (Server) : Invalid email'
-
-        if len(password) < 3:
+        elif len(password) < 3:
             return 'Fail (Server) : Password less than 3 letters'
+        elif email_code != session.get('email_code'):
+            return 'Fail (Server) : Incorrect email verification code'
+        else:
+            password = hashlib.md5(password.encode()).hexdigest()
+            nickname = name
+            avatar = '/images/cardiff_university_logo.jpg'
+            profile = 'Hello, this is ' + nickname
+            create_time = time.strftime('%Y-%m-%d %H:%M:%S')
+            account_model.register_account(email, password, nickname, avatar, profile, 0, create_time)
 
-        if email_code != session.get('email_code'):
-            return 'Fail (Server) : Incorrect email verification code, input is ' + email_code + ', session is ' + session.get('email_code')
+            session['login'] = 'true'
+            session['email'] = email
+            session['nickname'] = nickname
 
-        password = hashlib.md5(password.encode()).hexdigest()
-        nickname = name
-        avatar = '/images/cardiff_university_logo.jpg'
-        profile = 'Hello, this is ' + nickname
-        create_time = time.strftime('%Y-%m-%d %H:%M:%S')
-        account_model.register_account(email, password, nickname, avatar, profile, 0, create_time)
+            credit_model = CreditModel()
+            credit_model.insert_credit(session.get('email'), 'register', 'new register', 0, 50, create_time)
+            account_model.update_credit(session.get('email'), 50)
 
-        session['login'] = 'true'
-        session['email'] = email
-        session['nickname'] = nickname
-
-        credit_model = CreditModel()
-        credit_model.insert_credit(session.get('email'), 'register', 'new register', 0, 50, create_time)
-        account_model.update_credit(session.get('email'), 50)
-
-        response = make_response('Success (Server) : Register successful, credit +50')
-        response.set_cookie('email', email, max_age=10 * 24 * 3600)
-        return response
+            response = make_response('Success (Server) : Register successful, credit +50')
+            response.set_cookie('email', email, max_age=10 * 24 * 3600)
+            return response
     except:
         return 'Fail (Server) : Register failed'
 
