@@ -42,7 +42,7 @@ function postBlog(status) {
     param += "&article=" + article;
     param += "&type=" + type;
     param += "&thumb=" + base64src;
-    param += "&id=" +id;
+    param += "&id=" + id;
     $.post('/post-blog/post', param, function (data) {
         alert(data);
         if (data.startsWith("Success")) {

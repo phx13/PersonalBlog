@@ -3,7 +3,103 @@
   <component name="ChangeListManager">
     <list default="true" id="68b2abaa-5f93-48aa-bd63-b26a5910b761" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal_blog/controllers/account_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/controllers/account_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/controllers/blog_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/controllers/blog_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/js/post_blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/js/post_blog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/anchor/anchor.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/anchor/anchor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/attachment/attachment.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/attachment/attachment.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/attachment/attachment.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/attachment/attachment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/attachment/attachment.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/attachment/attachment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/background/background.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/background/background.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/background/background.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/background/background.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/background/background.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/background/background.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/charts/chart.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/charts/chart.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/charts/charts.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/charts/charts.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/charts/charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/charts/charts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/charts/charts.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/charts/charts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/emotion/emotion.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/emotion/emotion.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/emotion/emotion.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/emotion/emotion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/emotion/emotion.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/emotion/emotion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/gmap/gmap.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/gmap/gmap.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/help/help.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/help/help.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/help/help.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/help/help.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/image/image.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/image/image.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/image/image.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/image/image.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/image/image.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/image/image.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/insertframe/insertframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/insertframe/insertframe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/internal.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/internal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/link/link.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/link/link.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/map/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/map/map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/map/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/map/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/music/music.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/music/music.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/music/music.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/music/music.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/preview/preview.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/preview/preview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/scrawl/scrawl.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/scrawl/scrawl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/scrawl/scrawl.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/scrawl/scrawl.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/scrawl/scrawl.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/scrawl/scrawl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/searchreplace/searchreplace.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/searchreplace/searchreplace.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/searchreplace/searchreplace.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/searchreplace/searchreplace.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/snapscreen/snapscreen.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/snapscreen/snapscreen.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/spechars/spechars.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/spechars/spechars.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/spechars/spechars.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/spechars/spechars.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/table/edittable.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/table/edittable.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/table/edittable.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/table/edittable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/table/edittable.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/table/edittable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/table/edittd.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/table/edittd.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/template/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/template/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/template/template.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/template/template.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/template/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/template/template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/template/template.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/template/template.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/video/video.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/video/video.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/video/video.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/video/video.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/video/video.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/video/video.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/webapp/webapp.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/webapp/webapp.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/wordimage/tangram.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/wordimage/tangram.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/wordimage/wordimage.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/wordimage/wordimage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/wordimage/wordimage.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/dialogs/wordimage/wordimage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/jsp/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/jsp/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/lang/en/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/lang/en/en.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/lang/zh-cn/zh-cn.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/lang/zh-cn/zh-cn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/themes/default/css/ueditor.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/themes/default/css/ueditor.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/SyntaxHighlighter/shCore.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/SyntaxHighlighter/shCore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/codemirror/codemirror.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/codemirror/codemirror.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/codemirror/codemirror.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/codemirror/codemirror.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/adapters/mootools-adapter.src.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/adapters/mootools-adapter.src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/adapters/prototype-adapter.src.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/adapters/prototype-adapter.src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/adapters/standalone-framework.src.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/adapters/standalone-framework.src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/highcharts-more.src.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/highcharts-more.src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/highcharts.src.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/highcharts.src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/annotations.src.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/annotations.src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/canvas-tools.src.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/canvas-tools.src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/data.src.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/data.src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/drilldown.src.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/drilldown.src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/exporting.src.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/exporting.src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/funnel.src.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/funnel.src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/heatmap.src.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/heatmap.src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/map.src.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/map.src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/no-data-to-display.src.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/modules/no-data-to-display.src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/themes/dark-blue.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/themes/dark-blue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/themes/dark-green.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/themes/dark-green.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/themes/gray.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/themes/gray.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/themes/grid.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/themes/grid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/themes/skies.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/highcharts/themes/skies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/jquery-1.10.2.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/jquery-1.10.2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/jquery-1.10.2.min.map" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/jquery-1.10.2.min.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/video-js/font/vjs.svg" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/video-js/font/vjs.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/video-js/video-js.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/video-js/video-js.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/video-js/video.dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/video-js/video.dev.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/webuploader/webuploader.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/webuploader/webuploader.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/webuploader/webuploader.custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/webuploader/webuploader.custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/webuploader/webuploader.flashonly.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/webuploader/webuploader.flashonly.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/webuploader/webuploader.html5only.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/webuploader/webuploader.html5only.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/webuploader/webuploader.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/webuploader/webuploader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/webuploader/webuploader.withoutimage.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/webuploader/webuploader.withoutimage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/zeroclipboard/ZeroClipboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/third-party/zeroclipboard/ZeroClipboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/ueditor.all.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/ueditor.all.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/ueditor.parse.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/ueditor.parse.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +258,7 @@
       <workItem from="1614238830071" duration="18000" />
       <workItem from="1614240258685" duration="1956000" />
       <workItem from="1614254067416" duration="20816000" />
-      <workItem from="1614298098007" duration="7879000" />
+      <workItem from="1614298098007" duration="8648000" />
     </task>
     <task id="LOCAL-00001" summary="refactor prj">
       <created>1612417146300</created>
@@ -402,7 +498,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614301067471</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Session multiprocess">
+      <created>1614308274541</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1614308274541</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,7 +543,8 @@
     <MESSAGE value="verification" />
     <MESSAGE value="drop verification" />
     <MESSAGE value="ImageFont" />
-    <option name="LAST_COMMIT_MESSAGE" value="ImageFont" />
+    <MESSAGE value="Session multiprocess" />
+    <option name="LAST_COMMIT_MESSAGE" value="Session multiprocess" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CMT120_CW2_Website$verify_helper.coverage" NAME="verify_helper Coverage Results" MODIFIED="1614136386424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/personal_blog/commons" />

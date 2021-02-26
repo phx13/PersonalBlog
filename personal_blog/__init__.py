@@ -1,12 +1,11 @@
-import os
-from flask import Flask, render_template, request, session
 import pymysql
+from flask import Flask, render_template, request, session
+
 pymysql.install_as_MySQLdb()
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__, template_folder='views', static_url_path='/', static_folder='resources')
-app.config['SECRET_KEY'] = b'\xb3\xb6\x81\x9c\xb8\x82y\xc6$@\x82^\xf0\xceF\x83\xc2\\(\x9a\x8dHL\x02'
-
+app.config['SECRET_KEY'] = '\xca\x0c\x86\x04\x98@\x02b\x1b7\x8c\x88]\x1b\xd7"+\xe6px@\xc3#\\'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:phx25891863@localhost:3306/cw2?charset=utf8'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://c2068740:Phx25891863@csmysql.cs.cf.ac.uk:3306/c2068740_cw2?charset=utf8'
 app.config['SQLALCHEMY_POOL_SIZE'] = 1000

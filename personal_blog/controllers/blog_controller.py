@@ -1,3 +1,4 @@
+import math
 import time
 
 from flask import Blueprint, render_template, abort, session, request
@@ -6,8 +7,6 @@ from personal_blog.models.account_model import AccountModel
 from personal_blog.models.blog_model import BlogModel
 from personal_blog.models.collection_model import CollectionModel
 from personal_blog.models.comment_model import CommentModel
-import math
-
 from personal_blog.models.credit_model import CreditModel
 
 blog_blueprint = Blueprint('blog_blueprint', __name__)

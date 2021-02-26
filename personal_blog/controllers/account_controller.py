@@ -58,7 +58,7 @@ def register():
         account_model = AccountModel()
         email = request.form.get('email').strip()
         password = request.form.get('password').strip()
-        name = request.form.get('name').strip()
+        nickname = request.form.get('name').strip()
         email_code = request.form.get('email_code').strip()
 
         if account_model.search_account_by_email(email):
@@ -71,7 +71,6 @@ def register():
             return 'Fail (Server) : Incorrect email verification code'
         else:
             password = hashlib.md5(password.encode()).hexdigest()
-            nickname = name
             avatar = '/images/cardiff_university_logo.jpg'
             profile = 'Hello, this is ' + nickname
             create_time = time.strftime('%Y-%m-%d %H:%M:%S')
@@ -117,7 +116,7 @@ def verification_email():
         code = EmailVerificationHelper().generate_code()
         session['email_code'] = code
         EmailVerificationHelper().send_email(email, code)
-        return 'Success (Server) : Verification email send successful, code is ' + session.get('email_code')
+        return 'Success (Server) : Verification email send successful'
     except:
         return 'Fail (Server) : Verification email send failed'
 
