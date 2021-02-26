@@ -52,7 +52,7 @@ class ImageVerificationHelper:
 class EmailVerificationHelper:
     def send_email(self, receiver, code):
         sender = '945871257@qq.com'
-        content = f"<br/>Welcome to register for Phoenix Blog account, your email verification code is <span style='color:orange;'>{code}</span><br/>Please enter this verification code in the registration form to complete the registration"
+        content = f"<br>Welcome to register for Phoenix Blog account, your email verification code is <span style='color:orange;'>{code}</span><br>Please enter this verification code in the registration form to complete the registration"
         message = MIMEText(content, 'html', 'utf-8')
         message['Subject'] = Header('Email verification code for Phoenix Blog', 'utf-8')
         message['From'] = formataddr(('Phoenix', 'guoc9@cardiff.ac.uk'))
@@ -72,7 +72,7 @@ class EmailVerificationHelper:
 class EmailContactHelper:
     def send_email(self, email, name, message_content):
         sender = '945871257@qq.com'
-        content = '<b>' + name + '</b>' + '<hr>' + message_content
+        content = '<b>This is ' + name + '</b>' + '<br>' + message_content
         message = MIMEText(content, 'html', 'utf-8')
         message['Subject'] = Header(name + ' contact you', 'utf-8')
         message['From'] = formataddr((name, email))
@@ -81,6 +81,21 @@ class EmailContactHelper:
             smtp = SMTP_SSL('smtp.qq.com', 465)
             smtp.login(sender, 'uppfznrxulnabbjc')
             smtp.sendmail(sender, 'guoc9@cardiff.ac.uk', str(message))
+            smtp.quit()
+        except SMTPException:
+            return 'Fail: Send failed'
+
+    def send_email_back(self, receiver):
+        sender = '945871257@qq.com'
+        content = f"<br>This is Phoenix, thank you for your contact!"
+        message = MIMEText(content, 'html', 'utf-8')
+        message['Subject'] = Header('Contact feedback for Phoenix Blog', 'utf-8')
+        message['From'] = formataddr(('Phoenix', 'guoc9@cardiff.ac.uk'))
+        message['To'] = receiver
+        try:
+            smtp = SMTP_SSL('smtp.qq.com', 465)
+            smtp.login(sender, 'uppfznrxulnabbjc')
+            smtp.sendmail(sender, receiver, str(message))
             smtp.quit()
         except SMTPException:
             return 'Fail: Send failed'
