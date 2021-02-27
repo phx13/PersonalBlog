@@ -29,10 +29,13 @@
                     <div class="tab-pane fade show active" id="nav-profile" role="tabpanel"
                          aria-labelledby="nav-profile-tab">
                         <div class="custom-section">
+                            <div class="custom-section-title">
+                                <h3>Update profile</h3>
+                            </div>
                             <form method="post" enctype="multipart/form-data" class="custom-form">
                                 <img src="{{ current_account.avatar }}" id="avatar" class="mx-auto d-block img-thumbnail"
                                      style="height: 250px; width: 250px; margin-bottom: 20px;">
-                                <div class="form-group row" style="width: 250px; margin: 20px auto;">
+                                <div class="form-group row" style="width: 250px; margin: 20px auto; padding-bottom: 20px;">
                                     <div class="custom-file">
                                         <input onchange="fileChange(this)" type="file" class="custom-file-input"
                                                id="inputGroupFile"
@@ -42,30 +45,36 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputNickname" class="col-sm-2 col-form-label">Nickname</label>
+                                    <label for="inputNickname" class="col-sm-2 col-form-label">Name</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputNickname"
-                                               value="{{ current_account.nickname }}">
+                                        <input type="text" class="form-control" id="inputNickname" value="{{ current_account.nickname }}" placeholder="Your name">
+                                        <h4 id="inputNicknameVerification"></h4>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="staticEmail"
-                                               value="{{ current_account.email }}">
+                                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ current_account.email }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                                     <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="inputPassword">
+                                        <input type="password" class="form-control" id="inputPassword" placeholder="Your password">
+                                        <h4 id="inputPasswordVerification"></h4>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="confirmPassword" class="col-sm-2 col-form-label">Confirm Password</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="confirmPassword" placeholder="Repeat your password">
+                                        <h4 id="confirmPasswordVerification"></h4>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="inputProfile" class="col-sm-2 col-form-label">Profile</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputProfile"
-                                               value="{{ current_account.profile }}">
+                                        <input type="text" class="form-control" id="inputProfile" value="{{ current_account.profile }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -113,10 +122,10 @@
                                     <th scope="col">Operation</th>
                                 </tr>
                                 </thead>
-                                <tbody valign="middle">
+                                <tbody>
                                 {% for activity in collection_activities %}
                                     <tr>
-                                        <td><a href="/blog-article/{{ activity.articleid }}">{{ activity.article }}</a></td>
+                                        <td><a class="custom-btn custom-btn-hover" href="/blog-article/{{ activity.articleid }}">{{ activity.article }}</a></td>
                                         <td>{{ activity.updatetime }}</td>
                                         <td>
                                             <button class="custom-btn custom-btn-hover" data-text="Cancel collection" onclick="cancelCollection({{ activity.articleid }})">

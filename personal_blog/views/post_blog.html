@@ -24,21 +24,19 @@
                 {% endfor %}
             </div>
             <div class="col-sm-12 col-md-10 col-lg-10">
-                <!-- UEditor -->
                 <div id="post-blog">
                     <div class="container">
                         <div class="custom-form">
                             <div class="row">
-                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div class="col-sm-12 col-md-7 col-lg-7">
                                     <h4>Title</h4>
                                     <div id="blogId" style="display: none"></div>
-                                    <input id="blogTitle" type="text" class="form-control">
+                                    <input id="blogTitle" type="text" class="form-control" placeholder="Blog title">
                                     <h4>Type (Please separate types with ',')</h4>
-                                    <input id="blogType" type="text" class="form-control">
+                                    <input id="blogType" type="text" class="form-control" placeholder="Blog type(s)">
                                 </div>
-
-                                <div class="col-sm-12 col-md-6 col-lg-6">
-                                    <img src="" id="thumb" class="rounded mx-auto d-block img-thumbnail" style="height: 160px; margin-bottom: 10px;">
+                                <div class="col-sm-12 col-md-5 col-lg-5">
+                                    <img id="thumb" class="rounded mx-auto d-block img-thumbnail" style="height: 128px; margin-bottom: 10px;">
                                     <div class="input-group">
                                         <div class="custom-file">
                                             <input onchange="fileChange(this)" type="file" class="custom-file-input" id="inputGroupFile" aria-describedby="inputGroupFileAddon">
@@ -46,14 +44,16 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div>
-                                    <script type="text/plain" id="UEditor"></script>
-                                </div>
-
-                                <a onclick="postBlog('draft')" class="custom-btn custom-btn-hover" data-text="Draft" id="draftBtn"><span>Draft</span></a>
-                                <a onclick="postBlog('publish')" class="custom-btn custom-btn-hover" data-text="Publish" id="publishBtn"><span>Publish</span></a>
                             </div>
+
+                            <div class="custom-section">
+                                <script type="text/plain" id="UEditor"></script>
+                            </div>
+
+                            <a onclick="postBlog('draft')" class="custom-btn custom-btn-hover" data-text="Draft" id="draftBtn"><span>Draft</span></a>
+                            <a onclick="postBlog('publish')" class="custom-btn custom-btn-hover" data-text="Publish" id="publishBtn"><span>Publish</span></a>
+                            <a onclick="postBlog('update')" class="custom-btn custom-btn-hover" data-text="Update" id="updateBtn"><span>Update</span></a>
+                            <a onclick="deleteBlog()" class="custom-btn custom-btn-hover" data-text="Delete" id="deleteBtn"><span>Delete</span></a>
                         </div>
                     </div>
                 </div>

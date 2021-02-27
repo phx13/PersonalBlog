@@ -2,8 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68b2abaa-5f93-48aa-bd63-b26a5910b761" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/personal_blog/resources/docs/~$bsite Blog Project.doc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/1_2021_02_27_22_42_30.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/2021-02-27-21-39-59.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/222_thumb_2021-02-27-22-30-19.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/4_thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/_2021_02_27_22_45_31.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/s s_2021_02_27_23_43_02.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/resources/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/commons/base64_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/commons/base64_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/commons/verification_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/commons/verification_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/controllers/account_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/controllers/account_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/controllers/post_blog_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/controllers/post_blog_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/models/blog_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/models/blog_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/images/2021-02-17-00-51-06.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/images/2021-02-17-00-53-43.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/images/2021-02-22-21-00-23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/images/blog_thumb_csharp.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/images/blog_thumb_csharp.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/images/blog_thumb_java.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/images/blog_thumb_java.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/js/account.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/js/account.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/js/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/js/post_blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/js/post_blog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/resources/ueditor/ueditor.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/ueditor/ueditor.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/views/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/views/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_blog/views/post_blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/post_blog.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +187,8 @@
       <workItem from="1614238830071" duration="18000" />
       <workItem from="1614240258685" duration="1956000" />
       <workItem from="1614254067416" duration="20816000" />
-      <workItem from="1614298098007" duration="13742000" />
+      <workItem from="1614298098007" duration="16306000" />
+      <workItem from="1614401004586" duration="28005000" />
     </task>
     <task id="LOCAL-00001" summary="refactor prj">
       <created>1612417146300</created>
@@ -423,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614315089777</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="contact">
+      <created>1614316672349</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1614316672349</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -468,7 +501,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CMT120_CW2_Website$verify_helper.coverage" NAME="verify_helper Coverage Results" MODIFIED="1614136386424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/personal_blog/commons" />
-    <SUITE FILE_PATH="coverage/CMT120_CW2_Website$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1614315873242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CMT120_CW2_Website$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1614440506033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CMT120_CW2_Website$verification_helper__1_.coverage" NAME="verification_helper (1) Coverage Results" MODIFIED="1614140302186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/personal_blog/commons" />
   </component>
 </project>

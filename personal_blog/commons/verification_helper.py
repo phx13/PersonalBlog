@@ -33,6 +33,7 @@ class ImageVerificationHelper:
         width, height = 100, 50
         image = Image.new('RGB', (width, height), 'white')
         font = ImageFont.truetype('DejaVuSans.ttf', 30)
+        # font = ImageFont.truetype('arial.ttf', 30)
         draw = ImageDraw.Draw(image)
         for i in range(4):
             draw.text((10 + random.randint(-10, 10) + 20 * i, 10 + random.randint(-10, 10)), code[i], self.generate_color(), font)

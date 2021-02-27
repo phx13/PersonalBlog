@@ -71,7 +71,8 @@ def register():
             return 'Fail (Server) : Incorrect email verification code'
         else:
             password = hashlib.md5(password.encode()).hexdigest()
-            avatar = '/images/cardiff_university_logo.jpg'
+            avatar_time = time.strftime('%Y_%m_%d_%H_%M_%S')
+            avatar = '/images/' + nickname + '_' + avatar_time + '.jpg'
             profile = 'Hello, this is ' + nickname
             create_time = time.strftime('%Y-%m-%d %H:%M:%S')
             account_model.register_account(email, password, nickname, avatar, profile, 0, create_time)
@@ -176,19 +177,23 @@ def account_page():
 @account_blueprint.route('/account/profile', methods=['POST'])
 def update_profile():
     account_model = AccountModel()
-    image = request.form.get('avatar')
-    if image == '':
-        avatar = account_model.search_account_by_email(session.get('email')).avatar
-    else:
-        obj = Base64Helper(path='./default.png', choice=2, picture=image)
-        avatar = obj.run()
+    current_account = account_model.search_account_by_email(session.get('email'))
+    avatar = request.form.get('avatar')
     nickname = request.form.get('nickname')
     password = request.form.get('password')
+    profile = request.form.get('profile')
+
+    if avatar.startswith("data:image/"):
+        obj = Base64Helper(path='./default.png', choice=2, picture=avatar)
+        avatar = obj.run(current_account.avatar)
+    else:
+        avatar = current_account.avatar
+
     if password == '':
-        password = account_model.search_account_by_email(session.get('email')).password
+        password = current_account.password
     else:
         password = hashlib.md5(password.encode()).hexdigest()
-    profile = request.form.get('profile')
+
     update_time = time.strftime('%Y-%m-%d %H:%M:%S')
     account_model.update_account(session.get('email'), avatar, nickname, password, profile, update_time)
     return 'Success (Server) : Update profile successful'

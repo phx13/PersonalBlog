@@ -272,6 +272,10 @@ ul, li, ol {
     z-index: -1;
 }
 
+.modal-content{
+    border-radius: 0;
+}
+
 /*------------------------------------------------------------------
     Banner
 -------------------------------------------------------------------*/
@@ -449,6 +453,31 @@ ul, li, ol {
     text-align: center;
 }
 
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #333333;
+    border-color: #333333;
+}
+
+.page-item:first-child .page-link {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.page-item:last-child .page-link {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.custom-control-inline {
+    margin-bottom: 10px;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    border-color: #333333;
+    background-color: #333333;
+}
+
 /* --------------------------------
     Contact
 -------------------------------- */
@@ -559,4 +588,64 @@ ul, li, ol {
 .rating > label:hover ~ input:checked ~ label,
 .rating > input:checked ~ label:hover ~ label {
     opacity: 0.5;
+}
+
+/* --------------------------------
+    Account
+-------------------------------- */
+
+.custom-section .card {
+    border: 1px solid #ededed;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+}
+
+.custom-section .card .card-img-top {
+    border-radius: 0;
+}
+
+.custom-file-input {
+    cursor: pointer;
+}
+
+.custom-form .custom-file-label {
+    background-color: #383d41;
+    border: 1px solid #ebebeb;
+    box-sizing: border-box;
+    color: #bcbcbc;
+    font-size: 16px;
+    outline: 0 none;
+    padding: 10px 25px;
+    height: 50px;
+    resize: none;
+    box-shadow: none !important;
+    width: 100%;
+    border-radius: 0;
+}
+
+.custom-form .custom-file-label::after {
+    opacity: 0;
+}
+
+.table thead th {
+    text-align: center;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.nav-tabs {
+    border-bottom: 0px solid #dee2e6;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #ffffff;
+    background-color: #333333;
+}
+
+.nav-tabs .nav-link {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }

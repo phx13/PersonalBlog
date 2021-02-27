@@ -1,6 +1,6 @@
 function loginOrRegister() {
     if ($("#login-tab")[0].ariaSelected === 'true') {
-        if ($("#loginEmailVerification").html() == "Valid Email" && $("#loginPasswordVerification").html() == "Valid Password") {
+        if ($("#loginEmailVerification").html() == "Valid email" && $("#loginPasswordVerification").html() == "Valid password") {
             let email = $.trim($("#loginEmail").val());
             let password = $.trim($("#loginPassword").val());
             let imageCode = $.trim($("#loginCode").val());
@@ -16,6 +16,7 @@ function loginOrRegister() {
                     setTimeout('location.reload()', 500);
                 } else {
                     $("#loginAndRegister").attr("disabled", false);
+                    $("#loginEmail").attr("disabled", false);
                     $("#loginEmail").val("");
                     $("#loginPassword").val("");
                     $("#loginCode").val("");
@@ -27,7 +28,7 @@ function loginOrRegister() {
             return false;
         }
     } else {
-        if ($("#registerEmailVerification").html() == "Valid Email" && $("#registerPasswordVerification").html() == "Valid Password" && $("#registerNameVerification").html() == "Valid Name") {
+        if ($("#registerEmailVerification").html() == "Valid email" && $("#registerPasswordVerification").html() == "Valid password" && $("#registerNameVerification").html() == "Valid name") {
             let firstName = $.trim($("#registerFirstName").val());
             let lastName = $.trim($("#registerLastName").val());
             let email = $.trim($("#registerEmail").val());
@@ -62,23 +63,18 @@ function loginOrRegister() {
 }
 
 function sendVerificationEmail() {
+    changeVerificationState("sending");
     let email = $.trim($("#registerEmail").val());
-    let registerCodeBtn = $.trim($("#registerCodeBtn").html());
-    if (registerCodeBtn == "Email has sent") {
-        alert("Fail (Front) : Email has sent");
-        return false;
-    }
     if (email.match(/.+@.+\..+/)) {
-        $("#registerEmail").attr("disabled", true);
-        $("#registerCodeBtn").attr("disabled", true);
         let param = "email=" + email;
         $.post('/verification/email', param, function (data) {
             alert(data);
             if (data.startsWith("Success")) {
-                $("#registerCodeBtn").html("Email has sent");
+                $("#registerCode").val("");
+                $("#registerCode").focus();
+                changeVerificationState("tick");
             } else {
-                $("#registerEmail").attr("disabled", false);
-                $("#registerCodeBtn").attr("disabled", false);
+                changeVerificationState("retry");
             }
         })
     } else {
@@ -88,31 +84,94 @@ function sendVerificationEmail() {
 }
 
 function sendForgetPasswordEmail() {
+    changeForgetState("sending");
     let email = $.trim($("#loginEmail").val());
-    let loginPasswordBtn = $.trim($("#loginPasswordBtn").html());
-    if (loginPasswordBtn == "Password has sent") {
-        alert("Fail (Front) : Password has sent");
-        return false;
-    }
     if (email.match(/.+@.+\..+/)) {
-        $("#loginEmail").attr("disabled", true);
-        $("#loginPasswordBtn").attr("disabled", true);
         let param = "email=" + email;
         $.post('/forget', param, function (data) {
             alert(data);
             if (data.startsWith("Success")) {
                 $("#loginPassword").val("");
                 $("#loginCode").val("");
-                $("#loginPasswordBtn").html("Password has sent");
                 $("#loginPassword").focus();
+                changeForgetState("tick");
             } else {
-                $("#loginEmail").attr("disabled", false);
-                $("#loginPasswordBtn").attr("disabled", false);
+                changeForgetState("retry");
             }
         })
     } else {
         alert("Fail (Front) : Invalid email");
         return false;
+    }
+}
+
+function changeForgetState(status) {
+    let ticks = 30;
+    let tick = function () {
+        if (ticks > 0) {
+            setTimeout(function () {
+                $("#loginPasswordBtn").html("Sent(" + ticks + ")");
+                ticks--;
+                tick();
+            }, 1000);
+        } else {
+            changeForgetState("retry");
+        }
+    };
+    ticks = 30;
+    switch (status) {
+        case "sending": {
+            $("#loginPasswordBtn").attr("disabled", true);
+            $("#loginPasswordBtn").html("Sending");
+            $("#loginEmail").attr("disabled", true);
+            break;
+        }
+        case "tick": {
+            $("#loginPasswordBtn").attr("disabled", true);
+            tick("Sent");
+            break;
+        }
+        case "retry": {
+            $("#loginPasswordBtn").attr("disabled", false);
+            $("#loginPasswordBtn").html("Forget password");
+            $("#loginEmail").attr("disabled", false);
+            break;
+        }
+    }
+}
+
+function changeVerificationState(status) {
+    let ticks = 30;
+    let tick = function () {
+        if (ticks > 0) {
+            setTimeout(function () {
+                $("#registerCodeBtn").html("Sent(" + ticks + ")");
+                ticks--;
+                tick();
+            }, 1000);
+        } else {
+            changeForgetState("retry");
+        }
+    };
+    ticks = 30;
+    switch (status) {
+        case "sending": {
+            $("#registerCodeBtn").attr("disabled", true);
+            $("#registerCodeBtn").html("Sending");
+            $("#registerEmail").attr("disabled", true);
+            break;
+        }
+        case "tick": {
+            $("#registerCodeBtn").attr("disabled", true);
+            tick("Sent");
+            break;
+        }
+        case "retry": {
+            $("#registerCodeBtn").attr("disabled", false);
+            $("#registerCodeBtn").html("Get email code");
+            $("#registerEmail").attr("disabled", false);
+            break;
+        }
     }
 }
 
@@ -152,21 +211,21 @@ function monitorInput() {
     if (!$.trim($("#loginEmail").val()).match(/.+@.+\..+/)) {
         $("#loginEmail").attr("class", "form-control is-invalid");
         $("#loginEmailVerification").attr("class", "invalid-feedback");
-        $("#loginEmailVerification").html("Invalid Email");
+        $("#loginEmailVerification").html("Invalid email");
     } else {
         $("#loginEmail").attr("class", "form-control is-valid");
         $("#loginEmailVerification").attr("class", "valid-feedback");
-        $("#loginEmailVerification").html("Valid Email");
+        $("#loginEmailVerification").html("Valid email");
     }
 
     if (!$.trim($("#registerEmail").val()).match(/.+@.+\..+/)) {
         $("#registerEmail").attr("class", "form-control is-invalid");
         $("#registerEmailVerification").attr("class", "invalid-feedback");
-        $("#registerEmailVerification").html("Invalid Email");
+        $("#registerEmailVerification").html("Invalid email");
     } else {
         $("#registerEmail").attr("class", "form-control is-valid");
         $("#registerEmailVerification").attr("class", "valid-feedback");
-        $("#registerEmailVerification").html("Valid Email");
+        $("#registerEmailVerification").html("Valid email");
     }
 
     if ($.trim($("#loginPassword").val()).length < 3) {
@@ -176,7 +235,7 @@ function monitorInput() {
     } else {
         $("#loginPassword").attr("class", "form-control col-sm-12 col-md-6 col-lg-6 is-valid");
         $("#loginPasswordVerification").attr("class", "valid-feedback");
-        $("#loginPasswordVerification").html("Valid Password");
+        $("#loginPasswordVerification").html("Valid password");
     }
 
     if ($.trim($("#registerPassword").val()).length < 3) {
@@ -186,7 +245,7 @@ function monitorInput() {
     } else {
         $("#registerPassword").attr("class", "form-control is-valid");
         $("#registerPasswordVerification").attr("class", "valid-feedback");
-        $("#registerPasswordVerification").html("Valid Password");
+        $("#registerPasswordVerification").html("Valid password");
     }
 
     let re = new RegExp(/[.,\/#!$%\^&\*;:{}=\-_`~()?0-9]/g);
@@ -197,7 +256,7 @@ function monitorInput() {
     } else {
         $("#registerFirstName").attr("class", "form-control col-sm-12 col-md-6 col-lg-6 is-valid");
         $("#registerNameVerification").attr("class", "valid-feedback");
-        $("#registerNameVerification").html("Valid Name");
+        $("#registerNameVerification").html("Valid name");
     }
 
     if (re.test($.trim($("#registerLastName").val())) || $.trim($("#registerLastName").val()) == "") {
@@ -207,6 +266,6 @@ function monitorInput() {
     } else {
         $("#registerLastName").attr("class", "form-control col-sm-12 col-md-6 col-lg-6 is-valid");
         $("#registerNameVerification").attr("class", "valid-feedback");
-        $("#registerNameVerification").html("Valid Name");
+        $("#registerNameVerification").html("Valid name");
     }
 }

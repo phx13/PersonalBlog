@@ -9,7 +9,7 @@ class Base64Helper(object):
         self.choice = choice
         self.picture = picture
 
-    def run(self):
+    def run(self, image_path):
         try:
             self.is_picture()
         except Exception as e:
@@ -19,7 +19,7 @@ class Base64Helper(object):
             return result
         else:
             try:
-                return self.base64_to_picture()
+                return self.base64_to_picture(image_path)
             except Exception as e:
                 return "base64_to_picture fail"
 
@@ -35,15 +35,17 @@ class Base64Helper(object):
             s = base64_data.decode()
             return 'data:image/jpeg;base64,%s' % s
 
-    def base64_to_picture(self):
+    def base64_to_picture(self, image_path):
         if self.picture.startswith("data:image/"):
             is_live = os.path.exists('personal_blog/resources/images')
             if not is_live:
                 os.mkdir('personal_blog/resources/images')
             img_data = base64.b64decode(self.picture.split(",")[-1].encode("utf-8"))
-            create_time = time.strftime("%Y-%m-%d-%H-%M-%S")
-            with open('personal_blog/resources/images/{0}.jpg'.format(create_time), 'wb') as f:
+            # create_time = time.strftime("%Y-%m-%d-%H-%M-%S")
+            # with open('personal_blog/resources/images/{0}.jpg'.format(create_time), 'wb') as f:
+            with open('personal_blog/resources' + image_path, 'wb') as f:
                 f.write(img_data)
-            return '/images/{0}.jpg'.format(create_time)
+            # return '/images/{0}.jpg'.format(create_time)
+            return image_path
         else:
             raise Exception

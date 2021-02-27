@@ -112,7 +112,7 @@ class BlogModel(db_model):
         db_session.commit()
         return result
 
-    def update_blog_draft(self, id, draft):
-        result = db_session.query(BlogModel).filter_by(id=id).first()
-        result.draft = draft
+    def delete_blog(self, id):
+        result = db_session.query(BlogModel).filter_by(id=id).delete()
         db_session.commit()
+        return result
