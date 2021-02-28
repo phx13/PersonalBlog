@@ -99,6 +99,13 @@ ul, li, ol {
     padding: 0;
 }
 
+img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+}
+
 /*------------------------------------------------------------------
     Button
 -------------------------------------------------------------------*/
@@ -272,7 +279,7 @@ ul, li, ol {
     z-index: -1;
 }
 
-.modal-content{
+.modal-content {
     border-radius: 0;
 }
 

@@ -1,6 +1,5 @@
 import base64
 import os
-import time
 
 
 class Base64Helper(object):

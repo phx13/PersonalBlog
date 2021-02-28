@@ -12,9 +12,7 @@ $(document).ready(function ($) {
     initHeadline();
 
     function initHeadline() {
-        //insert <i> element for each letter of a changing word
         singleLetters($('.cd-headline.letters').find('b'));
-        //initialise headline animation
         animateHeadline($('.cd-headline'));
     }
 
@@ -47,7 +45,6 @@ $(document).ready(function ($) {
                     newWidth = spanWrapper.width() + 10;
                 spanWrapper.css('width', newWidth);
             } else if (!headline.hasClass('type')) {
-                //assign to .cd-words-wrapper the width of its longest word
                 let words = headline.find('.cd-words-wrapper b'),
                     width = 0;
                 words.each(function () {
@@ -56,8 +53,6 @@ $(document).ready(function ($) {
                 });
                 headline.find('.cd-words-wrapper').css('width', width);
             }
-
-            //trigger animation
             setTimeout(function () {
                 hideWord(headline.find('.is-visible').eq(0))
             }, duration);

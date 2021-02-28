@@ -58,7 +58,7 @@ def register():
         account_model = AccountModel()
         email = request.form.get('email').strip()
         password = request.form.get('password').strip()
-        nickname = request.form.get('name').strip()
+        nickname = request.form.get('name').strip().split()[0]
         email_code = request.form.get('email_code').strip()
 
         if account_model.search_account_by_email(email):
@@ -73,6 +73,11 @@ def register():
             password = hashlib.md5(password.encode()).hexdigest()
             avatar_time = time.strftime('%Y_%m_%d_%H_%M_%S')
             avatar = '/images/' + nickname + '_' + avatar_time + '.jpg'
+            with open('personal_blog/resources/images/cardiff_university_logo.jpg', 'rb') as file_read:
+                image = file_read.read()
+            with open('personal_blog/resources' + avatar, 'wb') as file_write:
+                file_write.write(image)
+
             profile = 'Hello, this is ' + nickname
             create_time = time.strftime('%Y-%m-%d %H:%M:%S')
             account_model.register_account(email, password, nickname, avatar, profile, 0, create_time)
@@ -176,24 +181,27 @@ def account_page():
 
 @account_blueprint.route('/account/profile', methods=['POST'])
 def update_profile():
-    account_model = AccountModel()
-    current_account = account_model.search_account_by_email(session.get('email'))
-    avatar = request.form.get('avatar')
-    nickname = request.form.get('nickname')
-    password = request.form.get('password')
-    profile = request.form.get('profile')
+    try:
+        account_model = AccountModel()
+        current_account = account_model.search_account_by_email(session.get('email'))
+        avatar = request.form.get('avatar')
+        nickname = request.form.get('nickname')
+        password = request.form.get('password')
+        profile = request.form.get('profile')
 
-    if avatar.startswith("data:image/"):
-        obj = Base64Helper(path='./default.png', choice=2, picture=avatar)
-        avatar = obj.run(current_account.avatar)
-    else:
-        avatar = current_account.avatar
+        if avatar.startswith("data:image/"):
+            obj = Base64Helper(path='./default.png', choice=2, picture=avatar)
+            avatar = obj.run(current_account.avatar)
+        else:
+            avatar = current_account.avatar
 
-    if password == '':
-        password = current_account.password
-    else:
-        password = hashlib.md5(password.encode()).hexdigest()
+        if password == '':
+            password = current_account.password
+        else:
+            password = hashlib.md5(password.encode()).hexdigest()
 
-    update_time = time.strftime('%Y-%m-%d %H:%M:%S')
-    account_model.update_account(session.get('email'), avatar, nickname, password, profile, update_time)
-    return 'Success (Server) : Update profile successful'
+        update_time = time.strftime('%Y-%m-%d %H:%M:%S')
+        account_model.update_account(session.get('email'), avatar, nickname, password, profile, update_time)
+        return 'Success (Server) : Update profile successful'
+    except:
+        return 'Fail (Server) : Update profile failed'

@@ -27,7 +27,7 @@ def error500(e):
 def before_request():
     url = request.path
     can_pass_urls = ['/login', '/register', '/logout']
-    if url in can_pass_urls or url.endswith('.js') or url.endswith('.jpg') or url.endswith('.png') or url.endswith('.pdf'):
+    if url in can_pass_urls or url.endswith('.js') or url.endswith('.jpg') or url.endswith('.png') or url.endswith('.jpeg') or url.endswith('.pdf'):
         pass
     elif session.get('login') is None:
         from personal_blog.models.account_model import AccountModel

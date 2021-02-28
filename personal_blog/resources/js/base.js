@@ -192,10 +192,10 @@ function showModel() {
     $('#accountModal').modal('show');
 }
 
-$(".navbar-nav").find("li").click(function () {
-    $(this).siblings().find("a").removeClass("active");
-    $(this).find("a").addClass("active");
-})
+// $(".navbar-nav").find("li").click(function () {
+//     $(this).siblings().find("a").removeClass("active");
+//     $(this).find("a").addClass("active");
+// })
 
 $(document).ready(function () {
     $("#loginEmail").bind('input propertychange', monitorInput);

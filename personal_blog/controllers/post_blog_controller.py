@@ -1,6 +1,6 @@
 import time
 
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, session, abort
 
 from personal_blog.commons.base64_helper import Base64Helper
 from personal_blog.models.blog_model import BlogModel
@@ -10,10 +10,16 @@ post_blog_blueprint = Blueprint('post_blog_blueprint', __name__)
 
 @post_blog_blueprint.route('/post-blog')
 def post_blog_page():
-    blog_model = BlogModel()
-    publish_blogs = blog_model.search_all_blog()
-    draft_blogs = blog_model.search_all_draft_blog()
-    return render_template('post_blog.html', publish_blogs=publish_blogs, draft_blogs=draft_blogs)
+    try:
+        if session.get('email') == 'guoc9@cardiff.ac.uk':
+            blog_model = BlogModel()
+            publish_blogs = blog_model.search_all_blog()
+            draft_blogs = blog_model.search_all_draft_blog()
+            return render_template('post_blog.html', publish_blogs=publish_blogs, draft_blogs=draft_blogs)
+        else:
+            abort(404)
+    except:
+        abort(404)
 
 
 @post_blog_blueprint.route('/post-blog/blog', methods=['POST'])

@@ -3329,7 +3329,7 @@ vjs.Player.prototype.techGet = function (method) {
         }
     }
 
-    return;
+
 };
 
 /**

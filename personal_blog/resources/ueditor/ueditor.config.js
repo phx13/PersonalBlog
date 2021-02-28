@@ -48,7 +48,7 @@
         // ]]
         , toolbars: [[
             //撤销
-            'undo', 'redo', '|',
+            'source', 'undo', 'redo', '|',
             //字形
             'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'removeformat', 'formatmatch', '|',
             //字色, 列表

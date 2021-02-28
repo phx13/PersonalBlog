@@ -576,7 +576,7 @@ baidu.flash._Base = (function () {
      */
     function _createString() {
         return prefix + Math.floor(Math.random() * 2147483648).toString(36);
-    };
+    }
 
     /**
      * 检查flash状态
@@ -590,7 +590,7 @@ baidu.flash._Base = (function () {
         } else {
             return false;
         }
-    };
+    }
 
     /**
      * 调用之前进行压栈的函数
@@ -607,7 +607,7 @@ baidu.flash._Base = (function () {
             result = target.call(item.fnName, item.params);
             item.callBack(result);
         });
-    };
+    }
 
     /**
      * 为传入的匿名函数创建函数名
@@ -628,7 +628,7 @@ baidu.flash._Base = (function () {
         } else if (baidu.lang.isString) {
             return fun;
         }
-    };
+    }
 
     /**
      * 绘制flash
@@ -647,7 +647,7 @@ baidu.flash._Base = (function () {
         baidu.swf.create(options, container);
 
         return baidu.swf.getMovie(options.id);
-    };
+    }
 
     return function (options, callBack) {
         var me = this,
@@ -733,7 +733,7 @@ baidu.flash._Base = (function () {
 
                 isReady = true;
             }
-        };
+        }
 
         /**
          * 调用之前进行压栈的函数
@@ -955,7 +955,7 @@ baidu.flash.fileUploader = baidu.flash.fileUploader || function (options) {
             _flash.call('deleteFilesAll', [], callBackAll);
             return;
         }
-        ;
+
 
         if (typeof index === 'Number') index = [index];
         index.sort(function (a, b) {

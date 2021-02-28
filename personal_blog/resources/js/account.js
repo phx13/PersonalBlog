@@ -59,6 +59,8 @@ $(document).ready(function () {
     $("#inputPassword").bind('input propertychange', monitorAccountInput);
     $("#confirmPassword").bind('input propertychange', monitorAccountInput);
     $("#inputNickname").bind('input propertychange', monitorAccountInput);
+    $("#avatar").attr("src", $("#avatar").attr("src") + "?r" + Math.random());
+    $("#cardAvatar").attr("src", $("#cardAvatar").attr("src") + "?r" + Math.random());
 })
 
 function monitorAccountInput() {
