@@ -166,30 +166,32 @@ $(document).ready(function ($) {
     }
 });
 
-function sendContactEmail() {
-    let contactName = $.trim($("#contactName").val());
+function sendContactEmail(element) {
     let contactEmail = $.trim($("#contactEmail").val());
-    let contactMessage = $.trim($("#contactMessage").val());
     if (contactEmail.match(/.+@.+\..+/)) {
-        $("#sendMessageButton").attr("disabled", true);
+        changeButtonState(element, "sending");
+        $("#contactEmail").attr("disabled", true);
+        let contactName = $.trim($("#contactName").val());
+        let contactMessage = $.trim($("#contactMessage").val());
+
         let param = "email=" + contactEmail;
         param += "&name=" + contactName;
         param += "&message=" + contactMessage;
         $.post('/contact', param, function (data) {
             alert(data);
             if (data.startsWith("Success")) {
+                changeButtonState(element, "tick");
                 $("#contactName").val("");
                 $("#contactEmail").val("");
                 $("#contactMessage").val("");
-                $("#sendMessageButton").attr("disabled", false);
+            }else{
+                changeButtonState("retry");
+                $("#registerEmail").attr("disabled", false);
             }
         })
     } else {
-        alert("Fail: Invalid email");
-        $("#contactName").val("");
-        $("#contactEmail").val("");
-        $("#contactMessage").val("");
-        $("#contactName").focus();
+        alert("Fail (Front) : Invalid email");
+        return false;
     }
 }
 

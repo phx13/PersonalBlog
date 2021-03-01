@@ -62,41 +62,22 @@ function loginOrRegister() {
     }
 }
 
-function sendVerificationEmail() {
-    changeVerificationState("sending");
-    let email = $.trim($("#registerEmail").val());
-    if (email.match(/.+@.+\..+/)) {
-        let param = "email=" + email;
-        $.post('/verification/email', param, function (data) {
-            alert(data);
-            if (data.startsWith("Success")) {
-                $("#registerCode").val("");
-                $("#registerCode").focus();
-                changeVerificationState("tick");
-            } else {
-                changeVerificationState("retry");
-            }
-        })
-    } else {
-        alert("Fail (Front) : Invalid email");
-        return false;
-    }
-}
-
-function sendForgetPasswordEmail() {
-    changeForgetState("sending");
+function sendForgetPasswordEmail(element) {
     let email = $.trim($("#loginEmail").val());
     if (email.match(/.+@.+\..+/)) {
+        changeButtonState(element, "sending");
+        $("#loginEmail").attr("disabled", true);
+
         let param = "email=" + email;
         $.post('/forget', param, function (data) {
             alert(data);
             if (data.startsWith("Success")) {
+                changeButtonState(element, "tick");
                 $("#loginPassword").val("");
-                $("#loginCode").val("");
                 $("#loginPassword").focus();
-                changeForgetState("tick");
             } else {
-                changeForgetState("retry");
+                changeButtonState(element, "retry");
+                $("#loginEmail").attr("disabled", false);
             }
         })
     } else {
@@ -105,71 +86,58 @@ function sendForgetPasswordEmail() {
     }
 }
 
-function changeForgetState(status) {
-    let ticks = 30;
-    let tick = function () {
-        if (ticks > 0) {
-            setTimeout(function () {
-                $("#loginPasswordBtn").html("Sent(" + ticks + ")");
-                ticks--;
-                tick();
-            }, 1000);
-        } else {
-            changeForgetState("retry");
-        }
-    };
-    ticks = 30;
-    switch (status) {
-        case "sending": {
-            $("#loginPasswordBtn").attr("disabled", true);
-            $("#loginPasswordBtn").html("Sending");
-            $("#loginEmail").attr("disabled", true);
-            break;
-        }
-        case "tick": {
-            $("#loginPasswordBtn").attr("disabled", true);
-            tick("Sent");
-            break;
-        }
-        case "retry": {
-            $("#loginPasswordBtn").attr("disabled", false);
-            $("#loginPasswordBtn").html("Forget password");
-            $("#loginEmail").attr("disabled", false);
-            break;
-        }
+function sendVerificationEmail(element) {
+    let email = $.trim($("#registerEmail").val());
+    if (email.match(/.+@.+\..+/)) {
+        changeButtonState(element, "sending");
+        $("#registerEmail").attr("disabled", true);
+
+        let param = "email=" + email;
+        $.post('/verification/email', param, function (data) {
+            alert(data);
+            if (data.startsWith("Success")) {
+                changeButtonState("tick");
+                $("#registerCode").val("");
+                $("#registerCode").focus();
+            } else {
+                changeButtonState("retry");
+                $("#registerEmail").attr("disabled", false);
+            }
+        })
+    } else {
+        alert("Fail (Front) : Invalid email");
+        return false;
     }
 }
 
-function changeVerificationState(status) {
+function changeButtonState(element, status) {
     let ticks = 30;
     let tick = function () {
         if (ticks > 0) {
             setTimeout(function () {
-                $("#registerCodeBtn").html("Sent(" + ticks + ")");
+                $(element).html("Sent(" + ticks + ")");
                 ticks--;
                 tick();
             }, 1000);
         } else {
-            changeForgetState("retry");
+            changeButtonState("retry");
         }
     };
     ticks = 30;
     switch (status) {
         case "sending": {
-            $("#registerCodeBtn").attr("disabled", true);
-            $("#registerCodeBtn").html("Sending");
-            $("#registerEmail").attr("disabled", true);
+            $(element).attr("disabled", true);
+            $(element).html("Sending");
             break;
         }
         case "tick": {
-            $("#registerCodeBtn").attr("disabled", true);
-            tick("Sent");
+            $(element).attr("disabled", true);
+            tick();
             break;
         }
         case "retry": {
-            $("#registerCodeBtn").attr("disabled", false);
-            $("#registerCodeBtn").html("Get email code");
-            $("#registerEmail").attr("disabled", false);
+            $(element).attr("disabled", false);
+            $(element).html("Resend");
             break;
         }
     }
