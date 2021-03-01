@@ -15,12 +15,12 @@
                 <hr>
                 <h4>Draft Blogs</h4>
                 {% for blog in draft_blogs %}
-                    <a onclick="loadBlog({{ blog.id }})" class="custom-btn custom-btn-hover" data-text="{{ blog.article }}"><span>{{ blog.article }}</span></a>
+                    <a onclick="loadBlog({{ blog.id }})" class="custom-btn custom-btn-hover">{{ blog.article }}</a>
                 {% endfor %}
                 <hr>
                 <h4>Publish Blogs</h4>
                 {% for blog in publish_blogs %}
-                    <a onclick="loadBlog({{ blog.id }})" class="custom-btn custom-btn-hover" data-text="{{ blog.article }}"><span>{{ blog.article }}</span></a>
+                    <a onclick="loadBlog({{ blog.id }})" class="custom-btn custom-btn-hover">{{ blog.article }}</a>
                 {% endfor %}
             </div>
             <div class="col-sm-12 col-md-9 col-lg-9">

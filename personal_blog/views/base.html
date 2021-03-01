@@ -103,8 +103,7 @@
                                 <input class="form-control col-sm-12 col-md-6 col-lg-6" name="loginPassword" id="loginPassword" type="password" placeholder="Your password"
                                        required="required">
                                 <button class="custom-btn custom-btn-hover col-sm-12 col-md-6 col-lg-6" onclick="sendForgetPasswordEmail(this)"
-                                        id="loginPasswordBtn">
-                                    Forget Password
+                                        id="loginPasswordBtn"><i class="fa fa-key" aria-hidden="true"></i> Forget Password
                                 </button>
                                 <h4 id="loginPasswordVerification"></h4>
                             </div>
@@ -135,8 +134,7 @@
                                 <input class="form-control col-sm-12 col-md-6 col-lg-6" name="registerCode" id="registerCode" type="text" placeholder="Email code"
                                        required="required">
                                 <button class="custom-btn custom-btn-hover col-sm-12 col-md-6 col-lg-6" onclick="sendVerificationEmail(this)"
-                                        id="registerCodeBtn">
-                                    Get email code
+                                        id="registerCodeBtn"><i class="fa fa-key" aria-hidden="true"></i> Get email code
                                 </button>
                             </div>
                         </form>
@@ -144,8 +142,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a class="custom-btn custom-btn-hover" data-dismiss="modal" data-text="Close"><span>Close</span></a>
-                <button onclick="loginOrRegister()" class="custom-btn custom-btn-hover" data-text="Login / Register" id="loginAndRegister"><span>Login / Register</span></button>
+                <a class="custom-btn custom-btn-hover" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Close</a>
+                <button onclick="loginOrRegister()" class="custom-btn custom-btn-hover" id="loginAndRegister"><i class="fa fa-sign-in" aria-hidden="true"></i> Login / Register</button>
             </div>
         </div>
     </div>

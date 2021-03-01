@@ -76,3 +76,9 @@ function addRate(articleId) {
         alert("Fail: Please choose a rate star");
     }
 }
+
+$(document).ready(function () {
+    $(".custom-section img").each(function(){
+        $(this).attr("src", $(this).attr("src") + "?r" + Math.random());
+    });
+})

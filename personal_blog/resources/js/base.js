@@ -96,11 +96,11 @@ function sendVerificationEmail(element) {
         $.post('/verification/email', param, function (data) {
             alert(data);
             if (data.startsWith("Success")) {
-                changeButtonState("tick");
+                changeButtonState(element,"tick");
                 $("#registerCode").val("");
                 $("#registerCode").focus();
             } else {
-                changeButtonState("retry");
+                changeButtonState(element,"retry");
                 $("#registerEmail").attr("disabled", false);
             }
         })
@@ -132,7 +132,7 @@ function changeButtonState(element, status) {
         }
         case "tick": {
             $(element).attr("disabled", true);
-            tick();
+            tick("Sent");
             break;
         }
         case "retry": {

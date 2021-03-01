@@ -8,10 +8,10 @@
                     <img src="{{ current_account.avatar }}"
                          class="card-img-top mx-auto" id="cardAvatar">
                     <div class="card-body">
-                        <h5 class="card-title">{{ current_account.nickname }}</h5>
-                        <p class="card-text">{{ current_account.email }}</p>
+                        <h4 class="card-title"><i class="fa fa-user" aria-hidden="true"></i> {{ current_account.nickname }}</h4>
+                        <p class="card-text"><i class="fa fa-envelope" aria-hidden="true"></i> {{ current_account.email }}</p>
                         <hr>
-                        <p class="card-text">{{ current_account.profile }}</p>
+                        <p class="card-text"><i class="fa fa-file-text" aria-hidden="true"></i> {{ current_account.profile }}</p>
                     </div>
                 </div>
             </div>
@@ -45,34 +45,34 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputNickname" class="col-sm-2 col-form-label">Name</label>
+                                    <label for="inputNickname" class="col-sm-2 col-form-label"><i class="fa fa-user" aria-hidden="true"></i> Name</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="inputNickname" value="{{ current_account.nickname }}" placeholder="Your name">
                                         <h4 id="inputNicknameVerification"></h4>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label"><i class="fa fa-envelope" aria-hidden="true"></i> Email</label>
                                     <div class="col-sm-10">
                                         <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ current_account.email }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                                    <label for="inputPassword" class="col-sm-2 col-form-label"><i class="fa fa-key" aria-hidden="true"></i> Password</label>
                                     <div class="col-sm-10">
                                         <input type="password" class="form-control" id="inputPassword" placeholder="Your password">
                                         <h4 id="inputPasswordVerification"></h4>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="confirmPassword" class="col-sm-2 col-form-label">Confirm Password</label>
+                                    <label for="confirmPassword" class="col-sm-2 col-form-label"><i class="fa fa-key" aria-hidden="true"></i> Confirm</label>
                                     <div class="col-sm-10">
                                         <input type="password" class="form-control" id="confirmPassword" placeholder="Repeat your password">
                                         <h4 id="confirmPasswordVerification"></h4>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputProfile" class="col-sm-2 col-form-label">Profile</label>
+                                    <label for="inputProfile" class="col-sm-2 col-form-label"><i class="fa fa-file-text" aria-hidden="true"></i> Profile</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="inputProfile" value="{{ current_account.profile }}">
                                     </div>

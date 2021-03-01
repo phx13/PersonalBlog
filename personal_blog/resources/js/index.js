@@ -185,7 +185,7 @@ function sendContactEmail(element) {
                 $("#contactEmail").val("");
                 $("#contactMessage").val("");
             }else{
-                changeButtonState("retry");
+                changeButtonState(element,"retry");
                 $("#registerEmail").attr("disabled", false);
             }
         })

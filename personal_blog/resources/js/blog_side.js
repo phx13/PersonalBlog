@@ -15,23 +15,23 @@ function searchBlog() {
 }
 
 function sortArticle() {
-    let currentSort = $("#sort").html();
+    let currentSort = $.trim($("#sort").html());
     if (currentSort === "Sort By Desc") {
         let param = "sort=1";
         $.get(location.href, param, function (data) {
             $(document.body).html(data);
-            $("#sort").html("Sort By Asc");
+            $("#sort").html(" Sort By Asc");
         })
     } else if (currentSort === "Sort By Asc") {
         let param = "sort=0";
         $.get(location.href, param, function (data) {
             $(document.body).html(data);
-            $("#sort").html("Sort By Desc");
+            $("#sort").html(" Sort By Desc");
         })
     }
 }
 
-function typeBlog(e) {
-    let currentType = e.text;
+function typeBlog(element) {
+    let currentType = element.text;
     location.href = "/blog-type/1-" + currentType;
 }
