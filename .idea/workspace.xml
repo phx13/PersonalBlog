@@ -2,34 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68b2abaa-5f93-48aa-bd63-b26a5910b761" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/personal_blog/resources/docs/Phoenix Blog.doc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/AdobeStock_112401935-825x510.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/CE_2021_03_01_19_44_25.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/CE_2021_03_01_19_47_31.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/Phoenix_2021_03_01_20_07_09.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/Security, quality and usability in software__2021_03_01_18_47_01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/This is Phoenix__2021_03_01_20_26_47.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/solution1-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/solution3-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/solution4-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/solution4-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/personal_blog/resources/images/solution5-1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/commons/verification_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/commons/verification_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/resources/docs/Website Blog Project.doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/resources/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/js/base.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/resources/js/blog_article.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/js/blog_article.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/resources/js/blog_side.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/js/blog_side.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/resources/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/resources/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/views/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/views/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/views/blog_article.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/blog_article.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/views/blog_side.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/blog_side.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_blog/views/post_blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal_blog/views/post_blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +165,7 @@
       <workItem from="1614298098007" duration="16306000" />
       <workItem from="1614401004586" duration="28474000" />
       <workItem from="1614503453747" duration="18135000" />
-      <workItem from="1614579208774" duration="12161000" />
+      <workItem from="1614579208774" duration="13307000" />
     </task>
     <task id="LOCAL-00001" summary="refactor prj">
       <created>1612417146300</created>
@@ -480,7 +454,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614582155966</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="fix css">
+      <created>1614604514184</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1614604514184</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -524,7 +505,8 @@
     <MESSAGE value="css fix" />
     <MESSAGE value="fix data" />
     <MESSAGE value="changeButtonState" />
-    <option name="LAST_COMMIT_MESSAGE" value="changeButtonState" />
+    <MESSAGE value="fix css" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix css" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CMT120_CW2_Website$verify_helper.coverage" NAME="verify_helper Coverage Results" MODIFIED="1614136386424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/personal_blog/commons" />
